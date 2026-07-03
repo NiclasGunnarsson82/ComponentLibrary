@@ -1,0 +1,10 @@
+{
+  "compilerOptions": {
+    "jsx": "react-jsx",
+    "lib": ["DOM", "ES2022"],
+    "moduleResolution": "Bundler",
+    "strict": true,
+    "skipLibCheck": true
+  },
+  "include": ["src"]
+}
