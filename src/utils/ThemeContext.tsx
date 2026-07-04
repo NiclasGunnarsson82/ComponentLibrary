@@ -1,19 +1,16 @@
 import { createContext, ReactNode, useContext } from 'react'
-import { designTokens, DesignTokensType } from '@/data/designTokens'
+import { designTokens, IDesignTokens } from '@/data/designTokens'
 
 type ThemeProviderProps = {
   children: ReactNode;
 }
 
-type ThemeContextType = {
-  designTokens: DesignTokensType;
-}
-
-const ThemeContext = createContext<ThemeContextType>({designTokens})
+const ThemeContext = createContext<IDesignTokens>({} as IDesignTokens)
 
 export const ThemeProvider = ({ children }: ThemeProviderProps ) => {
     return (
-        <ThemeContext.Provider value={{designTokens}}>
+        <ThemeContext.Provider value={{
+            buttonColours: designTokens.buttonColours}}>
             {children}
         </ThemeContext.Provider>
     )

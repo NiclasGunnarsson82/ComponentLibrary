@@ -1,10 +1,12 @@
-export type DesignTokensType = {
-  [category: string]: {
-        [token: string]: string;
-  };
+export type DesignTokenType = {
+    [token: string]: string;
 };
 
-export const designTokens: DesignTokensType = {
+export interface IDesignTokens {
+  [category: string]: DesignTokenType
+};
+
+export const designTokens: IDesignTokens = {
     buttonColours: {
         enabled: "#314FA9",
         focus: "#314FA9",
