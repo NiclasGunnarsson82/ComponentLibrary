@@ -9,8 +9,7 @@ const ThemeContext = createContext<IDesignTokens>({} as IDesignTokens)
 
 export const ThemeProvider = ({ children }: ThemeProviderProps ) => {
     return (
-        <ThemeContext.Provider value={{
-            buttonColours: designTokens.buttonColours}}>
+        <ThemeContext.Provider value={designTokens}>
             {children}
         </ThemeContext.Provider>
     )
