@@ -13,11 +13,25 @@ export const Button = ({
     const { designTokens } = useTheme()
   
     const styles = {
-        backgroundColor: ""
+        background: designTokens.buttonColours.enabled,
+        color: "#FFFFF",
+        '&:hover' : {
+            background: designTokens.buttonColours.hover,
+        },
+        '&:disabled' : {
+            background: designTokens.buttonColours.disabled,
+        },
+        '&:active' : {
+            background: designTokens.buttonColours.pressed,
+        },
+        '&:focus' : {
+            background: designTokens.buttonColours.focus,
+        }
     }
 
     return (
-        <button style={styles} {...props}>
+        <button 
+            style={styles} {...props}>
             {children}
         </button>
     )
