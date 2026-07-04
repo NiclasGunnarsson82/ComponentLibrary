@@ -10,22 +10,22 @@ export const Button = ({
     children, 
     ...props }: ButtonProps) => {
   
-    const { designTokens } = useTheme()
+    const { buttonColours } = useTheme()
   
     const styles = {
-        background: designTokens.buttonColours.enabled,
+        background: buttonColours.enabled,
         color: "#FFFFF",
         '&:hover' : {
-            background: designTokens.buttonColours.hover,
+            background: buttonColours.hover,
         },
         '&:disabled' : {
-            background: designTokens.buttonColours.disabled,
+            background: buttonColours.disabled,
         },
         '&:active' : {
-            background: designTokens.buttonColours.pressed,
+            background: buttonColours.pressed,
         },
         '&:focus' : {
-            background: designTokens.buttonColours.focus,
+            background: buttonColours.focus,
         }
     }
 
