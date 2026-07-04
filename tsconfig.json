@@ -9,12 +9,15 @@
       "@/data/*": [
         "./src/data/*"
       ],
-       "@/styles/*": [
+      "@/styles/*": [
         "./src/styles/*"
       ],
-       "@/utils/*": [
+      "@/utils/*": [
         "./src/utils/*"
-      ]   
+      ],
+      "@/compenents/*": [
+        "./src/compenents/*"
+      ]    
     },
   },
   
