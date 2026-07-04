@@ -3,7 +3,8 @@ import { useTheme } from "@/utils/ThemeContext"
 import scss from "./Button.module.scss"
 
 type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
-    label: string
+    label: string,
+    disabled?: boolean
 }
 
 export const Button = ({
@@ -22,12 +23,12 @@ export const Button = ({
 
     return (
         <button
-            disabled={true}
+            disabled={props.disabled}
             className={scss.customButton}
             id={props.id}
             aria-label={props["aria-label"]} 
             style={styles}>
-            {children}
+            {props.label}
         </button>
     )
 }
