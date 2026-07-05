@@ -7,12 +7,11 @@ export interface IDesignTokens {
 };
 
 export const designTokens: IDesignTokens = {
-    buttonColours: {
-        enabled: "#314FA9",
-        focus: "#314FA9",
-        hover: "#192855",
-        pressed: "#0D142B",
-        disabled: "#5069B6"
+    colours: {
+        blue100:"#010D18",
+        blue200:"#042647",
+        blue300:"#064077", 
+        blue400:"#095FB2",        
     }
 }
 
