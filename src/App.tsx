@@ -1,4 +1,4 @@
-import { Button } from "./components/Button";
+import { Button } from "./components/button/Button";
 import { ThemeProvider } from "./utils/ThemeContext";
 
 const App = () => {
@@ -6,9 +6,6 @@ const App = () => {
     <ThemeProvider>
       <>
         <h1>Design System</h1>
-        <Button
-            label="Send">
-        </Button>
       </>
     </ThemeProvider>
 
