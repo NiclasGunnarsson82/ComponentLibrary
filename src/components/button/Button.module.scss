@@ -1,21 +1,25 @@
-.customButton {
+.button {
     width: 180px;
     height: 50px;
     cursor: pointer;
     border: none;
     border-radius: 25px;
-    background: var(--button-enabled);
+    background-color: var(--button-bg-enabled);
     color: white;
-    &:hover {
-        background: var(--button-hover);
-    }
-    &:active {
-        background: var(--button-pressed);
-    }
-    &:focus {
-        background: var(--button-focus);
-    }
-    &:disabled {
-        background: var(--button-disabled);
-    }
+}
+
+.button:hover:not(:disabled) {
+    background-color: var(--button-bg-hover);
+}
+
+.button:focus-visible {
+    background-color: var(--button-bg-focus);
+}
+
+.button:active:not(:disabled) {
+    background-color: var(--button-bg-active);
+}
+
+.button:disabled {
+    background-color: var(--button-bg-disabled);
 }

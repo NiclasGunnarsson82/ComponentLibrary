@@ -11,20 +11,20 @@ export const Button = ({
     children, 
     ...props }: ButtonProps) => {
   
-    const { buttonColours } = useTheme()
+    const { colours } = useTheme()
   
     const styles = {
-        "--button-enabled": buttonColours.enabled,
-        "--button-hover": buttonColours.hover,
-        "--button-pressed": buttonColours.pressed,
-        "--button-focus": buttonColours.focus,
-        "--button-disabled": buttonColours.disabled,  
+        "--button-bg-enabled": colours.blue300,
+        "--button-bg-hover": colours.blue200,
+        "--button-bg-focus": colours.blue300,
+        "--button-bg-active": colours.blue100,
+        "--button-bg-disabled": colours.blue400
     } as CSSProperties
 
     return (
         <button
-            disabled={props.disabled}
-            className={scss.customButton}
+            disabled={false}
+            className={scss.button}
             id={props.id}
             aria-label={props["aria-label"]} 
             style={styles}>
