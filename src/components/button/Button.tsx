@@ -28,11 +28,11 @@ export const Button = ({
         "--button-colour-disabled": colours.blue400
     } as CSSProperties
 
-    //Handles disabled styling based on optional isLoading state
+    //Handles disabled styling based on optional isLoading prop
     const className: string = isLoading === undefined 
         ? scss.button 
         : isLoading ? scss.isLoading : scss.button
-    //Handles optional disabled state
+    //Handles optional disabled prop
     const isDisabled: boolean = disabled === undefined 
         ? false 
         : isLoading ? true : disabled
