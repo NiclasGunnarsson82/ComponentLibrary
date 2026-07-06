@@ -1,15 +1,20 @@
-import { CSSProperties, ButtonHTMLAttributes } from "react";
+import { CSSProperties, ButtonHTMLAttributes, MouseEvent, KeyboardEvent } from "react";
 import { useTheme } from "@/utils/ThemeContext"
 import scss from "./Button.module.scss"
 
 type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
     label: string,
-    disabled?: boolean
+    disabled?: boolean,
+    eventHandler: (event: MouseEvent<HTMLButtonElement>) => void
 }
 
 export const Button = ({
-    children, 
-    ...props }: ButtonProps) => {
+    label,
+    disabled,
+    eventHandler,
+    children,
+    ...props 
+}: ButtonProps) => {
   
     const { colours } = useTheme()
   
@@ -23,12 +28,13 @@ export const Button = ({
 
     return (
         <button
-            disabled={false}
             className={scss.button}
             id={props.id}
-            aria-label={props["aria-label"]} 
+            onClick={eventHandler}
+            disabled={disabled === undefined ? false : disabled}
+            aria-label={label} 
             style={styles}>
-            {props.label}
+                {label}
         </button>
     )
 }
