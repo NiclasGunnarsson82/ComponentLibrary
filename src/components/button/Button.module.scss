@@ -7,10 +7,11 @@
     border: 4px solid var(--button-colour-enabled);
     outline: none;
     color: white;
+    cursor: pointer;
 }
 
 .isLoading:disabled {
-    cursor: pointer;
+    cursor: none;
 }
 
 .button:hover:not(:disabled) {
