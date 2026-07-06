@@ -4,6 +4,7 @@ import scss from "./Button.module.scss"
 
 type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
     label: string,
+    width?: string,
     disabled?: boolean,
     isLoading?: boolean,
     eventHandler: (event: MouseEvent<HTMLButtonElement>) => void
@@ -11,6 +12,7 @@ type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
 
 export const Button = ({
     label,
+    width,
     disabled,
     isLoading,
     eventHandler,
@@ -19,14 +21,6 @@ export const Button = ({
 }: ButtonProps) => {
   
     const { colours } = useTheme()
-  
-    const styles = {
-        "--button-colour-enabled": colours.blue300,
-        "--button-colour-hover": colours.blue200,
-        "--button-colour-focus": colours.blue300,
-        "--button-colour-active": colours.blue100,
-        "--button-colour-disabled": colours.blue400
-    } as CSSProperties
 
     //Handles disabled styling based on optional isLoading prop
     const className: string = isLoading === undefined 
@@ -36,6 +30,18 @@ export const Button = ({
     const isDisabled: boolean = disabled === undefined 
         ? false 
         : isLoading ? true : disabled
+    const widthValue: string = width === undefined ? "auto" : width
+  
+    const styles = {
+        "--button-width": widthValue,
+        "--button-colour-enabled": colours.blue300,
+        "--button-colour-hover": colours.blue200,
+        "--button-colour-focus": colours.blue300,
+        "--button-colour-active": colours.blue100,
+        "--button-colour-disabled": colours.blue400
+    } as CSSProperties
+
+
 
     return (
         <button
