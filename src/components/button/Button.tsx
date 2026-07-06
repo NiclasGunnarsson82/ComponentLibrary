@@ -1,4 +1,4 @@
-import { CSSProperties, ButtonHTMLAttributes, MouseEvent, KeyboardEvent } from "react";
+import { CSSProperties, ButtonHTMLAttributes, MouseEvent } from "react";
 import { useTheme } from "@/utils/ThemeContext"
 import scss from "./Button.module.scss"
 
