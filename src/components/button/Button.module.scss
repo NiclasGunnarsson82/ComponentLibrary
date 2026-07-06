@@ -4,22 +4,22 @@
     cursor: pointer;
     border: none;
     border-radius: 25px;
-    background-color: var(--button-bg-enabled);
+    background-color: var(--button-colour-enabled);
     color: white;
 }
 
 .button:hover:not(:disabled) {
-    background-color: var(--button-bg-hover);
+    background-color: var(--button-colour-hover);
 }
 
 .button:focus-visible {
-    background-color: var(--button-bg-focus);
+    background-color: var(--button-colour-focus);
 }
 
 .button:active:not(:disabled) {
-    background-color: var(--button-bg-active);
+    background-color: var(--button-colour-active);
 }
 
 .button:disabled {
-    background-color: var(--button-bg-disabled);
+    background-color: var(--button-colour-disabled);
 }

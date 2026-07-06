@@ -14,11 +14,11 @@ export const Button = ({
     const { colours } = useTheme()
   
     const styles = {
-        "--button-bg-enabled": colours.blue300,
-        "--button-bg-hover": colours.blue200,
-        "--button-bg-focus": colours.blue300,
-        "--button-bg-active": colours.blue100,
-        "--button-bg-disabled": colours.blue400
+        "--button-colour-enabled": colours.blue300,
+        "--button-colour-hover": colours.blue200,
+        "--button-colour-focus": colours.blue300,
+        "--button-colour-active": colours.blue100,
+        "--button-colour-disabled": colours.blue400
     } as CSSProperties
 
     return (
