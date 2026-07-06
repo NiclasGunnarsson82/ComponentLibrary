@@ -22,14 +22,15 @@ export const Button = ({
   
     const { colours } = useTheme()
 
-    //Handles disabled styling based on optional isLoading prop
+    //Determines disabled styling based on optional isLoading prop
     const className: string = isLoading === undefined 
         ? scss.button 
         : isLoading ? scss.isLoading : scss.button
-    //Handles optional disabled prop
+    //Determines disabled state based on optional disabled prop
     const isDisabled: boolean = disabled === undefined 
         ? false 
         : isLoading ? true : disabled
+    //Determines button width based on optional width prop
     const widthValue: string = width === undefined ? "auto" : width
   
     const styles = {
