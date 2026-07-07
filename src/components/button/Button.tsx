@@ -8,7 +8,9 @@ type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
     disabled?: boolean,
     isLoading?: boolean,
     isError?: boolean,
+    errorLabel?: string,
     isSuccess?: boolean,
+    successLabel?: string,
     eventHandler: (event: MouseEvent<HTMLButtonElement> | KeyboardEvent<HTMLButtonElement>) => void
 }
 
@@ -18,7 +20,9 @@ export const Button = ({
     disabled,
     isLoading,
     isError,
+    errorLabel,
     isSuccess,
+    successLabel,
     eventHandler,
     children,
     ...props 
@@ -26,11 +30,10 @@ export const Button = ({
   
     const { colours, shadows } = useTheme()
     
+
     let loadingState: boolean = isLoading === undefined ? false : isLoading
     let successState: boolean = isSuccess === undefined ? false : isSuccess
     let errorState: boolean = isError === undefined ? false : isError
-
-    //Determines disabled styling based on optional isLoading prop
     let className: string;
     if (loadingState) {
         className = scss.isLoading
@@ -42,10 +45,26 @@ export const Button = ({
         className = scss.button
     }
 
-    //Determines disabled state based on optional disabled prop
-    const isDisabled: boolean = disabled === undefined 
-        ? false 
-        : isLoading ? true : disabled
+    let isDisabled: boolean = disabled === undefined ? false : disabled;
+    if (isLoading) {
+        isDisabled = true
+    } else if (isError) {
+        isDisabled = true
+    } else if (isSuccess) {
+        isDisabled = true
+    } 
+
+    let buttonLabel: string = label
+    if (isError) {
+        errorLabel === undefined 
+        ? buttonLabel = "Error" 
+        : buttonLabel = errorLabel} 
+    else if (isSuccess) {
+        successLabel === undefined 
+        ? buttonLabel = "Success" 
+        : buttonLabel = successLabel} 
+
+
     //Determines button width based on optional width prop
     const widthValue: string = width === undefined ? "auto" : width
   
@@ -67,13 +86,13 @@ export const Button = ({
             className={className}
             id={props.id}
             onClick={eventHandler}
-            disabled={isDisabled}
+            disabled={isDisabled === undefined ? false : isDisabled}
             aria-label={label} 
             style={styles}>
                 {/* Display loader if isLoading state is defined and set to true, else display label */}
                 {isLoading !== undefined && isLoading ?
                     <span className={scss.loader}></span>
-                : label}
+                : buttonLabel}
         </button>
     )
 }
