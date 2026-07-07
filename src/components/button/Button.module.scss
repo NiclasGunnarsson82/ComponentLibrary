@@ -1,5 +1,7 @@
 .button,
-.isLoading {
+.isLoading,
+.isSuccess,
+.isError {
     width: var(--button-width);
     height: 50px;
     border-radius: 25px;
@@ -13,7 +15,23 @@
     cursor: pointer;
 }
 
-.isLoading:disabled {
+.isLoading {
+    box-shadow: var(--button-shadow-hover);
+}
+
+.isError {
+    background-color: var(--button-colour-error);
+     border: 4px solid var(--button-colour-error);
+}
+
+.isSuccess {
+    background-color: var(--button-colour-success);
+    border: 4px solid var(--button-colour-success);
+}
+
+.isLoading:disabled,
+.error:disabled,
+.success:disabled {
     cursor: none;
 }
 

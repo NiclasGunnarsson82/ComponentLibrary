@@ -7,6 +7,8 @@ type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
     width?: string,
     disabled?: boolean,
     isLoading?: boolean,
+    isError?: boolean,
+    isSuccess?: boolean,
     eventHandler: (event: MouseEvent<HTMLButtonElement> | KeyboardEvent<HTMLButtonElement>) => void
 }
 
@@ -15,6 +17,8 @@ export const Button = ({
     width,
     disabled,
     isLoading,
+    isError,
+    isSuccess,
     eventHandler,
     children,
     ...props 
@@ -22,10 +26,22 @@ export const Button = ({
   
     const { colours, shadows } = useTheme()
     
+    let loadingState: boolean = isLoading === undefined ? false : isLoading
+    let successState: boolean = isSuccess === undefined ? false : isSuccess
+    let errorState: boolean = isError === undefined ? false : isError
+
     //Determines disabled styling based on optional isLoading prop
-    const className: string = isLoading === undefined 
-        ? scss.button 
-        : isLoading ? scss.isLoading : scss.button
+    let className: string;
+    if (loadingState) {
+        className = scss.isLoading
+    } else if (successState) {
+        className = scss.isSuccess
+    } else if (errorState) {
+        className = scss.isError
+    } else {
+        className = scss.button
+    }
+
     //Determines disabled state based on optional disabled prop
     const isDisabled: boolean = disabled === undefined 
         ? false 
@@ -40,6 +56,8 @@ export const Button = ({
         "--button-colour-focus": colours.blue300,
         "--button-colour-active": colours.blue100,
         "--button-colour-disabled": colours.blue400,
+        "--button-colour-error": colours.error,
+        "--button-colour-success": colours.success,
         "--button-shadow-enabled": shadows.buttonEnabled,
         "--button-shadow-hover": shadows.buttonHover,
     } as CSSProperties
