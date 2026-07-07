@@ -1,4 +1,4 @@
-import { CSSProperties, ButtonHTMLAttributes, MouseEvent } from "react";
+import { CSSProperties, ButtonHTMLAttributes, MouseEvent, KeyboardEvent } from "react";
 import { useTheme } from "@/utils/ThemeContext"
 import scss from "./Button.module.scss"
 
@@ -7,7 +7,7 @@ type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
     width?: string,
     disabled?: boolean,
     isLoading?: boolean,
-    eventHandler: (event: MouseEvent<HTMLButtonElement>) => void
+    eventHandler: (event: MouseEvent<HTMLButtonElement> | KeyboardEvent<HTMLButtonElement>) => void
 }
 
 export const Button = ({
@@ -20,8 +20,8 @@ export const Button = ({
     ...props 
 }: ButtonProps) => {
   
-    const { colours } = useTheme()
-
+    const { colours, shadows } = useTheme()
+    
     //Determines disabled styling based on optional isLoading prop
     const className: string = isLoading === undefined 
         ? scss.button 
@@ -39,10 +39,10 @@ export const Button = ({
         "--button-colour-hover": colours.blue200,
         "--button-colour-focus": colours.blue300,
         "--button-colour-active": colours.blue100,
-        "--button-colour-disabled": colours.blue400
+        "--button-colour-disabled": colours.blue400,
+        "--button-shadow-enabled": shadows.buttonEnabled,
+        "--button-shadow-hover": shadows.buttonHover,
     } as CSSProperties
-
-
 
     return (
         <button
