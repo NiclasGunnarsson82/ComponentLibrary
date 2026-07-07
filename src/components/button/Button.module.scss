@@ -4,7 +4,8 @@
 .isError {
     width: var(--button-width);
     height: 50px;
-    border-radius: 25px;
+    font-size: var(--button-font-size);
+    border-radius: var(--button-border-radius);
     background-color: var(--button-colour-enabled);
     border: 4px solid var(--button-colour-enabled);
     box-shadow: var(--button-shadow-enabled);

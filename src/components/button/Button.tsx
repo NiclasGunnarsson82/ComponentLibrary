@@ -28,7 +28,7 @@ export const Button = ({
     ...props 
 }: ButtonProps) => {
   
-    const { colours, shadows } = useTheme()
+    const { colours, shadows, borders, font } = useTheme()
     
 
     let loadingState: boolean = isLoading === undefined ? false : isLoading
@@ -70,6 +70,8 @@ export const Button = ({
   
     const styles = {
         "--button-width": widthValue,
+        "--button-font-size": font.baseSize,
+        "--button-border-radius": borders.buttonBorderRadius,
         "--button-colour-enabled": colours.blue300,
         "--button-colour-hover": colours.blue200,
         "--button-colour-focus": colours.blue300,
