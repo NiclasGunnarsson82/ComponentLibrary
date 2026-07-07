@@ -17,16 +17,19 @@
 
 .isLoading {
     box-shadow: var(--button-shadow-hover);
+    box-shadow: none;
 }
 
 .isError {
     background-color: var(--button-colour-error);
-     border: 4px solid var(--button-colour-error);
+    border: 4px solid var(--button-colour-error);
+    box-shadow: none;
 }
 
 .isSuccess {
     background-color: var(--button-colour-success);
     border: 4px solid var(--button-colour-success);
+    box-shadow: none;
 }
 
 .isLoading:disabled,
@@ -50,6 +53,7 @@
 .button:active:not(:disabled) {
     background-color: var(--button-colour-active);
     border: 4px solid var(--button-colour-active);
+    box-shadow: none;
 }
 
 .button:disabled {
