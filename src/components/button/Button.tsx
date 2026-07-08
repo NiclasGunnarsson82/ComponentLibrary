@@ -17,24 +17,10 @@ export const Button = ({
   
     const { colours, shadows, borders, font } = useTheme()
 
-    //The default values for button attributes configuration
-    const configDefault: ConfigType = {
-        state: "default",
-        disabled: false,
-        label: label,
-        width: width ?? "auto",
-        scss: scss.button,
-    }
-    //The state for button attributes configuration
-    const [config, setConfig] = useState<ConfigType>(configDefault)
-
-    //The function that determines the attribute values based on component property values.
-    useEffect(() => {
-        let configuration = configureButton({
-            label, scss, width, state, 
-            successLabel, errorLabel})
-        setConfig(configuration)
-    }, [state]);
+    //The function which calculates the button attribute values, based on component props.
+    const config = configureButton({
+        label, scss, width, state, 
+        successLabel, errorLabel})
 
     const styles = {
         "--button-width": config.width,
