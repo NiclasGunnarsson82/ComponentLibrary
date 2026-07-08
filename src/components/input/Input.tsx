@@ -9,21 +9,26 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
         label,
         state,
         width,
-        ...props }, ref) => {
+        ...props }, ref?) => {
 
-    const { colours, borders, font } = useTheme()
+    const { colours, borders, font, dimensions } = useTheme()
+
+    const widthValue: string = width ?? "180px"
 
     const styles = {
-        "--input-width": width,
+        "--input-width": widthValue,
+        "--input-height": dimensions.inputHeight,
         "--input-font-size": font.baseSize,
-        "--input-border-radius": borders.buttonBorderRadius,
+        "--input-border-radius": borders.inputBorderRadius,
         "--input-colour-error": colours.error,
     } as CSSProperties
 
-    return (
+    return(
         <input 
-            ref={ref} 
-            type={type}
-            {...props}/>
+        className={scss.input}
+        style={styles}
+        ref={ref} 
+        type={type}
+        {...props}/>        
     )
 })
