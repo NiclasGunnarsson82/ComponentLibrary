@@ -1,7 +1,4 @@
-.button,
-.isLoading,
-.isSuccess,
-.isError {
+.button {
     width: var(--button-width);
     height: 50px;
     font-size: var(--button-font-size);
@@ -14,57 +11,46 @@
     outline: none;
     color: white;
     cursor: pointer;
-}
 
-.isLoading {
-    box-shadow: var(--button-shadow-hover);
-    box-shadow: none;
-}
+    &:hover:not(:disabled) {
+        background-color: var(--button-colour-hover);
+        border-color: var(--button-colour-hover);
+        box-shadow: var(--button-shadow-hover);
+    }
 
-.isError {
-    background-color: var(--button-colour-error);
-    border: 4px solid var(--button-colour-error);
-    box-shadow: none;
-}
+    &:focus-visible {
+        background-color: var(--button-colour-focus);
+        border-color: var(--button-colour-focus);
+        box-shadow: inset 0 0 0 2px white;
+    }
 
-.isSuccess {
-    background-color: var(--button-colour-success);
-    border: 4px solid var(--button-colour-success);
-    box-shadow: none;
-}
+    &:active:not(:disabled) {
+        background-color: var(--button-colour-active);
+        border-color: var(--button-colour-active);
+        box-shadow: none;
+    }
 
-.isLoading:disabled,
-.error:disabled,
-.success:disabled {
-    cursor: none;
-}
+    &.isLoading {
+        box-shadow: none;
+        &:disabled {
+            cursor: none;
+        }
+    }
 
-.button:hover:not(:disabled) {
-    background-color: var(--button-colour-hover);
-    border: 4px solid var(--button-colour-hover);
-    box-shadow: var(--button-shadow-hover)
-}
+    &.isError:disabled {
+        background-color: var(--button-colour-error);
+        border-color: var(--button-colour-error);
+        box-shadow: none;
+        cursor: none;
+    }
 
-.button:focus-visible {
-    background-color: var(--button-colour-focus);
-    border: 4px solid var(--button-colour-focus);
-    box-shadow: inset 0 0 0 2px white;
+    &.isSuccess:disabled {
+        background-color: var(--button-colour-success);
+        border-color: var(--button-colour-success);
+        box-shadow: none;
+        cursor: none;
+    }
 }
-
-.button:active:not(:disabled) {
-    background-color: var(--button-colour-active);
-    border: 4px solid var(--button-colour-active);
-    box-shadow: none;
-}
-
-.button:disabled {
-    background-color: var(--button-colour-disabled);
-    border: 4px solid var(--button-colour-disabled);
-    box-shadow: none;
-    opacity: 0.6;
-    cursor: not-allowed;
-}
-
 
 .loader {
   --color-1: #fff;

@@ -20,8 +20,6 @@ export type ButtonConfigType = {
     disabled: boolean
 }
 
-
-
 export type ConfigType = {
     state: ButtonStateType,
     width: string,
@@ -66,17 +64,17 @@ export const configureButton = ({
             config.disabled = true
             break;
         case "success":
-            config.scss = scss.isSuccess
+            config.scss = [scss.button,scss.isSuccess].join(" ")
             config.label = successLabel ?? "Success"
             config.disabled = true
             break;
         case "error":
-            config.scss = scss.isError
+            config.scss = [scss.button,scss.isError].join(" ")
             config.label = errorLabel ?? "Error"
             config.disabled = true
             break;
         case "loading":
-            config.scss = scss.isLoading
+            config.scss = [scss.button,scss.isLoading].join(" ")
             config.disabled = true
             break;
         default:
@@ -85,6 +83,6 @@ export const configureButton = ({
             break;
     }
 
-    return config
+    return config  
     
 }
