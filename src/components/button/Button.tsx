@@ -1,28 +1,14 @@
-import { CSSProperties, ButtonHTMLAttributes, MouseEvent, KeyboardEvent, useState, useEffect } from "react";
+import { CSSProperties, useState, useEffect } from "react";
 import { useTheme } from "@/utils/ThemeContext"
 import scss from "./Button.module.scss"
-import { ConfigType, configureButton } from "./helpers";
+import { ButtonProps, ConfigType, configureButton } from "./helpers";
 
-type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
-    label: string,
-    width?: string,
-    isDisabled?: boolean,
-    isLoading?: boolean,
-    isError?: boolean,
-    errorLabel?: string,
-    isSuccess?: boolean,
-    successLabel?: string,
-    eventHandler: (event: MouseEvent<HTMLButtonElement> | KeyboardEvent<HTMLButtonElement>) => void
-}
 
 export const Button = ({
     label,
+    state,
     width,
-    isDisabled,
-    isLoading,
-    isError,
     errorLabel,
-    isSuccess,
     successLabel,
     eventHandler,
     children,
@@ -31,11 +17,12 @@ export const Button = ({
   
     const { colours, shadows, borders, font } = useTheme()
 
-    //The default value for button attributes configuration
+    //The default values for button attributes configuration
     const configDefault: ConfigType = {
-        disabled: isDisabled === undefined ? false: isDisabled,
+        state: "default",
+        disabled: false,
         label: label,
-        width: width === undefined ? "auto" : width,
+        width: width ?? "auto",
         scss: scss.button,
     }
     //The state for button attributes configuration
@@ -44,11 +31,10 @@ export const Button = ({
     //The function that determines the attribute values based on component property values.
     useEffect(() => {
         let configuration = configureButton({
-            label, scss, width, isLoading, 
-            isSuccess, successLabel,
-            isError, errorLabel, isDisabled})
+            label, scss, width, state, 
+            successLabel, errorLabel})
         setConfig(configuration)
-    }, [isError, isLoading, isSuccess, isDisabled]);
+    }, [state]);
 
     const styles = {
         "--button-width": config.width,
@@ -74,7 +60,7 @@ export const Button = ({
             aria-label={label} 
             style={styles}>
                 {/* Display spinner if isLoading, else display label */}
-                {isLoading !== undefined && isLoading ?
+                {state === "loading" ?
                     <span className={scss.loader}></span>
                 : config.label}
         </button>

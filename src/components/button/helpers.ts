@@ -1,85 +1,89 @@
-export type ButtonConfigType = {
-    scss: string,
-    loading: boolean, 
-    success: boolean, 
-    error: boolean, 
-    disabled: boolean,
-    width: string,
-    label: string    
-}
+import { ButtonHTMLAttributes, KeyboardEvent, MouseEvent } from "react"
 
+export type ButtonStateType = "default" | "loading" | "success" | "error" | "disabled"
 
-export type ConfigureType = {
+export type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
     label: string,
-    scss: Record<string, string>,
-    width: string | undefined
-    isLoading: boolean | undefined, 
-    isSuccess: boolean | undefined,
-    successLabel: string | undefined, 
-    isError: boolean | undefined,
-    errorLabel: string | undefined, 
-    isDisabled: boolean | undefined    
+    state: ButtonStateType,
+    width?: string,
+    errorLabel?: string,
+    successLabel?: string,
+    eventHandler: (event: MouseEvent<HTMLButtonElement> 
+        | KeyboardEvent<HTMLButtonElement>) => void
 }
+
+export type ButtonConfigType = {
+    state: ButtonStateType,
+    width: string,
+    label: string  
+    scss: string,
+    disabled: boolean
+}
+
+
 
 export type ConfigType = {
-    disabled: boolean,
-    label: string,
+    state: ButtonStateType,
     width: string,
-    scss: string
+    label: string,
+    scss: string,
+    disabled: boolean
+}
+
+export type ConfigureType = {
+    state: ButtonStateType,
+    width?: string,
+    label: string,
+    scss: Record<string, string>,
+    successLabel?: string, 
+    errorLabel?: string,  
 }
 
 export const configureButton = ({
+    state,
+    width,
     label,
     scss,
-    width,
-    isLoading,
-    isSuccess,
     successLabel,
-    isError,
-    errorLabel,
-    isDisabled
+    errorLabel
 }: ConfigureType): ConfigType => {
     
-    let loading: boolean = isLoading === undefined ? false : isLoading
-    let success: boolean = isSuccess === undefined ? false : isSuccess
-    let error: boolean = isError === undefined ? false : isError
-    let disabled: boolean = isDisabled === undefined ? false: isDisabled
-
     let config = {
+        state: state,
         scss: scss.button,
-        disabled: disabled,
+        disabled: false,
         label: label,
-        width: "auto"
+        width: width ?? "auto"
     }
 
-    if (loading) {
-        config.scss = scss.isLoading
-    } else if (success) {
-        config.scss = scss.isSuccess
-    } else if (error) {
-        config.scss = scss.isError
-    } else {
-        config.scss = scss.button
+    switch (state) {
+        case "default":
+            config.scss = scss.button
+            config.disabled = false
+            break;
+        case "disabled":
+            config.scss = scss.button
+            config.disabled = true
+            break;
+        case "success":
+            config.scss = scss.isSuccess
+            config.label = successLabel ?? "Success"
+            config.disabled = true
+            break;
+        case "error":
+            config.scss = scss.isError
+            config.label = errorLabel ?? "Error"
+            config.disabled = true
+            break;
+        case "loading":
+            config.scss = scss.isLoading
+            config.disabled = true
+            break;
+        default:
+            config.scss = scss.button
+            config.disabled = false
+            break;
     }
-
-    if (loading) {
-        config.disabled = true
-    } else if (error) {
-        config.disabled = true
-    } else if (success) {
-        config.disabled = true
-    } 
-
-    if (error) {
-        errorLabel === undefined 
-        ? config.label = "Error" 
-        : config.label = errorLabel} 
-    else if (success) {
-        successLabel === undefined 
-        ? config.label = "Success" 
-        : config.label = successLabel} 
-
-    config.width = width === undefined ? "auto" : width
 
     return config
     
