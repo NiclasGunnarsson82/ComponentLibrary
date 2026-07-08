@@ -1,7 +1,7 @@
 import { CSSProperties } from "react";
 import { useTheme } from "@/utils/ThemeContext"
 import scss from "./Button.module.scss"
-import { ButtonProps, ConfigType, configureButton } from "./helpers";
+import { ButtonProps, configureButton } from "./helpers";
 
 
 export const Button = ({

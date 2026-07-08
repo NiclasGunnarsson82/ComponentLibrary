@@ -12,14 +12,6 @@ export type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
         | KeyboardEvent<HTMLButtonElement>) => void
 }
 
-export type ButtonConfigType = {
-    state: ButtonStateType,
-    width: string,
-    label: string  
-    scss: string,
-    disabled: boolean
-}
-
 export type ConfigType = {
     state: ButtonStateType,
     width: string,
