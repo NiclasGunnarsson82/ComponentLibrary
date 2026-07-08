@@ -1,11 +1,11 @@
-import { CSSProperties, ButtonHTMLAttributes, MouseEvent, KeyboardEvent } from "react";
+import { CSSProperties, ButtonHTMLAttributes, MouseEvent, KeyboardEvent, useState } from "react";
 import { useTheme } from "@/utils/ThemeContext"
 import scss from "./Button.module.scss"
 
 type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
     label: string,
     width?: string,
-    disabled?: boolean,
+    isDisabled?: boolean,
     isLoading?: boolean,
     isError?: boolean,
     errorLabel?: string,
@@ -17,7 +17,7 @@ type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
 export const Button = ({
     label,
     width,
-    disabled,
+    isDisabled,
     isLoading,
     isError,
     errorLabel,
@@ -29,47 +29,9 @@ export const Button = ({
 }: ButtonProps) => {
   
     const { colours, shadows, borders, font } = useTheme()
-    
 
-    let loadingState: boolean = isLoading === undefined ? false : isLoading
-    let successState: boolean = isSuccess === undefined ? false : isSuccess
-    let errorState: boolean = isError === undefined ? false : isError
-    let className: string;
-    if (loadingState) {
-        className = scss.isLoading
-    } else if (successState) {
-        className = scss.isSuccess
-    } else if (errorState) {
-        className = scss.isError
-    } else {
-        className = scss.button
-    }
-
-    let isDisabled: boolean = disabled === undefined ? false : disabled;
-    if (isLoading) {
-        isDisabled = true
-    } else if (isError) {
-        isDisabled = true
-    } else if (isSuccess) {
-        isDisabled = true
-    } 
-
-    let buttonLabel: string = label
-    if (isError) {
-        errorLabel === undefined 
-        ? buttonLabel = "Error" 
-        : buttonLabel = errorLabel} 
-    else if (isSuccess) {
-        successLabel === undefined 
-        ? buttonLabel = "Success" 
-        : buttonLabel = successLabel} 
-
-
-    //Determines button width based on optional width prop
-    const widthValue: string = width === undefined ? "auto" : width
-  
     const styles = {
-        "--button-width": widthValue,
+        "--button-width": "auto",
         "--button-font-size": font.baseSize,
         "--button-border-radius": borders.buttonBorderRadius,
         "--button-colour-enabled": colours.blue300,
@@ -85,16 +47,16 @@ export const Button = ({
 
     return (
         <button
-            className={className}
+            className={scss.button}
             id={props.id}
             onClick={eventHandler}
-            disabled={isDisabled === undefined ? false : isDisabled}
+            disabled={false}
             aria-label={label} 
             style={styles}>
                 {/* Display loader if isLoading state is defined and set to true, else display label */}
                 {isLoading !== undefined && isLoading ?
                     <span className={scss.loader}></span>
-                : buttonLabel}
+                : label}
         </button>
     )
 }
