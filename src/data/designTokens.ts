@@ -20,10 +20,14 @@ export const designTokens: IDesignTokens = {
         buttonHover:"rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px",
     },
     font: {
-        baseSize: "18px"
+        baseSize: "16px"
     },
     borders: {
-        buttonBorderRadius: "6px"
+        buttonBorderRadius: "6px",
+        inputBorderRadius: "6px"
+    },
+    dimensions: {
+        inputHeight: "30px"
     }
 }
 
