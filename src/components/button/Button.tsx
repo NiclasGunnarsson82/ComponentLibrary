@@ -39,11 +39,11 @@ export const Button = ({
 
     return (
         <button
+            {...props}
             className={config.scss}
             id={props.id}
             onClick={eventHandler}
             disabled={config.disabled}
-            aria-label={label} 
             style={styles}>
                 {/* Display spinner if isLoading, else display label */}
                 {state === "loading" ?
