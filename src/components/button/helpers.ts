@@ -1,4 +1,4 @@
-import { ButtonHTMLAttributes, KeyboardEvent, MouseEvent } from "react"
+import { ButtonHTMLAttributes, MouseEvent } from "react"
 
 export type ButtonStateType = "default" | "loading" | "success" | "error" | "disabled"
 
