@@ -3,7 +3,6 @@ import { useTheme } from "@/utils/ThemeContext"
 import scss from "./Button.module.scss"
 import { ButtonProps, configureButton } from "./helpers";
 
-
 export const Button = ({
     label,
     state,

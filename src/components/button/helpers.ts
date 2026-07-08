@@ -8,8 +8,7 @@ export type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
     width?: string,
     errorLabel?: string,
     successLabel?: string,
-    eventHandler: (event: MouseEvent<HTMLButtonElement> 
-        | KeyboardEvent<HTMLButtonElement>) => void
+    eventHandler: (event: MouseEvent<HTMLButtonElement>) => void
 }
 
 export type ConfigType = {
