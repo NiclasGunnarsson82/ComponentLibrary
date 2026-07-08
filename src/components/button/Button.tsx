@@ -1,7 +1,7 @@
-import { CSSProperties, ButtonHTMLAttributes, MouseEvent, KeyboardEvent, useState } from "react";
+import { CSSProperties, ButtonHTMLAttributes, MouseEvent, KeyboardEvent, useState, useEffect } from "react";
 import { useTheme } from "@/utils/ThemeContext"
 import scss from "./Button.module.scss"
-import { ButtonConfigType } from "./helpers";
+import { ButtonConfigType, ConfigType, configureButton } from "./helpers";
 
 type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
     label: string,
@@ -31,19 +31,23 @@ export const Button = ({
   
     const { colours, shadows, borders, font } = useTheme()
 
-    const configDefault: ButtonConfigType = {
+    const configDefault: ConfigType = {
+        disabled: isDisabled === undefined ? false: isDisabled,
+        label: label,
+        width: width === undefined ? "auto" : width,
         scss: scss.button,
-        loading: isLoading === undefined ? false : isLoading,
-        success: isSuccess === undefined ? false : isSuccess,
-        error: isError === undefined ? false : isError,
-        disabled: isDisabled === undefined ? false: isDisabled
     }
-
-    const [config, setConfig] = useState<ButtonConfigType>(configDefault)
-
+    const [config, setConfig] = useState<ConfigType>(configDefault)
+    useEffect(() => {
+        let configuration = configureButton({
+            label, scss, width, isLoading, 
+            isSuccess, successLabel,
+            isError, errorLabel, isDisabled})
+        setConfig(configuration)
+    }, [isError, isLoading, isSuccess, isDisabled]);
 
     const styles = {
-        "--button-width": "auto",
+        "--button-width": config.width,
         "--button-font-size": font.baseSize,
         "--button-border-radius": borders.buttonBorderRadius,
         "--button-colour-enabled": colours.blue300,
@@ -59,16 +63,16 @@ export const Button = ({
 
     return (
         <button
-            className={scss.button}
+            className={config.scss}
             id={props.id}
             onClick={eventHandler}
-            disabled={false}
+            disabled={config.disabled}
             aria-label={label} 
             style={styles}>
                 {/* Display loader if isLoading state is defined and set to true, else display label */}
                 {isLoading !== undefined && isLoading ?
                     <span className={scss.loader}></span>
-                : label}
+                : config.label}
         </button>
     )
 }
