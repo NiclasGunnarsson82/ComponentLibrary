@@ -1,4 +1,4 @@
-import { CSSProperties, useState, useEffect } from "react";
+import { CSSProperties } from "react";
 import { useTheme } from "@/utils/ThemeContext"
 import scss from "./Button.module.scss"
 import { ButtonProps, ConfigType, configureButton } from "./helpers";
