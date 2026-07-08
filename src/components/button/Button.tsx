@@ -1,6 +1,7 @@
 import { CSSProperties, ButtonHTMLAttributes, MouseEvent, KeyboardEvent, useState } from "react";
 import { useTheme } from "@/utils/ThemeContext"
 import scss from "./Button.module.scss"
+import { ButtonConfigType } from "./helpers";
 
 type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
     label: string,
@@ -29,6 +30,17 @@ export const Button = ({
 }: ButtonProps) => {
   
     const { colours, shadows, borders, font } = useTheme()
+
+    const configDefault: ButtonConfigType = {
+        scss: scss.button,
+        loading: isLoading === undefined ? false : isLoading,
+        success: isSuccess === undefined ? false : isSuccess,
+        error: isError === undefined ? false : isError,
+        disabled: isDisabled === undefined ? false: isDisabled
+    }
+
+    const [config, setConfig] = useState<ButtonConfigType>(configDefault)
+
 
     const styles = {
         "--button-width": "auto",
