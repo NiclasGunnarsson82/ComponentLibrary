@@ -1,7 +1,7 @@
 import { CSSProperties, ButtonHTMLAttributes, MouseEvent, KeyboardEvent, useState, useEffect } from "react";
 import { useTheme } from "@/utils/ThemeContext"
 import scss from "./Button.module.scss"
-import { ButtonConfigType, ConfigType, configureButton } from "./helpers";
+import { ConfigType, configureButton } from "./helpers";
 
 type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
     label: string,
@@ -31,13 +31,17 @@ export const Button = ({
   
     const { colours, shadows, borders, font } = useTheme()
 
+    //The default value for button attributes configuration
     const configDefault: ConfigType = {
         disabled: isDisabled === undefined ? false: isDisabled,
         label: label,
         width: width === undefined ? "auto" : width,
         scss: scss.button,
     }
+    //The state for button attributes configuration
     const [config, setConfig] = useState<ConfigType>(configDefault)
+
+    //The function that determines the attribute values based on component property values.
     useEffect(() => {
         let configuration = configureButton({
             label, scss, width, isLoading, 
@@ -69,7 +73,7 @@ export const Button = ({
             disabled={config.disabled}
             aria-label={label} 
             style={styles}>
-                {/* Display loader if isLoading state is defined and set to true, else display label */}
+                {/* Display spinner if isLoading, else display label */}
                 {isLoading !== undefined && isLoading ?
                     <span className={scss.loader}></span>
                 : config.label}
