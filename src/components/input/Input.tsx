@@ -26,19 +26,22 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
     } as CSSProperties
 
     return(
-        <label htmlFor={name}>
-            {label}
-            {required && <strong> *</strong>}
-            <input 
-                className={scss.input}
-                name={name}
-                id={name}
-                style={styles}
-                ref={ref} 
-                type={type}
-                required={required ?? false}
-                {...props}/>  
-        </label>
-              
+        <label 
+            className={scss.label} 
+            htmlFor={name}>
+                <span>
+                     {label}
+                    {required && <strong> (required)</strong>}
+                </span>
+                <input 
+                    className={scss.input}
+                    name={name}
+                    id={name}
+                    style={styles}
+                    ref={ref} 
+                    type={type}
+                    required={required ?? false}
+                    {...props}/>  
+        </label>           
     )
 })

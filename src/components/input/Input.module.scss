@@ -1,6 +1,16 @@
 .input {
+    display: block;
     height: var(--input-height);
     width: var(--input-width);
     border-radius: var(--input-border-radius);
     font-size: var(--input-font-size);
+}
+
+.label {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    &strong {
+        display: inline-block;
+    }
 }
