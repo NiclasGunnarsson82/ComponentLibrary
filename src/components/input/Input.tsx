@@ -10,22 +10,20 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
         label,
         state,
         width,
-        required,
-        placeholder,
+        required = false,
+        placeholder = "",
         onCopy,
         onPaste,
-        spellCheck,
-        language,
-        autoComplete,
-        inputMode,
-        ...props }, ref?) => {
+        spellCheck = false,
+        language = "en",
+        autoComplete = "off",
+        inputMode = "text",
+        ...props }, ref) => {
 
     const { colours, font, input } = useTheme()
 
-    const widthValue: string = width ?? input.minWidth
-
     const styles = {
-        "--input-width": widthValue,
+        "--input-width": width ?? input.minWidth,
         "--input-padding": input.inputPadding,
         "--input-height": input.inputHeight,
         "--input-font-size": font.baseSize,
@@ -37,6 +35,9 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
         "--input-colour-focused": colours.blue100,
     } as CSSProperties
 
+    const inputClass =
+        state === "default" ? scss.input : scss.error;
+
     return(
         <label 
             className={scss.label}
@@ -47,7 +48,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
                     {required && <strong> (required)</strong>}
                 </span>
                 <input 
-                    className={state === "default" ? scss.input : scss.error}
+                    className={inputClass}
                     name={name}
                     id={name}
                     style={styles}
@@ -56,11 +57,11 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
                     required={required ?? false}
                     onCopy={onCopy}
                     onPaste={onPaste}
-                    placeholder={placeholder ?? ""}
+                    placeholder={placeholder}
                     spellCheck={spellCheck ?? false}
                     lang={language ?? "en"}
-                    autoComplete={autoComplete ?? "off"}
-                    inputMode={inputMode ?? "text"}
+                    autoComplete={autoComplete}
+                    inputMode={inputMode}
                     {...props}/>  
         </label>           
     )
