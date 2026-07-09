@@ -10,6 +10,7 @@ export type InputProps = InputHTMLAttributes<HTMLInputElement> & {
     label: string,
     state: InputStateType,
     width?: string,
+    required?: boolean
 }
 
 

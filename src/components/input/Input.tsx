@@ -10,6 +10,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
         label,
         state,
         width,
+        required,
         ...props }, ref?) => {
 
     const { colours, borders, font, dimensions } = useTheme()
@@ -33,6 +34,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
                 style={styles}
                 ref={ref} 
                 type={type}
+                required={required ?? false}
                 {...props}/>  
         </label>
               
