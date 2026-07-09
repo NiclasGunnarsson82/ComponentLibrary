@@ -27,6 +27,8 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
         "--input-padding": input.inputPadding,
         "--input-height": input.inputHeight,
         "--input-font-size": font.baseSize,
+        "--font-family": font.fontfamily,
+        "--font-weight": font.fontWeightRegular,
         "--input-border-radius": input.inputBorderRadius,
         "--input-colour-error": colours.error,
     } as CSSProperties

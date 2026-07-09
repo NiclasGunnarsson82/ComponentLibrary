@@ -24,6 +24,8 @@ export const Button = ({
     const styles = {
         "--button-width": config.width,
         "--button-font-size": font.baseSize,
+        "--font-family": font.fontfamily,
+        "--font-weight": font.fontWeightBold,
         "--button-border-radius": borders.buttonBorderRadius,
         "--button-colour-enabled": colours.blue300,
         "--button-colour-hover": colours.blue200,

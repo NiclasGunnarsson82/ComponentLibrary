@@ -1,6 +1,8 @@
 .button {
     width: var(--button-width);
     height: 50px;
+    font-family: var(--font-family);
+    font-weight: var(--font-weight);
     font-size: var(--button-font-size);
     border-radius: var(--button-border-radius);
     background-color: var(--button-colour-enabled);

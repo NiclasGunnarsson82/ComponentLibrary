@@ -1,5 +1,5 @@
 export type DesignTokenType = {
-    [token: string]: string | number;
+    [token: string]: string;
 };
 
 export interface IDesignTokens {
@@ -22,8 +22,8 @@ export const designTokens: IDesignTokens = {
     font: {
         baseSize: "16px",
         fontFamily: "inherit",
-        fontWeightRegular: 400,
-        fontWeightBold: 700,
+        fontWeightRegular: "400",
+        fontWeightBold: "700",
     },
     input: {
         minWidth: "275px",
