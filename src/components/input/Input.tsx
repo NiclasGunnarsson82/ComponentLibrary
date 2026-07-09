@@ -16,7 +16,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
 
     const { colours, borders, font, dimensions, padding } = useTheme()
 
-    const widthValue: string = width ?? "180px"
+    const widthValue: string = width ?? "250px"
 
     const styles = {
         "--input-width": widthValue,
@@ -29,7 +29,8 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
 
     return(
         <label 
-            className={scss.label} 
+            className={scss.label}
+            style={styles} 
             htmlFor={name}>
                 <span>
                      {label}
