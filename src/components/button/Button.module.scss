@@ -31,6 +31,8 @@
     }
 
     &.isLoading {
+        background-color: var(--button-colour-active);
+        border-color: var(--button-colour-active);
         box-shadow: none;
         &:disabled {
             cursor: none;
