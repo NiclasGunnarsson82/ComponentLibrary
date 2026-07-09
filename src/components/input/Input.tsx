@@ -14,6 +14,8 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
         placeholder,
         onCopy,
         onPaste,
+        spellCheck,
+        language,
         ...props }, ref?) => {
 
     const { colours, font, input } = useTheme()
@@ -49,6 +51,8 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
                     onCopy={onCopy}
                     onPaste={onPaste}
                     placeholder={placeholder ?? ""}
+                    spellCheck={spellCheck ?? false}
+                    lang={language ?? "en"}
                     {...props}/>  
         </label>           
     )

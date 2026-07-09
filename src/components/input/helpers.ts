@@ -13,7 +13,9 @@ export type InputProps = InputHTMLAttributes<HTMLInputElement> & {
     required?: boolean,
     placeholder?: string,
     onCopy?: (event: ClipboardEvent<HTMLInputElement>) => void,
-    onPaste?: (event: ClipboardEvent<HTMLInputElement>) => void
+    onPaste?: (event: ClipboardEvent<HTMLInputElement>) => void,
+    spellCheck?: boolean,
+    language?: string
 }
 
 
