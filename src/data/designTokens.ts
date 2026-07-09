@@ -1,5 +1,5 @@
 export type DesignTokenType = {
-    [token: string]: string;
+    [token: string]: string | number;
 };
 
 export interface IDesignTokens {
@@ -20,7 +20,10 @@ export const designTokens: IDesignTokens = {
         buttonHover:"rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px",
     },
     font: {
-        baseSize: "16px"
+        baseSize: "16px",
+        fontFamily: "inherit",
+        fontWeightRegular: 400,
+        fontWeightBold: 700,
     },
     input: {
         minWidth: "275px",
