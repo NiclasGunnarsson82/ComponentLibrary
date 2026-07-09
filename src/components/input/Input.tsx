@@ -16,6 +16,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
         onPaste,
         spellCheck,
         language,
+        autoComplete,
         ...props }, ref?) => {
 
     const { colours, font, input } = useTheme()
@@ -55,6 +56,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
                     placeholder={placeholder ?? ""}
                     spellCheck={spellCheck ?? false}
                     lang={language ?? "en"}
+                    autoComplete={autoComplete ?? "off"}
                     {...props}/>  
         </label>           
     )
