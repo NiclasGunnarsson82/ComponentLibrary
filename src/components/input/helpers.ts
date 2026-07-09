@@ -1,4 +1,4 @@
-import { InputHTMLAttributes } from "react"
+import { ClipboardEvent, InputHTMLAttributes } from "react"
 
 export type InputStateType = "default" | "error"
 export type InputTypeType = "text" | "password" | "email" |"number" |
@@ -11,7 +11,9 @@ export type InputProps = InputHTMLAttributes<HTMLInputElement> & {
     state: InputStateType,
     width?: string,
     required?: boolean,
-    placeholder?: string
+    placeholder?: string,
+    onCopy?: (event: ClipboardEvent<HTMLInputElement>) => void,
+    onPaste?: (event: ClipboardEvent<HTMLInputElement>) => void
 }
 
 
