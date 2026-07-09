@@ -6,6 +6,7 @@ import { InputProps } from "./helpers";
 export const Input = forwardRef<HTMLInputElement, InputProps>(
     ({  
         type,
+        name,
         label,
         state,
         width,
@@ -24,11 +25,16 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
     } as CSSProperties
 
     return(
-        <input 
-        className={scss.input}
-        style={styles}
-        ref={ref} 
-        type={type}
-        {...props}/>        
+        <label htmlFor={name}>
+            <input 
+                className={scss.input}
+                name={name}
+                id={name}
+                style={styles}
+                ref={ref} 
+                type={type}
+                {...props}/>  
+        </label>
+              
     )
 })

@@ -5,7 +5,8 @@ export type InputTypeType = "text" | "password" | "email" |"number" |
 "tel" | "url" | "search" | "hidden"
 
 export type InputProps = InputHTMLAttributes<HTMLInputElement> & {
-    type: string
+    type: string,
+    name: string,
     label: string,
     state: InputStateType,
     width?: string,
