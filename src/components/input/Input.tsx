@@ -27,6 +27,8 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
 
     return(
         <label htmlFor={name}>
+            {label}
+            {required && <strong> *</strong>}
             <input 
                 className={scss.input}
                 name={name}
