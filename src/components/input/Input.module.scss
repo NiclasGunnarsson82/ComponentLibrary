@@ -1,4 +1,5 @@
-.input {
+.input,
+.error {
     display: block;
     height: var(--input-height);
     width: 100%;
@@ -8,6 +9,19 @@
     box-sizing: border-box;
     font-family: var(--font-family);
     font-weight: var(--font-weight);
+    border-color: var(--input-colour-enabled);
+    
+    &:focus { 
+        border-color: var(--input-colour-focused);
+        outline: 1px solid var(--input-colour-focused);
+    }
+}
+
+.error {
+    border-color: var(--input-colour-error);
+    &:focus {
+        outline: 1px solid var(--input-colour-error);
+    }
 }
 
 .label {

@@ -33,6 +33,8 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
         "--font-weight": font.fontWeightRegular,
         "--input-border-radius": input.inputBorderRadius,
         "--input-colour-error": colours.error,
+        "--input-colour-enabled": colours.blue300,
+        "--input-colour-focused": colours.blue100,
     } as CSSProperties
 
     return(
@@ -45,7 +47,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
                     {required && <strong> (required)</strong>}
                 </span>
                 <input 
-                    className={scss.input}
+                    className={state === "default" ? scss.input : scss.error}
                     name={name}
                     id={name}
                     style={styles}
