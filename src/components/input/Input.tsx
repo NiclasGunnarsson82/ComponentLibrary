@@ -14,16 +14,16 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
         placeholder,
         ...props }, ref?) => {
 
-    const { colours, borders, font, dimensions, padding } = useTheme()
+    const { colours, font, input } = useTheme()
 
-    const widthValue: string = width ?? "250px"
+    const widthValue: string = width ?? input.minWidth
 
     const styles = {
         "--input-width": widthValue,
-        "--input-padding": padding.inputPadding,
-        "--input-height": dimensions.inputHeight,
+        "--input-padding": input.inputPadding,
+        "--input-height": input.inputHeight,
         "--input-font-size": font.baseSize,
-        "--input-border-radius": borders.inputBorderRadius,
+        "--input-border-radius": input.inputBorderRadius,
         "--input-colour-error": colours.error,
     } as CSSProperties
 

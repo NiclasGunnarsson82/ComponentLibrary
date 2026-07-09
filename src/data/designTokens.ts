@@ -22,15 +22,14 @@ export const designTokens: IDesignTokens = {
     font: {
         baseSize: "16px"
     },
-    borders: {
-        buttonBorderRadius: "6px",
+    input: {
+        minWidth: "275px",
+        inputPadding: "6px 8px",
+        inputHeight: "40px",
         inputBorderRadius: "6px"
     },
-    dimensions: {
-        inputHeight: "40px"
+    borders: {
+        buttonBorderRadius: "6px"
     },
-    padding: {
-        inputPadding: "6px 8px"
-    }
 }
 
