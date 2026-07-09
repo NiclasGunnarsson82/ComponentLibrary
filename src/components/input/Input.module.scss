@@ -36,3 +36,8 @@
         display: inline-block;
     }
 }
+
+.errorMessage {
+    color: var(--input-colour-error);
+    text-align: right;
+}

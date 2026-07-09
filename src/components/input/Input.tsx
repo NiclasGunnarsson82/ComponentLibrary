@@ -9,6 +9,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
         name,
         label,
         state,
+        errorMessage,
         width,
         required = false,
         placeholder = "",
@@ -62,7 +63,12 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
                     lang={language ?? "en"}
                     autoComplete={autoComplete}
                     inputMode={inputMode}
-                    {...props}/>  
+                    {...props}/> 
+                    {errorMessage && state === "error" &&
+                        <span className={scss.errorMessage}>
+                            {errorMessage}
+                        </span>
+                    } 
         </label>           
     )
 })

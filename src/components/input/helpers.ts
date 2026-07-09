@@ -74,6 +74,7 @@ export type InputProps = InputHTMLAttributes<HTMLInputElement> & {
     name: string,
     label: string,
     state: InputStateType,
+    errorMessage?: string,
     width?: string,
     required?: boolean,
     placeholder?: string,
