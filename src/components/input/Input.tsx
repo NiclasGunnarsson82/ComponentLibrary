@@ -14,12 +14,13 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
         placeholder,
         ...props }, ref?) => {
 
-    const { colours, borders, font, dimensions } = useTheme()
+    const { colours, borders, font, dimensions, padding } = useTheme()
 
     const widthValue: string = width ?? "180px"
 
     const styles = {
         "--input-width": widthValue,
+        "--input-padding": padding.inputPadding,
         "--input-height": dimensions.inputHeight,
         "--input-font-size": font.baseSize,
         "--input-border-radius": borders.inputBorderRadius,

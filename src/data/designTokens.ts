@@ -27,7 +27,10 @@ export const designTokens: IDesignTokens = {
         inputBorderRadius: "6px"
     },
     dimensions: {
-        inputHeight: "30px"
+        inputHeight: "40px"
+    },
+    padding: {
+        inputPadding: "6px 8px"
     }
 }
 
