@@ -11,6 +11,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
         state,
         width,
         required,
+        placeholder,
         ...props }, ref?) => {
 
     const { colours, borders, font, dimensions } = useTheme()
@@ -41,6 +42,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
                     ref={ref} 
                     type={type}
                     required={required ?? false}
+                    placeholder={placeholder ?? ""}
                     {...props}/>  
         </label>           
     )
