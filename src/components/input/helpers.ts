@@ -57,8 +57,17 @@ export type AutoCompleteType =
   | "tel-local-prefix"
   | "tel-local-suffix"
   | "tel-extension"
-  | "impp";
+  | "impp"
 
+  export type InputModeType =
+  | "decimal"
+  | "email"
+  | "none"
+  | "numeric"
+  | "search"
+  | "tel"
+  | "text"
+  | "url"
 
 export type InputProps = InputHTMLAttributes<HTMLInputElement> & {
     type: string,
@@ -72,7 +81,8 @@ export type InputProps = InputHTMLAttributes<HTMLInputElement> & {
     onPaste?: (event: ClipboardEvent<HTMLInputElement>) => void,
     spellCheck?: boolean,
     language?: string,
-    autoComplete?: AutoCompleteType
+    autoComplete?: AutoCompleteType,
+    inputMode?: InputModeType
 }
 
 
