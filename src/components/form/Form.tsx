@@ -10,6 +10,7 @@ export const Form = forwardRef<HTMLFormElement, FormProps>(
         gap,
         children,
         requirments,
+        handleSubmit,
         ...props }, ref) => {
 
     const { font, form } = useTheme()
@@ -24,6 +25,7 @@ export const Form = forwardRef<HTMLFormElement, FormProps>(
 
     return(
         <form
+            onSubmit={handleSubmit}
             className={scss.form}
             ref={ref}
             style={styles} 
