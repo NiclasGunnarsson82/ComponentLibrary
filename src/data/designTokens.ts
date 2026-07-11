@@ -25,11 +25,12 @@ export const designTokens: IDesignTokens = {
         fontWeightRegular: "400",
         fontWeightBold: "700",
     },
-    input: {
+    form: {
         minWidth: "275px",
         inputPadding: "6px 8px",
         inputHeight: "40px",
-        inputBorderRadius: "6px"
+        inputBorderRadius: "6px",
+        formPadding: "6px 8px"
     },
     borders: {
         buttonBorderRadius: "6px"

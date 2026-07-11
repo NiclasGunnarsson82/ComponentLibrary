@@ -21,16 +21,16 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
         inputMode = "text",
         ...props }, ref) => {
 
-    const { colours, font, input } = useTheme()
+    const { colours, font, form } = useTheme()
 
     const styles = {
-        "--input-width": width ?? input.minWidth,
-        "--input-padding": input.inputPadding,
-        "--input-height": input.inputHeight,
+        "--input-width": width ?? form.minWidth,
+        "--input-padding": form.inputPadding,
+        "--input-height": form.inputHeight,
         "--input-font-size": font.baseSize,
         "--font-family": font.fontfamily,
         "--font-weight": font.fontWeightRegular,
-        "--input-border-radius": input.inputBorderRadius,
+        "--input-border-radius": form.inputBorderRadius,
         "--input-colour-error": colours.error,
         "--input-colour-enabled": colours.blue300,
         "--input-colour-focused": colours.blue100,
