@@ -7,6 +7,7 @@ export const Form = forwardRef<HTMLFormElement, FormProps>(
     ({  
         errorMessage,
         width,
+        gap,
         children,
         ...props }, ref) => {
 
@@ -14,7 +15,7 @@ export const Form = forwardRef<HTMLFormElement, FormProps>(
 
     const styles = {
         "--form-width": width ?? form.minWidth,
-        "--form-input-gap": form.formDefaultGap,
+        "--form-input-gap": gap ?? form.formDefaultGap,
         "--form-padding": form.formPadding,
         "--form-font-size": font.baseSize,
         "--font-family": font.fontfamily,
