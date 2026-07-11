@@ -9,6 +9,7 @@ export const Form = forwardRef<HTMLFormElement, FormProps>(
         width,
         gap,
         children,
+        requirments,
         ...props }, ref) => {
 
     const { font, form } = useTheme()
@@ -29,6 +30,7 @@ export const Form = forwardRef<HTMLFormElement, FormProps>(
             action=""
             {...props}>
                {children} 
+               {requirments && <span>{requirments}</span>}
         </form>          
     )
 })

@@ -5,6 +5,7 @@ export type FormProps =  {
     width?: string,
     gap?: string,
     children: ReactNode;
+    requirments?: string
 }
 
 
