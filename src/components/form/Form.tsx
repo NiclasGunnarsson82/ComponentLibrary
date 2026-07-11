@@ -7,6 +7,7 @@ export const Form = forwardRef<HTMLFormElement, FormProps>(
     ({  
         errorMessage,
         width,
+        children,
         ...props }, ref) => {
 
     const { font, form } = useTheme()
@@ -26,7 +27,7 @@ export const Form = forwardRef<HTMLFormElement, FormProps>(
             style={styles} 
             action=""
             {...props}>
-                
+               {children} 
         </form>          
     )
 })
