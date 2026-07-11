@@ -9,14 +9,14 @@ export const Form = forwardRef<HTMLFormElement, FormProps>(
         width,
         ...props }, ref) => {
 
-    const { font, input } = useTheme()
+    const { font, form } = useTheme()
 
     const styles = {
-        "--form-width": width ?? input.minWidth,
-        "--form-padding": input.inputPadding,
+        "--form-width": width ?? form.minWidth,
+        "--form-input-gap": form.formDefaultGap,
+        "--form-padding": form.formPadding,
         "--form-font-size": font.baseSize,
         "--font-family": font.fontfamily,
-        "--font-weight": font.fontWeightRegular
     } as CSSProperties
 
     return(
@@ -26,7 +26,7 @@ export const Form = forwardRef<HTMLFormElement, FormProps>(
             style={styles} 
             action=""
             {...props}>
-
+                
         </form>          
     )
 })

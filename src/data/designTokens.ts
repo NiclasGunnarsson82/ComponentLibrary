@@ -30,7 +30,9 @@ export const designTokens: IDesignTokens = {
         inputPadding: "6px 8px",
         inputHeight: "40px",
         inputBorderRadius: "6px",
-        formPadding: "6px 8px"
+        formPadding: "6px 8px",
+        formDefaultGap: "15px",
+        padding: "10px 10px"
     },
     borders: {
         buttonBorderRadius: "6px"
