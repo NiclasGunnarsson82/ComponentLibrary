@@ -15,7 +15,7 @@ export const Form = forwardRef<HTMLFormElement, FormProps>(
     const { font, form } = useTheme()
 
     const styles = {
-        "--form-width": width ?? form.minWidth,
+        "--form--width": width ?? form.minWidth,
         "--form-input-gap": gap ?? form.formDefaultGap,
         "--form-padding": form.formPadding,
         "--form-font-size": font.baseSize,
