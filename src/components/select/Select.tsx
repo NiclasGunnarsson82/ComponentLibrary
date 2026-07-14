@@ -1,7 +1,7 @@
 import { CSSProperties, forwardRef } from "react";
 import { useTheme } from "@/utils/ThemeContext"
 import scss from "./Select.module.scss"
-import { SelectOptionType, SelectProps } from "./helpers";
+import { compileOptions, SelectProps } from "./helpers";
 
 export const Select = forwardRef<HTMLSelectElement, SelectProps>(
     ({  
@@ -32,8 +32,9 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
 
     const selectClass:string =
         state === "default" ? scss.select : scss.error
-
     const selectedValue: string = selected?.value ?? ""
+
+    const compiledOptions = compileOptions(options)
     
     return(
         <label 
@@ -50,15 +51,33 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
                     className={selectClass}
                     style={styles}
                     {...props}>
-                        {options.length === 0 ? (
+                        {compiledOptions.length === 0 ? (
+                            //If no options
                             <option disabled>No options</option>
                         ) : (
-                            options.map((option) => (
-                                <option 
-                                    key={option.value} 
-                                    value={option.value}>
+                            //If options
+                            compiledOptions.map((option) => (
+                                //If not optGroup option
+                                !("group" in option) 
+                                ?
+                                    <option 
+                                        key={option.value} 
+                                        value={option.value}>
                                         {option.option}
-                                </option>
+                                    </option>
+                                :
+                                //If optGroup options
+                                <optgroup 
+                                    key={option.group} 
+                                    label={option.group}>
+                                        {option.options.map((item) =>
+                                            <option 
+                                                key={item.value} 
+                                                value={item.value}>
+                                                {item.option}
+                                            </option>  
+                                        )}
+                                </optgroup>  
                             ))
                         )}
                 </select>
