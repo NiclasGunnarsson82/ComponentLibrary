@@ -26,6 +26,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
     const styles = {
         "--input-width": width ?? form.inputDefaultWidth,
         "--input-padding": form.inputPadding,
+        "--input-shadow": form.inputShadow,
         "--input-height": form.inputHeight,
         "--input-font-size": font.baseSize,
         "--font-family": font.fontfamily,

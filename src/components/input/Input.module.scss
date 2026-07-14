@@ -10,6 +10,7 @@
     font-family: var(--font-family);
     font-weight: var(--font-weight);
     border-color: var(--input-colour-enabled);
+    box-shadow: var(--input-shadow);
     
     &:focus { 
         border-color: var(--input-colour-focused);
