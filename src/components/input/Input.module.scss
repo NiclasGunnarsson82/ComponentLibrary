@@ -13,8 +13,7 @@
     box-shadow: var(--input-shadow);
     
     &:focus { 
-        border-color: var(--input-colour-focused);
-        outline: 1px solid var(--input-colour-focused);
+        outline: 1px solid var(--input-colour-enabled);
     }
 }
 

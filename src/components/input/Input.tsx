@@ -34,7 +34,6 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
         "--input-border-radius": form.inputBorderRadius,
         "--input-colour-error": colours.error,
         "--input-colour-enabled": colours.blue300,
-        "--input-colour-focused": colours.blue100,
     } as CSSProperties
 
     const inputClass =
