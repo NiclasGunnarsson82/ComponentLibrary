@@ -11,6 +11,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
         errorMessage,
         label,
         required,
+        options = [],
         ...props }, ref) => {
 
     const { colours, font, form } = useTheme()
@@ -44,7 +45,18 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
                     ref={ref}
                     className={selectClass}
                     style={styles}
-                    {...props}>   
+                    {...props}>
+                        {options.length === 0 ? (
+                            <option disabled selected>No options</option>
+                        ) : (
+                            options.map((option) => (
+                                <option 
+                                    key={option.value} 
+                                    value={option.value}>
+                                        {option.option}
+                                </option>
+                            ))
+                        )}
                 </select>
                 {errorMessage && state === "error" &&
                     <span className={scss.errorMessage}>
