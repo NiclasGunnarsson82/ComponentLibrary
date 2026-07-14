@@ -27,6 +27,7 @@ export const designTokens: IDesignTokens = {
     },
     form: {
         minWidth: "275px",
+        inputDefaultWidth: "100%",
         inputPadding: "6px 8px",
         inputHeight: "40px",
         inputBorderRadius: "6px",
