@@ -3,7 +3,8 @@ import { SelectHTMLAttributes } from "react"
 export type SelectStateType = "default" | "error"
 export type SelectOptionType = {
     option: string,
-    value: string
+    value: string,
+    optGroup?: string
 }
 
 export type SelectProps = SelectHTMLAttributes<HTMLSelectElement> & {
@@ -13,7 +14,8 @@ export type SelectProps = SelectHTMLAttributes<HTMLSelectElement> & {
     errorMessage?: string,
     width?: string,
     required?: boolean,
-    options: SelectOptionType[]
+    options: SelectOptionType[],
+    selected?: SelectOptionType
 }
 
 

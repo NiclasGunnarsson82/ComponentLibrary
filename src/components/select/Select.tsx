@@ -1,7 +1,7 @@
 import { CSSProperties, forwardRef } from "react";
 import { useTheme } from "@/utils/ThemeContext"
 import scss from "./Select.module.scss"
-import { SelectProps } from "./helpers";
+import { SelectOptionType, SelectProps } from "./helpers";
 
 export const Select = forwardRef<HTMLSelectElement, SelectProps>(
     ({  
@@ -12,6 +12,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
         label,
         required,
         options = [],
+        selected,
         ...props }, ref) => {
 
     const { colours, font, form } = useTheme()
@@ -29,9 +30,11 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
         "--input-colour-enabled": colours.blue300,
     } as CSSProperties
 
-    const selectClass =
-        state === "default" ? scss.select : scss.error;
+    const selectClass:string =
+        state === "default" ? scss.select : scss.error
 
+    const selectedValue: string = selected?.value ?? ""
+    
     return(
         <label 
             className={scss.label}
@@ -42,12 +45,13 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
                     {required && <strong> (required)</strong>}
                 </span>
                 <select
+                    value={selectedValue}
                     ref={ref}
                     className={selectClass}
                     style={styles}
                     {...props}>
                         {options.length === 0 ? (
-                            <option disabled selected>No options</option>
+                            <option disabled>No options</option>
                         ) : (
                             options.map((option) => (
                                 <option 
