@@ -1,6 +1,6 @@
 import { CSSProperties, forwardRef } from "react";
 import { useTheme } from "@/utils/ThemeContext"
-import scss from "./Select.module.scss"
+import scss from "./Checkbox.module.scss"
 import { CheckboxProps } from "./helpers";
 
 export const Checkbox = forwardRef<HTMLSelectElement, CheckboxProps>(
@@ -9,7 +9,6 @@ export const Checkbox = forwardRef<HTMLSelectElement, CheckboxProps>(
         label,
         state,
         required,
-        options = [],
         ...props }, ref) => {
 
     const { colours, font, form } = useTheme()

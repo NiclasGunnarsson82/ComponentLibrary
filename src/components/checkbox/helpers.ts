@@ -14,15 +14,19 @@ export type CheckboxNestedType = {
     checkboxes: CheckboxStandaloneType[]
 }
 
-type BaseCheckboxProps<Options> = InputHTMLAttributes<HTMLInputElement> & {
-    name: string;
-    label: string;
-    state: CheckboxStateType;
-    required?: boolean;
-    options: Options;
-};
+type BaseCheckboxProps<Key extends string, Value> =
+    InputHTMLAttributes<HTMLInputElement> & {
+        name: string;
+        label: string;
+        state: CheckboxStateType;
+        required?: boolean;
+    } & {
+        [K in Key]: Value;
+    };
 
-export type CheckboxProps = BaseCheckboxProps<CheckboxStandaloneType>;
-export type CheckboxListProps = BaseCheckboxProps<CheckboxListType>;
-export type NestedCheckboxProps = BaseCheckboxProps<CheckboxNestedType>;
+export type CheckboxProps = BaseCheckboxProps<"checkbox", CheckboxStandaloneType>;
+
+export type CheckboxListProps = BaseCheckboxProps<"checkboxes", CheckboxListType>;
+
+export type NestedCheckboxProps = BaseCheckboxProps<"checkboxes", CheckboxNestedType>;
 
