@@ -3,7 +3,7 @@ import { useTheme } from "@/utils/ThemeContext"
 import scss from "./Select.module.scss"
 import { CheckboxProps } from "./helpers";
 
-export const Checkbox = forwardRef<HTMLSelectElement, CheckboxProps>(
+export const CheckboxList = forwardRef<HTMLSelectElement, CheckboxProps>(
     ({  
         name,
         label,
@@ -38,12 +38,6 @@ export const Checkbox = forwardRef<HTMLSelectElement, CheckboxProps>(
                     {label}
                     {required && <strong> (required)</strong>}
                 </span>
-                <input
-                    className={checkboxClass}
-                    {...props} 
-                    type="checkbox" 
-                    name={name} 
-                    id={name} />
-        </label>       
+        </label>              
     )
 })

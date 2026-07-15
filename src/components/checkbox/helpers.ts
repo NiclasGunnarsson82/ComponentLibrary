@@ -1,6 +1,5 @@
 import { InputHTMLAttributes } from "react"
 
-export type CheckboxVariationType = "standalone" | "list" | "nested"
 export type CheckboxStateType = "default" | "error" 
 
 export type CheckboxStandaloneType = {
@@ -18,7 +17,6 @@ export type CheckboxNestedType = {
 export type CheckboxProps = InputHTMLAttributes<HTMLInputElement> & {
     name: string,
     label: string,
-    variation: CheckboxVariationType,
     state: CheckboxStateType,
     required?: boolean,
     options: CheckboxStandaloneType | CheckboxListType | CheckboxNestedType
