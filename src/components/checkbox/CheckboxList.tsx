@@ -1,9 +1,9 @@
 import { CSSProperties, forwardRef } from "react";
 import { useTheme } from "@/utils/ThemeContext"
 import scss from "./Select.module.scss"
-import { CheckboxProps } from "./helpers";
+import { CheckboxListProps } from "./helpers";
 
-export const CheckboxList = forwardRef<HTMLSelectElement, CheckboxProps>(
+export const CheckboxList = forwardRef<HTMLSelectElement, CheckboxListProps>(
     ({  
         name,
         label,
