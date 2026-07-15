@@ -9,6 +9,7 @@ export const Checkbox = forwardRef<HTMLSelectElement, CheckboxProps>(
         label,
         state,
         required,
+        checkbox,
         ...props }, ref) => {
 
     const { colours, font, form } = useTheme()

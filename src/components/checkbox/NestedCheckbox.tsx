@@ -9,6 +9,7 @@ export const NestedCheckbox = forwardRef<HTMLSelectElement, NestedCheckboxProps>
         label,
         state,
         required,
+        checkboxes,
         ...props }, ref) => {
 
     const { colours, font, form } = useTheme()

@@ -9,6 +9,7 @@ export const CheckboxList = forwardRef<HTMLSelectElement, CheckboxListProps>(
         label,
         state,
         required,
+        checkboxes,
         ...props }, ref) => {
 
     const { colours, font, form } = useTheme()
