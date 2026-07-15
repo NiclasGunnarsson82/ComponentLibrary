@@ -3,7 +3,7 @@ import { InputHTMLAttributes } from "react"
 export type CheckboxStateType = "default" | "error" 
 
 export type CheckboxStandaloneType = {
-    label: string,
+    option: string,
     value: string
 }
 export type CheckboxListType = {
@@ -11,7 +11,7 @@ export type CheckboxListType = {
 }
 export type CheckboxNestedType = {
     group: string,
-    options: CheckboxStandaloneType[]
+    checkboxes: CheckboxStandaloneType[]
 }
 
 type BaseCheckboxProps<Options> = InputHTMLAttributes<HTMLInputElement> & {
@@ -23,8 +23,6 @@ type BaseCheckboxProps<Options> = InputHTMLAttributes<HTMLInputElement> & {
 };
 
 export type CheckboxProps = BaseCheckboxProps<CheckboxStandaloneType>;
-
 export type CheckboxListProps = BaseCheckboxProps<CheckboxListType>;
-
 export type NestedCheckboxProps = BaseCheckboxProps<CheckboxNestedType>;
 
