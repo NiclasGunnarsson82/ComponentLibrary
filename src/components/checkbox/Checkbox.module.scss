@@ -1,0 +1,31 @@
+.select {
+    display: block;
+    height: var(--input-height);
+    width: 100%;
+    border-radius: var(--input-border-radius);
+    font-size: var(--input-font-size);
+    padding: var(--input-padding);
+    box-sizing: border-box;
+    font-family: var(--font-family);
+    font-weight: var(--font-weight);
+    border-color: var(--input-colour-enabled);
+    box-shadow: var(--input-shadow);
+}
+
+.label {
+    width: var(--input-width);
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    font-family: var(--font-family);
+    font-weight: var(--font-weight);
+    &strong {
+        display: inline-block;
+    }
+}
+
+.errorMessage {
+    color: var(--input-colour-error);
+    text-align: right;
+}
