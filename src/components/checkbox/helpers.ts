@@ -7,9 +7,6 @@ export type CheckboxStandaloneType = {
     value: string
 }
 export type CheckboxListType = {
-    checkboxes: CheckboxStandaloneType[]
-}
-export type CheckboxNestedType = {
     group: string,
     checkboxes: CheckboxStandaloneType[]
 }
@@ -28,5 +25,5 @@ export type CheckboxProps = BaseCheckboxProps<"checkbox", CheckboxStandaloneType
 
 export type CheckboxListProps = BaseCheckboxProps<"checkboxes", CheckboxListType>;
 
-export type NestedCheckboxProps = BaseCheckboxProps<"checkboxes", CheckboxNestedType>;
+export type NestedCheckboxProps = BaseCheckboxProps<"checkboxes", CheckboxListType>;
 
