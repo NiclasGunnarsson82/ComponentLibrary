@@ -36,7 +36,6 @@
     display: flex;
     align-items: center;
     flex-direction: row;
-    gap: 6px;
     font-family: var(--font-family);
     font-weight: var(--font-weight);
     user-select: none;
@@ -45,11 +44,17 @@
     }
 }
 
-.checkboxList {
+.checkboxList,
+.checkboxes {
     display: flex;
     align-items: flex-start;
     flex-direction: column;
     gap: 4px;
+}
+
+.checkboxes {
+    margin-left: 25px;
+    margin-top: 5px;
 }
 
 .errorMessage {
