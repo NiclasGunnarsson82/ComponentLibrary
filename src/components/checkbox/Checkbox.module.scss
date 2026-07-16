@@ -30,6 +30,28 @@
     }
 }
 
+.checkboxListLabel {
+    width: var(--input-width);
+    max-width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    gap: 6px;
+    font-family: var(--font-family);
+    font-weight: var(--font-weight);
+    user-select: none;
+    &strong {
+        display: inline-block;
+    }
+}
+
+.checkboxList {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 4px;
+}
+
 .errorMessage {
     color: var(--input-colour-error);
     text-align: right;
