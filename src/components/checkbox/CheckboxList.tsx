@@ -15,29 +15,43 @@ export const CheckboxList = forwardRef<HTMLSelectElement, CheckboxListProps>(
     const { colours, font, form } = useTheme()
 
     const styles = {
-        "--input-padding": form.inputPadding,
+         "--input-padding": form.inputPadding,
         "--input-shadow": form.inputShadow,
-        "--input-height": form.inputHeight,
+        "--checkbox-height": form.checkboxHeight,
+        "--checkbox-width": form.checkboxWidth,
         "--input-font-size": font.baseSize,
         "--font-family": font.fontfamily,
         "--font-weight": font.fontWeightRegular,
         "--input-border-radius": form.inputBorderRadius,
         "--input-colour-error": colours.error,
         "--input-colour-enabled": colours.blue300,
+        "--input-colour-active": colours.blue100
     } as CSSProperties
 
     const checkboxClass: string =
         state === "default" ? scss.select : scss.error
     
     return(
-        <label 
-            className={scss.label}
-            style={styles} 
-            htmlFor={name}>
-                <span>
-                    {label}
-                    {required && <strong> (required)</strong>}
-                </span>
-        </label>              
+        <div className={scss.checkboxList}>
+            <p><strong>{checkboxes.group}</strong></p>
+            {checkboxes.checkboxes.map((checkbox) =>{
+                return(
+                    <label 
+                        className={scss.checkboxListLabel}
+                        style={styles} 
+                        htmlFor={name}>
+                    <input 
+                        className={scss.checkbox}
+                        {...props} 
+                        style={styles}
+                        type="checkbox" 
+                        name={checkbox.option} 
+                        value={checkbox.value}
+                        id={name+checkbox.option} />
+                        {checkbox.option}
+                    </label> 
+                )
+            })}
+       </div>              
     )
 })
