@@ -1,22 +1,27 @@
-.select {
-    display: block;
-    height: var(--input-height);
-    width: 100%;
+.checkbox {
+    appearance: none;
+    -webkit-appearance: none;
+    width: var(--checkbox-width);
+    height: var(--checkbox-height);
+    inset: 0;
+    border: 2px solid var(--input-colour-enabled);
     border-radius: var(--input-border-radius);
-    font-size: var(--input-font-size);
-    padding: var(--input-padding);
-    box-sizing: border-box;
-    font-family: var(--font-family);
-    font-weight: var(--font-weight);
-    border-color: var(--input-colour-enabled);
     box-shadow: var(--input-shadow);
+    cursor: pointer;
+}
+
+.checkbox:checked {
+    border: 2px solid var(--input-colour-active);
+    background-color: var(--input-colour-active);
+    box-shadow: inset 0 0 0 3px white;
 }
 
 .label {
     width: var(--input-width);
     max-width: 100%;
     display: flex;
-    flex-direction: column;
+    align-items: center;
+    flex-direction: row;
     gap: 3px;
     font-family: var(--font-family);
     font-weight: var(--font-weight);
