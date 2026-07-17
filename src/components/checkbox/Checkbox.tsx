@@ -3,10 +3,8 @@ import { useTheme } from "@/utils/ThemeContext"
 import scss from "./Checkbox.module.scss"
 import { CheckboxProps } from "./helpers";
 
-export const Checkbox = forwardRef<HTMLSelectElement, CheckboxProps>(
+export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
     ({  
-        name,
-        label,
         state,
         required,
         checkbox,
@@ -25,7 +23,7 @@ export const Checkbox = forwardRef<HTMLSelectElement, CheckboxProps>(
         "--input-border-radius": form.inputBorderRadius,
         "--input-colour-error": colours.error,
         "--input-colour-enabled": colours.blue300,
-        "--input-colour-active": colours.blue100,
+        "--input-colour-active": colours.blue100
     } as CSSProperties
 
     const checkboxClass: string =
@@ -35,14 +33,15 @@ export const Checkbox = forwardRef<HTMLSelectElement, CheckboxProps>(
         <label 
             className={scss.label}
             style={styles} 
-            htmlFor={name}>
+            htmlFor={checkbox.option.toLowerCase()}>
                 <input 
+                    ref={ref}
                     className={scss.checkbox}
                     {...props} 
                     type="checkbox" 
-                    name={name} 
-                    id={name} />
-            {label}                
+                    name={checkbox.option.toLowerCase()}
+                    value={checkbox.value}/>
+                {checkbox.option}               
         </label>       
     )
 })

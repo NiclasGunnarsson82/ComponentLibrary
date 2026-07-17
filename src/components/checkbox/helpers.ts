@@ -11,6 +11,12 @@ export type CheckboxListType = {
     checkboxes: CheckboxStandaloneType[]
 }
 
+export type CheckboxProps = {
+    state: CheckboxStateType;
+    required?: boolean;
+    checkbox: CheckboxStandaloneType
+}
+
 type BaseCheckboxProps<Key extends string, Value> =
     InputHTMLAttributes<HTMLInputElement> & {
         state: CheckboxStateType;
@@ -20,8 +26,6 @@ type BaseCheckboxProps<Key extends string, Value> =
     } & {
         [K in Key]: Value;
     };
-
-export type CheckboxProps = BaseCheckboxProps<"checkbox", CheckboxStandaloneType>;
 
 export type CheckboxGroupProps = BaseCheckboxProps<"checkboxes", CheckboxListType>;
 
