@@ -21,7 +21,6 @@ type BaseCheckboxProps<Key extends string, Value> =
 
 export type CheckboxProps = BaseCheckboxProps<"checkbox", CheckboxStandaloneType>;
 
-export type CheckboxListProps = BaseCheckboxProps<"checkboxes", CheckboxListType>;
+export type CheckboxGroupProps = BaseCheckboxProps<"checkboxes", CheckboxListType>;
 
-export type NestedCheckboxProps = BaseCheckboxProps<"checkboxes", CheckboxListType>;
 
