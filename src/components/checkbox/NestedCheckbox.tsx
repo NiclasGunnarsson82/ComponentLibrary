@@ -1,4 +1,4 @@
-import { CSSProperties, forwardRef } from "react";
+import { ChangeEvent, CSSProperties, forwardRef } from "react";
 import { useTheme } from "@/utils/ThemeContext"
 import scss from "./Checkbox.module.scss"
 import { CheckboxGroupProps } from "./helpers";
@@ -6,6 +6,8 @@ import { CheckboxGroupProps } from "./helpers";
 export const NestedCheckbox = forwardRef<HTMLSelectElement, CheckboxGroupProps>(
     ({  
         state,
+        selected,
+        setSelected,
         required,
         checkboxes}, ref) => {
 
@@ -30,6 +32,25 @@ export const NestedCheckbox = forwardRef<HTMLSelectElement, CheckboxGroupProps>(
 
     const prefix: string = checkboxes.group.toLowerCase()+"-"
     const main: string = prefix+"main"
+
+    const updateAll = (event: ChangeEvent<HTMLInputElement>) => {
+        const checked: boolean = event.target.checked
+        if (checked) {
+            const all = checkboxes.checkboxes.map(
+            checkbox => checkbox.value) 
+            setSelected(all)  
+        } else {
+            setSelected([]) 
+        }     
+    }
+    const updateSelected = (event: ChangeEvent<HTMLInputElement>) => {
+        const value: string = event.target.value
+        const checked: boolean = event.target.checked
+        if (checked && !selected.includes(value))  
+            setSelected(current => [...current, value])     
+        if (!checked)  
+            setSelected(current => current.filter(item => item !== value))    
+    }
       
     return(
         <div className={scss.checkboxList}>
@@ -38,28 +59,31 @@ export const NestedCheckbox = forwardRef<HTMLSelectElement, CheckboxGroupProps>(
                 style={styles} 
                 htmlFor={main}>
                     <input 
+                        onChange={updateAll}
                         className={scss.checkbox}
                         style={styles}
                         type="checkbox" 
                         name={main} 
-                        id={main}
-                        value="all"/>
+                        id={main}/>
                 {checkboxes.group}
             </label>
             <div className={scss.checkboxes}>
                 {checkboxes.checkboxes.map((checkbox) => {
                     let identifier: string = prefix+checkbox.option.toLowerCase()
+                    let isSelected: boolean = selected.includes(checkbox.value) ?? false
                     return(
                         <label 
                             className={scss.checkboxListLabel}
                             style={styles} 
                             htmlFor={identifier}>
-                            <input 
+                            <input
+                                onChange={updateSelected} 
                                 className={scss.checkbox}
                                 style={styles}
                                 type="checkbox" 
                                 name={identifier} 
                                 id={identifier}
+                                checked={isSelected}
                                 value={checkbox.value}/>
                                     {checkbox.option}
                         </label> 
