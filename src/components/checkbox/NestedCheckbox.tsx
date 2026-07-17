@@ -63,8 +63,7 @@ export const NestedCheckbox =
                         className={scss.checkbox}
                         style={styles}
                         type="checkbox" 
-                        name={main} 
-                        id={main}/>
+                        name={main}/>
                 {checkboxes.group}
             </label>
             <div className={scss.checkboxes}>
@@ -82,7 +81,6 @@ export const NestedCheckbox =
                                 style={styles}
                                 type="checkbox" 
                                 name={identifier} 
-                                id={identifier}
                                 checked={isSelected}
                                 value={checkbox.value}/>
                                     {checkbox.option}
