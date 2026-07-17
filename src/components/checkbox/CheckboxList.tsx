@@ -1,16 +1,17 @@
-import { ChangeEventHandler, CSSProperties, forwardRef, useState } from "react";
+import {  CSSProperties } from "react";
 import { useTheme } from "@/utils/ThemeContext"
 import scss from "./Checkbox.module.scss"
 import { CheckboxGroupProps } from "./helpers";
 
-export const CheckboxList = forwardRef<HTMLSelectElement, CheckboxGroupProps>(
+export const CheckboxList =
     ({  
         state,
         selected,
         setSelected,
         required,
         checkboxes,
-        ...props }, ref) => {
+        ...props 
+    }: CheckboxGroupProps) => {
 
     const { colours, font, form } = useTheme()
 
@@ -66,4 +67,4 @@ export const CheckboxList = forwardRef<HTMLSelectElement, CheckboxGroupProps>(
             })}
        </div>              
     )
-})
+}
