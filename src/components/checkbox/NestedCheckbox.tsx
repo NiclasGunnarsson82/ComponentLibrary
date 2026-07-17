@@ -3,13 +3,13 @@ import { useTheme } from "@/utils/ThemeContext"
 import scss from "./Checkbox.module.scss"
 import { CheckboxGroupProps } from "./helpers";
 
-export const NestedCheckbox = forwardRef<HTMLSelectElement, CheckboxGroupProps>(
+export const NestedCheckbox = 
     ({  
         state,
         selected,
         setSelected,
         required,
-        checkboxes}, ref) => {
+        checkboxes}: CheckboxGroupProps) => {
 
     const { colours, font, form } = useTheme()
 
@@ -92,4 +92,4 @@ export const NestedCheckbox = forwardRef<HTMLSelectElement, CheckboxGroupProps>(
             </div>  
        </div>              
     )
-})
+}
