@@ -32,6 +32,7 @@ export const NestedCheckbox =
 
     const prefix: string = checkboxes.group.toLowerCase()+"-"
     const main: string = prefix+"main"
+    const mainIsChecked: boolean = checkboxes.checkboxes.length == selected.length ? true : false
 
     const updateAll = (event: ChangeEvent<HTMLInputElement>) => {
         const checked: boolean = event.target.checked
@@ -54,6 +55,7 @@ export const NestedCheckbox =
       
     return(
         <div className={scss.checkboxList}>
+            <p><strong>{checkboxes.group}</strong></p>
             <label 
                 className={scss.checkboxListLabel}
                 style={styles} 
@@ -63,8 +65,12 @@ export const NestedCheckbox =
                         className={scss.checkbox}
                         style={styles}
                         type="checkbox" 
-                        name={main}/>
-                {checkboxes.group}
+                        name={main}
+                        checked={mainIsChecked}/>
+                {mainIsChecked 
+                    ? "Deselect all"
+                    : "Select all"
+                }
             </label>
             <div className={scss.checkboxes}>
                 {checkboxes.checkboxes.map((checkbox) => {
