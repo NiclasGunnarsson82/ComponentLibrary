@@ -5,8 +5,6 @@ import { NestedCheckboxProps } from "./helpers";
 
 export const NestedCheckbox = forwardRef<HTMLSelectElement, NestedCheckboxProps>(
     ({  
-        name,
-        label,
         state,
         required,
         checkboxes}, ref) => {
@@ -30,37 +28,39 @@ export const NestedCheckbox = forwardRef<HTMLSelectElement, NestedCheckboxProps>
     const checkboxClass: string =
         state === "default" ? scss.select : scss.error
 
-    const main: string = checkboxes.group + "-main"
-    
+    const prefix: string = checkboxes.group.toLowerCase()+"-"
+    const main: string = prefix+"main"
+      
     return(
         <div className={scss.checkboxList}>
             <label 
                 className={scss.checkboxListLabel}
                 style={styles} 
-                htmlFor={name}>
+                htmlFor={main}>
                     <input 
                         className={scss.checkbox}
                         style={styles}
                         type="checkbox" 
                         name={main} 
-                        value="all"
-                        id={main} />
-                    {label}
+                        id={main}
+                        value="all"/>
+                {checkboxes.group}
             </label>
             <div className={scss.checkboxes}>
                 {checkboxes.checkboxes.map((checkbox) => {
+                    let identifier: string = prefix+checkbox.option.toLowerCase()
                     return(
                         <label 
                             className={scss.checkboxListLabel}
                             style={styles} 
-                            htmlFor={name}>
+                            htmlFor={identifier}>
                             <input 
                                 className={scss.checkbox}
                                 style={styles}
                                 type="checkbox" 
-                                name={checkbox.option} 
-                                value={checkbox.value}
-                                id={name+checkbox.option}/>
+                                name={identifier} 
+                                id={identifier}
+                                value={checkbox.value}/>
                                     {checkbox.option}
                         </label> 
                         )
