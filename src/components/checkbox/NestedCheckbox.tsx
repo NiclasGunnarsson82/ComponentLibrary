@@ -28,7 +28,7 @@ export const NestedCheckbox =
     } as CSSProperties
 
     const checkboxClass: string =
-        state === "default" ? scss.select : scss.error
+        state === "default" ? scss.checkbox : scss.error
 
     const prefix: string = checkboxes.group.toLowerCase()+"-"
     const main: string = prefix+"main"
@@ -65,7 +65,7 @@ export const NestedCheckbox =
                 htmlFor={main}>
                     <input 
                         onChange={updateAll}
-                        className={scss.checkbox}
+                        className={checkboxClass}
                         style={styles}
                         type="checkbox" 
                         name={main}
@@ -86,7 +86,7 @@ export const NestedCheckbox =
                             htmlFor={identifier}>
                             <input
                                 onChange={updateSelected} 
-                                className={scss.checkbox}
+                                className={checkboxClass}
                                 style={styles}
                                 type="checkbox" 
                                 name={identifier} 

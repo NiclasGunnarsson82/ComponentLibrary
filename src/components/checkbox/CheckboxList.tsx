@@ -30,7 +30,7 @@ export const CheckboxList =
     } as CSSProperties
 
     const checkboxClass: string =
-        state === "default" ? scss.select : scss.error
+        state === "default" ? scss.checkbox : scss.error
     const prefix: string = checkboxes.group.toLowerCase()+"-"
 
     const updateSelected = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -59,7 +59,7 @@ export const CheckboxList =
                         onChange={updateSelected}
                         type="checkbox"
                         style={styles}
-                        className={scss.checkbox}
+                        className={checkboxClass}
                         name={identifier} 
                         value={checkbox.value}
                         {...props}/>
