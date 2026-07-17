@@ -1,4 +1,4 @@
-import { InputHTMLAttributes } from "react"
+import { Dispatch, InputHTMLAttributes, SetStateAction } from "react"
 
 export type CheckboxStateType = "default" | "error" 
 
@@ -14,6 +14,8 @@ export type CheckboxListType = {
 type BaseCheckboxProps<Key extends string, Value> =
     InputHTMLAttributes<HTMLInputElement> & {
         state: CheckboxStateType;
+        selected: string[],
+        setSelected: Dispatch<SetStateAction<string[]>>,
         required?: boolean;
     } & {
         [K in Key]: Value;

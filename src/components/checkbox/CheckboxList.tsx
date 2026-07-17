@@ -1,4 +1,4 @@
-import { CSSProperties, forwardRef } from "react";
+import { ChangeEventHandler, CSSProperties, forwardRef, useState } from "react";
 import { useTheme } from "@/utils/ThemeContext"
 import scss from "./Checkbox.module.scss"
 import { CheckboxGroupProps } from "./helpers";
@@ -6,6 +6,8 @@ import { CheckboxGroupProps } from "./helpers";
 export const CheckboxList = forwardRef<HTMLSelectElement, CheckboxGroupProps>(
     ({  
         state,
+        selected,
+        setSelected,
         required,
         checkboxes,
         ...props }, ref) => {
@@ -29,6 +31,15 @@ export const CheckboxList = forwardRef<HTMLSelectElement, CheckboxGroupProps>(
     const checkboxClass: string =
         state === "default" ? scss.select : scss.error
     const prefix: string = checkboxes.group.toLowerCase()+"-"
+
+    const updateSelected = (event: React.ChangeEvent<HTMLInputElement>) => {
+        const value: string = event.target.value
+        const checked: boolean = event.target.checked
+        if (checked && !selected.includes(value))  
+            setSelected(current => [...current, value])     
+        if (!checked)  
+            setSelected(current => current.filter(item => item !== value))    
+    }
     
     return(
         <div className={scss.checkboxList}>
@@ -41,6 +52,7 @@ export const CheckboxList = forwardRef<HTMLSelectElement, CheckboxGroupProps>(
                         style={styles} 
                         htmlFor={identifier}>
                     <input 
+                        onChange={updateSelected}
                         type="checkbox"
                         style={styles}
                         className={scss.checkbox}
