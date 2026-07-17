@@ -1,4 +1,4 @@
-import { ChangeEvent, CSSProperties, forwardRef } from "react";
+import { ChangeEvent, CSSProperties } from "react";
 import { useTheme } from "@/utils/ThemeContext"
 import scss from "./Checkbox.module.scss"
 import { CheckboxGroupProps } from "./helpers";
