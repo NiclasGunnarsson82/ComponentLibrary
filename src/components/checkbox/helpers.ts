@@ -13,8 +13,6 @@ export type CheckboxListType = {
 
 type BaseCheckboxProps<Key extends string, Value> =
     InputHTMLAttributes<HTMLInputElement> & {
-        name: string;
-        label: string;
         state: CheckboxStateType;
         required?: boolean;
     } & {

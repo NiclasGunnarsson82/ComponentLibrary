@@ -5,8 +5,6 @@ import { CheckboxListProps } from "./helpers";
 
 export const CheckboxList = forwardRef<HTMLSelectElement, CheckboxListProps>(
     ({  
-        name,
-        label,
         state,
         required,
         checkboxes,
@@ -30,24 +28,26 @@ export const CheckboxList = forwardRef<HTMLSelectElement, CheckboxListProps>(
 
     const checkboxClass: string =
         state === "default" ? scss.select : scss.error
+    const prefix: string = checkboxes.group.toLowerCase()+"-"
     
     return(
         <div className={scss.checkboxList}>
             <p><strong>{checkboxes.group}</strong></p>
-            {checkboxes.checkboxes.map((checkbox) =>{
+            {checkboxes.checkboxes.map((checkbox) => {
+                let identifier: string = prefix+checkbox.option.toLowerCase()
                 return(
                     <label 
                         className={scss.checkboxListLabel}
                         style={styles} 
-                        htmlFor={name}>
+                        htmlFor={identifier}>
                     <input 
-                        className={scss.checkbox}
-                        {...props} 
+                        type="checkbox"
                         style={styles}
-                        type="checkbox" 
-                        name={checkbox.option} 
+                        className={scss.checkbox}
+                        name={identifier} 
+                        id={identifier}
                         value={checkbox.value}
-                        id={name+checkbox.option} />
+                        {...props}/>
                         {checkbox.option}
                     </label> 
                 )
