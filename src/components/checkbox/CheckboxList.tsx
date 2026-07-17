@@ -58,7 +58,6 @@ export const CheckboxList =
                         style={styles}
                         className={scss.checkbox}
                         name={identifier} 
-                        id={identifier}
                         value={checkbox.value}
                         {...props}/>
                         {checkbox.option}
