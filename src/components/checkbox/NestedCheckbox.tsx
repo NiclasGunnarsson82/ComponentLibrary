@@ -56,8 +56,8 @@ export const NestedCheckbox =
     return(
         <div className={scss.checkboxList}>
             <p>
+                {required && <strong>*</strong>}
                 {checkboxes.group}
-                <strong>{required && " (required)"}</strong> 
             </p>
             <label 
                 className={scss.checkboxListLabel}

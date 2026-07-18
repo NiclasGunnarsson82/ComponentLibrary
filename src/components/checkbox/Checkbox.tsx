@@ -41,6 +41,7 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
                     type="checkbox" 
                     name={checkbox.option.toLowerCase()}
                     value={checkbox.value}/>
+                {required && <strong>*</strong>}
                 {checkbox.option}               
         </label>       
     )

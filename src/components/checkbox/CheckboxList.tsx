@@ -45,8 +45,8 @@ export const CheckboxList =
     return(
         <div className={scss.checkboxList}>
             <p>
+                {required && <strong>*</strong>}
                 {checkboxes.group}
-                <strong>{required && " (required)"}</strong> 
             </p>
             {checkboxes.checkboxes.map((checkbox) => {
                 let identifier: string = prefix+checkbox.option.toLowerCase()
