@@ -40,8 +40,8 @@ export const DataList = forwardRef<HTMLDataListElement, DataListProps>(
                 style={styles} 
                 htmlFor={inputName}>
                     <span>
+                        {required && <strong>*</strong>}
                         {label}
-                        {required && <strong> (required)</strong>}
                     </span>
                 <input 
                     className={DataListClass}

@@ -42,8 +42,8 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
             style={styles} 
             htmlFor={name}>
                 <span>
+                    {required && <strong>*</strong>}
                     {label}
-                    {required && <strong> (required)</strong>}
                 </span>
                 <select
                     value={selectedValue}

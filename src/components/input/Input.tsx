@@ -45,8 +45,8 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
             style={styles} 
             htmlFor={name}>
                 <span>
-                     {label}
-                    {required && <strong> (required)</strong>}
+                    {required && <strong>*</strong>}
+                    {label}
                 </span>
                 <input 
                     className={inputClass}
