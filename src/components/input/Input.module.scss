@@ -9,18 +9,17 @@
     box-sizing: border-box;
     font-family: var(--font-family);
     font-weight: var(--font-weight);
-    border-color: var(--input-colour-enabled);
+    border: 1px solid var(--input-colour-default);
     box-shadow: var(--input-shadow);
     
     &:focus { 
-        outline: 1px solid var(--input-colour-enabled);
+        outline: 2px solid var(--input-colour-focus);
     }
 }
 
 .error {
-    border-color: var(--input-colour-error);
     &:focus {
-        outline: 1px solid var(--input-colour-error);
+        outline: 2px solid var(--input-colour-error);
     }
 }
 

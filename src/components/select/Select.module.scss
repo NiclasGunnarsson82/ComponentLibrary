@@ -8,7 +8,7 @@
     box-sizing: border-box;
     font-family: var(--font-family);
     font-weight: var(--font-weight);
-    border-color: var(--input-colour-enabled);
+    border: 1px solid var(--input-colour-default);
     box-shadow: var(--input-shadow);
 }
 

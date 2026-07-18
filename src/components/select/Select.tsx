@@ -27,7 +27,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
         "--font-weight": font.fontWeightRegular,
         "--input-border-radius": form.inputBorderRadius,
         "--input-colour-error": colours.error,
-        "--input-colour-enabled": colours.blue300,
+        "--input-colour-default": colours.inputDefault,
     } as CSSProperties
 
     const selectClass:string =

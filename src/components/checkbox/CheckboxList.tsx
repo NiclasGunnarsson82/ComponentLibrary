@@ -25,7 +25,7 @@ export const CheckboxList =
         "--font-weight": font.fontWeightRegular,
         "--input-border-radius": form.inputBorderRadius,
         "--input-colour-error": colours.error,
-        "--input-colour-enabled": colours.blue300,
+        "--input-colour-default": colours.inputDefault,
         "--input-colour-active": colours.blue100
     } as CSSProperties
 

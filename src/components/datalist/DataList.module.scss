@@ -10,14 +10,13 @@
     font-family: var(--font-family);
     font-weight: var(--font-weight);
     box-shadow: var(--input-shadow);
-    border-color: var(--input-colour-enabled);
+    border: 1px solid var(--input-colour-default);
     &:focus { 
-        outline: 1px solid var(--input-colour-enabled);
+        outline: 2px solid var(--input-colour-focus);
     }
 }
 
 .error {
-    border-color: var(--input-colour-error);
     &:focus {
         outline: 1px solid var(--input-colour-error);
     }
