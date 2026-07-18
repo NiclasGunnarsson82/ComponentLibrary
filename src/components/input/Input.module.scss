@@ -18,8 +18,9 @@
 }
 
 .error {
+    border: 2px solid var(--input-colour-error);
     &:focus {
-        outline: 2px solid var(--input-colour-error);
+        outline: none
     }
 }
 
