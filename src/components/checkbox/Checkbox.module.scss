@@ -1,38 +1,80 @@
-.checkbox,
-.error {
-    appearance: none;
-    -webkit-appearance: none;
-    width: var(--checkbox-width);
+.container {
     height: var(--checkbox-height);
-    inset: 0;
-    border: 1px solid var(--input-colour-default);
-    border-radius: var(--input-border-radius);
-    box-shadow: var(--input-shadow);
-    cursor: pointer;
-}
-
-.error {
-    border: 2px solid var(--input-colour-error);
-}
-
-.checkbox:checked {
-    border: 2px solid var(--input-colour-active);
-    background-color: var(--input-colour-active);
-    box-shadow: inset 0 0 0 3px white;
-}
-
-.label {
-    width: var(--input-width);
-    max-width: 100%;
     display: flex;
     align-items: center;
-    flex-direction: row;
-    gap: 3px;
+    position: relative;
+    z-index: 1;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
     font-family: var(--font-family);
-    font-weight: var(--font-weight);
-    &strong {
-        display: inline-block;
-    }
+    font-size: var(--input-font-size);
+}
+
+.container input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    opacity: 0;
+    cursor: pointer;
+    height: var(--checkbox-height);
+    width: var(--checkbox-width);
+}
+
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: var(--checkbox-height);
+    width: var(--checkbox-width);
+    border: 1px solid var(--input-colour-default);
+    box-shadow: var(--input-shadow);
+    border-radius: var(--input-border-radius);
+}
+
+.container input:hover ~ .checkmark {
+    border: 2px solid var(--input-colour-hover);
+}
+
+.container input:checked ~ .checkmark {
+    background-color: var(--input-colour-success);
+    border-color: var(--input-colour-success);
+}
+
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+.container input:checked ~ .checkmark:after {
+    display: block;
+}
+
+.container input:checked ~ .checkmark:after {
+    display: block;
+}
+
+.container input:checked:hover ~ .checkmark {
+    border: 1px solid var(--input-colour-success)
+}
+
+.container .checkmark:after {
+    left: 7px;
+    top: 3px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
 }
 
 .checkboxListLabel {
