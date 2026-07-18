@@ -1,4 +1,4 @@
-.container {
+.checkbox {
     height: var(--checkbox-height);
     display: flex;
     align-items: center;
@@ -16,7 +16,7 @@
     font-size: var(--input-font-size);
 }
 
-.container input {
+.checkbox input {
     position: absolute;
     top: 0;
     left: 0;
@@ -38,11 +38,11 @@
     border-radius: var(--input-border-radius);
 }
 
-.container input:hover ~ .checkmark {
+.checkbox input:hover ~ .checkmark {
     border: 2px solid var(--input-colour-hover);
 }
 
-.container input:checked ~ .checkmark {
+.checkbox input:checked ~ .checkmark {
     background-color: var(--input-colour-success);
     border-color: var(--input-colour-success);
 }
@@ -53,42 +53,28 @@
     display: none;
 }
 
-.container input:checked ~ .checkmark:after {
+.checkbox input:checked ~ .checkmark:after {
     display: block;
 }
 
-.container input:checked ~ .checkmark:after {
+.checkbox input:checked ~ .checkmark:after {
     display: block;
 }
 
-.container input:checked:hover ~ .checkmark {
+.checkbox input:checked:hover ~ .checkmark {
     border: 1px solid var(--input-colour-success)
 }
 
-.container .checkmark:after {
-    left: 7px;
+.checkbox .checkmark:after {
+    left: 8px;
     top: 3px;
     width: 5px;
     height: 10px;
     border: solid white;
-    border-width: 0 3px 3px 0;
+    border-width: 0 2px 2px 0;
     -webkit-transform: rotate(45deg);
     -ms-transform: rotate(45deg);
     transform: rotate(45deg);
-}
-
-.checkboxListLabel {
-    width: var(--input-width);
-    max-width: 100%;
-    display: flex;
-    align-items: center;
-    flex-direction: row;
-    font-family: var(--font-family);
-    font-weight: var(--font-weight);
-    user-select: none;
-    &strong {
-        display: inline-block;
-    }
 }
 
 .checkboxList,

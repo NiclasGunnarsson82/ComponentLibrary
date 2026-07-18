@@ -16,7 +16,7 @@ export const CheckboxList =
     const { colours, font, form } = useTheme()
 
     const styles = {
-         "--input-padding": form.inputPadding,
+        "--input-padding": form.inputPadding,
         "--input-shadow": form.inputShadow,
         "--checkbox-height": form.checkboxHeight,
         "--checkbox-width": form.checkboxWidth,
@@ -25,12 +25,11 @@ export const CheckboxList =
         "--font-weight": font.fontWeightRegular,
         "--input-border-radius": form.inputBorderRadius,
         "--input-colour-error": colours.error,
+        "--input-colour-hover": colours.blue200,
         "--input-colour-default": colours.inputDefault,
-        "--input-colour-active": colours.blue100
+        "--input-colour-success": colours.success
     } as CSSProperties
 
-    const checkboxClass: string =
-        state === "default" ? scss.checkbox : scss.error
     const prefix: string = checkboxes.group.toLowerCase()+"-"
 
     const updateSelected = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -52,17 +51,16 @@ export const CheckboxList =
                 let identifier: string = prefix+checkbox.option.toLowerCase()
                 return(
                     <label 
-                        className={scss.checkboxListLabel}
+                        className={scss.checkbox}
                         style={styles} 
                         htmlFor={identifier}>
-                    <input 
-                        onChange={updateSelected}
-                        type="checkbox"
-                        style={styles}
-                        className={checkboxClass}
-                        name={identifier} 
-                        value={checkbox.value}
-                        {...props}/>
+                        <input 
+                            onChange={updateSelected}
+                            type="checkbox"
+                            name={identifier} 
+                            value={checkbox.value}
+                            {...props}/>
+                        <span className={scss.checkmark}></span>
                         {checkbox.option}
                     </label> 
                 )

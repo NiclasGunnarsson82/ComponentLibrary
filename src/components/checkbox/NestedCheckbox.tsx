@@ -23,8 +23,9 @@ export const NestedCheckbox =
         "--font-weight": font.fontWeightRegular,
         "--input-border-radius": form.inputBorderRadius,
         "--input-colour-error": colours.error,
+        "--input-colour-hover": colours.blue200,
         "--input-colour-default": colours.inputDefault,
-        "--input-colour-active": colours.blue100
+        "--input-colour-success": colours.success
     } as CSSProperties
 
     const checkboxClass: string =
@@ -60,20 +61,19 @@ export const NestedCheckbox =
                 {checkboxes.group}
             </p>
             <label 
-                className={scss.checkboxListLabel}
+                className={scss.checkbox}
                 style={styles} 
                 htmlFor={main}>
                     <input 
                         onChange={updateAll}
-                        className={checkboxClass}
-                        style={styles}
                         type="checkbox" 
                         name={main}
                         checked={mainIsChecked}/>
-                {mainIsChecked 
-                    ? "Deselect all"
-                    : "Select all"
-                }
+                            <span className={scss.checkmark}></span>
+                            {mainIsChecked 
+                                ? "Deselect all"
+                                : "Select all"
+                            }
             </label>
             <div className={scss.checkboxes}>
                 {checkboxes.checkboxes.map((checkbox) => {
@@ -81,17 +81,16 @@ export const NestedCheckbox =
                     let isSelected: boolean = selected.includes(checkbox.value) ?? false
                     return(
                         <label 
-                            className={scss.checkboxListLabel}
+                            className={scss.checkbox}
                             style={styles} 
                             htmlFor={identifier}>
                             <input
                                 onChange={updateSelected} 
-                                className={checkboxClass}
-                                style={styles}
                                 type="checkbox" 
                                 name={identifier} 
                                 checked={isSelected}
                                 value={checkbox.value}/>
+                                <span className={scss.checkmark}></span>
                                     {checkbox.option}
                         </label> 
                         )

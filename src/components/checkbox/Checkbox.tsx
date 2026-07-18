@@ -22,27 +22,25 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
         "--font-weight": font.fontWeightRegular,
         "--input-border-radius": form.inputBorderRadius,
         "--input-colour-error": colours.error,
+        "--input-colour-hover": colours.blue200,
         "--input-colour-default": colours.inputDefault,
-        "--input-colour-active": colours.blue100
+        "--input-colour-success": colours.success
     } as CSSProperties
-
-    const checkboxClass: string =
-        state === "default" ? scss.checkbox : scss.error
     
     return(
         <label 
-            className={scss.label}
+            className={scss.checkbox}
             style={styles} 
             htmlFor={checkbox.option.toLowerCase()}>
                 <input 
                     ref={ref}
-                    className={checkboxClass}
                     {...props} 
                     type="checkbox" 
                     name={checkbox.option.toLowerCase()}
                     value={checkbox.value}/>
+                    <span className={scss.checkmark}></span>
                 {required && <strong>*</strong>}
                 {checkbox.option}               
-        </label>       
+        </label>  
     )
 })
