@@ -2,19 +2,19 @@ import { ChangeEvent, Dispatch, InputHTMLAttributes, SetStateAction } from "reac
 
 export type CheckboxStateType = "default" | "error" 
 
-export type CheckboxStandaloneType = {
+export type CheckboxType = {
     option: string,
     value: string
 }
 export type CheckboxListType = {
     group: string,
-    checkboxes: CheckboxStandaloneType[]
+    checkboxes: CheckboxType[]
 }
 
 export type CheckboxProps = {
     state: CheckboxStateType;
     required?: boolean;
-    checkbox: CheckboxStandaloneType
+    checkbox: CheckboxType
 }
 
 type BaseCheckboxProps<Key extends string, Value> =
@@ -77,7 +77,7 @@ export const updateSelected = (
 export const updateAll = (
     event: ChangeEvent<HTMLInputElement>,
     setSelected:Dispatch<SetStateAction<string[]>>,
-    checkboxes: CheckboxStandaloneType[]
+    checkboxes: CheckboxType[]
 ) => {
         const checked: boolean = event.target.checked
         if (checked) {
