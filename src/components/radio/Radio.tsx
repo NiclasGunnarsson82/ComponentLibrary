@@ -21,37 +21,39 @@ export const Radio = forwardRef<HTMLInputElement, RadioProps>(
         "--input-width": width ?? form.inputDefaultWidth,
         "--input-padding": form.inputPadding,
         "--input-shadow": form.inputShadow,
-        "--input-height": form.inputHeight,
-        "--input-font-size": font.baseSize,
+        "--radio-width": form.radioWidth,
+        "--radio-height": form.radioHeight,
         "--font-family": font.fontfamily,
         "--font-weight": font.fontWeightRegular,
-        "--input-border-radius": form.inputBorderRadius,
+        "--input-colour-hover": colours.blue200,
         "--input-colour-error": colours.error,
-        "--input-colour-enabled": colours.blue300,
+        "--input-colour-active": colours.blue100,
+        "--input-colour-default": colours.inputDefault,
     } as CSSProperties
 
     const selectClass: string =
-        state === "default" ? scss.select : scss.error
+        state === "default" ? scss.radio : scss.error
     
     return(
         <div className={scss.radioList}>
-        {items.map((item) => {
-            return(
-                <label 
-                    className={scss.checkbox}
-                    style={styles} 
-                    htmlFor={item.id}>
-                    <input
-                        type="radio"
-                        id={item.id}
-                        name={item.name} 
-                        value={item.value}
-                        {...props}/>
-                        <span className={scss.checkmark}></span>
-                    {item.value}
-                </label> 
-            )
-        })}
+            {items.map((item) => {
+                return(
+                    <label 
+                        className={scss.label}
+                        style={styles} 
+                        htmlFor={item.id}>
+                            <input
+                                className={scss.radio}
+                                style={styles} 
+                                type="radio"
+                                id={item.id}
+                                name={item.name} 
+                                value={item.value}
+                                {...props}/>
+                                {item.value}
+                    </label> 
+                )
+            })}
         </div>     
     )
 })
