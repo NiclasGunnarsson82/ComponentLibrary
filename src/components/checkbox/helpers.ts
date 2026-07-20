@@ -29,4 +29,35 @@ type BaseCheckboxProps<Key extends string, Value> =
 
 export type CheckboxGroupProps = BaseCheckboxProps<"checkboxes", CheckboxListType>;
 
+type ConfigMainCheckboxType = {
+    mainIsChecked: boolean,
+    class: string
+}
+
+export const configureCheckbox = (
+    numberOptions: number, 
+    numberSelected: number,
+    scss: Record<string, string>): ConfigMainCheckboxType => {
+    
+    let object: ConfigMainCheckboxType = {
+        mainIsChecked: false,
+        class: ""
+    }
+
+    if (numberOptions == numberSelected) {
+        object.mainIsChecked = true;
+        object.class = scss.checkmark
+    }
+    if (numberSelected < numberOptions && numberSelected > 0) {
+        object.mainIsChecked = true;
+        object.class = scss.checkmarkPartial
+    }
+    if (numberSelected == 0) {
+        object.mainIsChecked = false;
+        object.class = scss.checkmark
+    }
+
+    return object
+      
+}
 

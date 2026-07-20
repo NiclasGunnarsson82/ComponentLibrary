@@ -1,7 +1,7 @@
 import { ChangeEvent, CSSProperties } from "react";
 import { useTheme } from "@/utils/ThemeContext"
 import scss from "./Checkbox.module.scss"
-import { CheckboxGroupProps } from "./helpers";
+import { CheckboxGroupProps, configureCheckbox } from "./helpers";
 
 export const NestedCheckbox = 
     ({  
@@ -33,8 +33,7 @@ export const NestedCheckbox =
 
     const prefix: string = checkboxes.group.toLowerCase()+"-"
     const main: string = prefix+"main"
-    const mainIsChecked: boolean = checkboxes.checkboxes.length == selected.length ? true : false
-
+   
     const updateAll = (event: ChangeEvent<HTMLInputElement>) => {
         const checked: boolean = event.target.checked
         if (checked) {
@@ -53,6 +52,12 @@ export const NestedCheckbox =
         if (!checked)  
             setSelected(current => current.filter(item => item !== value))    
     }
+
+    const parentCheckbox = configureCheckbox(
+        checkboxes.checkboxes.length,
+        selected.length,
+        scss
+    )
       
     return(
         <div className={scss.checkboxList}>
@@ -68,12 +73,11 @@ export const NestedCheckbox =
                         onChange={updateAll}
                         type="checkbox" 
                         name={main}
-                        checked={mainIsChecked}/>
-                            <span className={scss.checkmark}></span>
-                            {mainIsChecked 
+                        checked={parentCheckbox.mainIsChecked}/>
+                            <span className={parentCheckbox.class}></span>
+                            {parentCheckbox.mainIsChecked 
                                 ? "Deselect all"
-                                : "Select all"
-                            }
+                                : "Select all"}
             </label>
             <div className={scss.checkboxes}>
                 {checkboxes.checkboxes.map((checkbox) => {
