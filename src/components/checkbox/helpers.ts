@@ -74,3 +74,17 @@ export const updateSelected = (
             setSelected(current => current.filter(item => item !== value))    
 }
 
+export const updateAll = (
+    event: ChangeEvent<HTMLInputElement>,
+    setSelected:Dispatch<SetStateAction<string[]>>,
+    checkboxes: CheckboxStandaloneType[]
+) => {
+        const checked: boolean = event.target.checked
+        if (checked) {
+            const all = checkboxes.map(checkbox => checkbox.value) 
+            setSelected(all)  
+        } else {
+            setSelected([]) 
+        }     
+    }
+
