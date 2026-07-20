@@ -1,10 +1,10 @@
 import { CSSProperties, forwardRef } from "react";
 import { useTheme } from "@/utils/ThemeContext"
 import scss from "./Radio.module.scss"
-import { RadioProps } from "./helpers";
+import { RadioGroupProps } from "./helpers";
 
 
-export const Radio = forwardRef<HTMLInputElement, RadioProps>(
+export const RadioGroup = forwardRef<HTMLInputElement, RadioGroupProps>(
     ({  
         width,
         name,

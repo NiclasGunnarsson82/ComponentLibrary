@@ -8,7 +8,7 @@ export type RadioItemType = {
     value: string
 }
 
-export type RadioProps = InputHTMLAttributes<HTMLInputElement> & {
+export type RadioGroupProps = InputHTMLAttributes<HTMLInputElement> & {
     label: string,
     state: RadioStateType,
     errorMessage?: string,
