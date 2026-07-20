@@ -22,7 +22,8 @@ type BaseCheckboxProps<Key extends string, Value> =
         state: CheckboxStateType;
         selected: string[],
         setSelected: Dispatch<SetStateAction<string[]>>,
-        required?: boolean;
+        required?: boolean,
+        align?: string
     } & {
         [K in Key]: Value;
     };
@@ -87,4 +88,13 @@ export const updateAll = (
             setSelected([]) 
         }     
     }
+
+export const alignClass = (
+    align: string,
+    scss: Record<string, string>
+): string => {
+    return align === "vertical" 
+        ? scss.checkboxesVertical 
+        : scss.checkboxesHorizontal
+}
 

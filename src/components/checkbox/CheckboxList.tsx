@@ -1,7 +1,7 @@
 import {  CSSProperties } from "react";
 import { useTheme } from "@/utils/ThemeContext"
 import scss from "./Checkbox.module.scss"
-import { CheckboxGroupProps } from "./helpers";
+import { alignClass, CheckboxGroupProps } from "./helpers";
 
 export const CheckboxList =
     ({  
@@ -9,6 +9,7 @@ export const CheckboxList =
         selected,
         setSelected,
         required,
+        align = "vertical",
         checkboxes,
         ...props 
     }: CheckboxGroupProps) => {
@@ -31,6 +32,7 @@ export const CheckboxList =
     } as CSSProperties
 
     const prefix: string = checkboxes.group.toLowerCase()+"-"
+    const alignment: string = alignClass(align, scss) 
 
     const updateSelected = (event: React.ChangeEvent<HTMLInputElement>) => {
         const value: string = event.target.value
@@ -47,24 +49,27 @@ export const CheckboxList =
                 {required && <strong>*</strong>}
                 {checkboxes.group}
             </p>
-            {checkboxes.checkboxes.map((checkbox) => {
+            <div className={alignment}>
+                {checkboxes.checkboxes.map((checkbox) => {
                 let identifier: string = prefix+checkbox.option.toLowerCase()
-                return(
-                    <label 
-                        className={scss.checkbox}
-                        style={styles} 
-                        htmlFor={identifier}>
-                        <input 
-                            onChange={updateSelected}
-                            type="checkbox"
-                            name={identifier} 
-                            value={checkbox.value}
-                            {...props}/>
-                        <span className={scss.checkmark}></span>
-                        {checkbox.option}
-                    </label> 
-                )
-            })}
+                    return(
+                        <label 
+                            className={scss.checkbox}
+                            style={styles} 
+                            htmlFor={identifier}>
+                            <input 
+                                onChange={updateSelected}
+                                type="checkbox"
+                                name={identifier} 
+                                value={checkbox.value}
+                                {...props}/>
+                            <span className={scss.checkmark}></span>
+                            {checkbox.option}
+                        </label> 
+                    )
+                })}
+            </div>
+            
        </div>              
     )
 }

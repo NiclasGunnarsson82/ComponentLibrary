@@ -1,7 +1,7 @@
 import { CSSProperties } from "react";
 import { useTheme } from "@/utils/ThemeContext"
 import scss from "./Checkbox.module.scss"
-import { CheckboxGroupProps, configureCheckbox, updateAll, updateSelected } from "./helpers";
+import { alignClass, CheckboxGroupProps, configureCheckbox, updateAll, updateSelected } from "./helpers";
 
 export const NestedCheckbox = 
     ({  
@@ -9,6 +9,7 @@ export const NestedCheckbox =
         selected,
         setSelected,
         required,
+        align = "vertical",
         checkboxes}: CheckboxGroupProps) => {
 
     const { colours, font, form } = useTheme()
@@ -30,6 +31,8 @@ export const NestedCheckbox =
 
     const checkboxClass: string =
         state === "default" ? scss.checkbox : scss.error
+
+    const alignment: string = alignClass(align, scss) 
 
     const prefix: string = checkboxes.group.toLowerCase()+"-"
     const main: string = prefix+"main"
@@ -63,7 +66,7 @@ export const NestedCheckbox =
                                 ? "Deselect all"
                                 : "Select all"}
             </label>
-            <div className={scss.checkboxes}>
+            <div className={alignment} style={{marginLeft: "25px"}}>
                 {checkboxes.checkboxes.map((checkbox) => {
                     let identifier: string = prefix+checkbox.option.toLowerCase()
                     let isSelected: boolean = selected.includes(checkbox.value) ?? false

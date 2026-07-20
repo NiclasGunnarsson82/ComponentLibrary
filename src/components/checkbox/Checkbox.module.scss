@@ -4,7 +4,7 @@
     align-items: center;
     position: relative;
     z-index: 1;
-    padding-left: 35px;
+    padding-left: 30px;
     margin-bottom: 12px;
     cursor: pointer;
     font-size: 22px;
@@ -90,15 +90,26 @@
 }
 
 .checkboxList,
-.checkboxes {
+.checkboxesVertical,
+.checkboxesHorizontal {
     display: flex;
-    align-items: flex-start;
-    flex-direction: column;
+    align-items: flex-start;  
     gap: 4px;
 }
 
-.checkboxes {
-    margin-left: 25px;
+.checkboxList,
+.checkboxesVertical {
+    flex-direction: column;
+}
+
+.checkboxesHorizontal {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.checkboxesHorizontal,
+.checkboxesVertical {
     margin-top: 5px;
 }
 
