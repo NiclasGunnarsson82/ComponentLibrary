@@ -1,4 +1,4 @@
-import { InputHTMLAttributes } from "react"
+import { Dispatch, InputHTMLAttributes, SetStateAction } from "react"
 
 export type RadioStateType = "default" | "error" 
 
@@ -14,5 +14,7 @@ export type RadioGroupProps = InputHTMLAttributes<HTMLInputElement> & {
     errorMessage?: string,
     width?: string,
     required?: boolean,
-    items: RadioItemType[]
+    items: RadioItemType[],
+    selected: string,
+    setSelected: Dispatch<SetStateAction<string>>
 }

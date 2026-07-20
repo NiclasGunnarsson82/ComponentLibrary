@@ -1,6 +1,6 @@
 import { CSSProperties, forwardRef } from "react";
 import { useTheme } from "@/utils/ThemeContext"
-import scss from "./Radio.module.scss"
+import scss from "./RadioGroup.module.scss"
 import { RadioGroupProps } from "./helpers";
 
 
@@ -13,6 +13,8 @@ export const RadioGroup = forwardRef<HTMLInputElement, RadioGroupProps>(
         label,
         required,
         items,
+        selected,
+        setSelected,
         ...props }, ref) => {
 
     const { colours, font, form } = useTheme()
@@ -44,11 +46,13 @@ export const RadioGroup = forwardRef<HTMLInputElement, RadioGroupProps>(
                         htmlFor={item.id}>
                             <input
                                 className={scss.radio}
-                                style={styles} 
+                                style={styles}
+                                onChange={(e) => setSelected(e.target.value)} 
                                 type="radio"
                                 id={item.id}
                                 name={item.name} 
                                 value={item.value}
+                                checked={item.value === selected ? true : false}
                                 {...props}/>
                                 {item.value}
                     </label> 
