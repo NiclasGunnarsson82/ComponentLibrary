@@ -18,3 +18,4 @@ export type RadioGroupProps = InputHTMLAttributes<HTMLInputElement> & {
     selected: string,
     setSelected: Dispatch<SetStateAction<string>>
 }
+
