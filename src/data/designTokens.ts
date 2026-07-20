@@ -33,6 +33,8 @@ export const designTokens: IDesignTokens = {
         inputHeight: "40px",
         checkboxWidth: "22px",
         checkboxHeight: "22px",
+        radioWidth: "22px",
+        radioHeight: "22px",
         inputBorderRadius: "6px",
         formPadding: "6px 8px",
         formDefaultGap: "15px",
