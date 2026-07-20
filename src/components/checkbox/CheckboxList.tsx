@@ -1,7 +1,7 @@
 import {  CSSProperties } from "react";
 import { useTheme } from "@/utils/ThemeContext"
 import scss from "./Checkbox.module.scss"
-import { alignClass, CheckboxGroupProps } from "./helpers";
+import { alignClass, CheckboxGroupProps, updateSelected } from "./helpers";
 
 export const CheckboxList =
     ({  
@@ -33,15 +33,6 @@ export const CheckboxList =
 
     const prefix: string = checkboxes.group.toLowerCase()+"-"
     const alignment: string = alignClass(align, scss) 
-
-    const updateSelected = (event: React.ChangeEvent<HTMLInputElement>) => {
-        const value: string = event.target.value
-        const checked: boolean = event.target.checked
-        if (checked && !selected.includes(value))  
-            setSelected(current => [...current, value])     
-        if (!checked)  
-            setSelected(current => current.filter(item => item !== value))    
-    }
     
     return(
         <div className={scss.checkboxList}>
@@ -58,7 +49,11 @@ export const CheckboxList =
                             style={styles} 
                             htmlFor={identifier}>
                             <input 
-                                onChange={updateSelected}
+                                 onChange={(event) => 
+                                    updateSelected(
+                                        event, 
+                                        setSelected, 
+                                        selected)} 
                                 type="checkbox"
                                 name={identifier} 
                                 value={checkbox.value}
