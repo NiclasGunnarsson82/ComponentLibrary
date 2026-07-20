@@ -1,0 +1,24 @@
+.label {
+    width: var(--input-width);
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    font-family: var(--font-family);
+    font-weight: var(--font-weight);
+    &strong {
+        display: inline-block;
+    }
+}
+
+.radioList {
+    display: flex;
+    align-items: flex-start; 
+    flex-direction: column; 
+    gap: 4px;
+}
+
+.errorMessage {
+    color: var(--input-colour-error);
+    text-align: right;
+}
