@@ -1,4 +1,4 @@
-import { Dispatch, InputHTMLAttributes, SetStateAction } from "react"
+import { ChangeEvent, Dispatch, InputHTMLAttributes, SetStateAction } from "react"
 
 export type CheckboxStateType = "default" | "error" 
 
@@ -58,6 +58,19 @@ export const configureCheckbox = (
     }
 
     return object
-      
+
+}
+
+export const updateSelected = (
+    event: ChangeEvent<HTMLInputElement>,
+    setSelected:Dispatch<SetStateAction<string[]>>,
+    selected: string[]
+) => {
+        const value: string = event.target.value
+        const checked: boolean = event.target.checked
+        if (checked && !selected.includes(value))  
+            setSelected(current => [...current, value])     
+        if (!checked)  
+            setSelected(current => current.filter(item => item !== value))    
 }
 
