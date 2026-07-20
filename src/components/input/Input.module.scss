@@ -24,6 +24,10 @@
     }
 }
 
+.inputWrapper {
+    position: relative;
+}
+
 .label {
     width: var(--input-width);
     max-width: 100%;
@@ -40,4 +44,23 @@
 .errorMessage {
     color: var(--input-colour-error);
     text-align: right;
+}
+
+.iconButton {
+    position: absolute;
+    right: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+    border: none;
+    background: transparent;
+    padding: 4px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.iconButton:focus,
+.iconButton:active {
+  outline: none;
+  background: transparent;
 }
