@@ -68,7 +68,8 @@ export const Password = forwardRef<HTMLInputElement, PasswordProps>(
                                     onClick={() => setShowPassword(!showPassword)}
                                     src={showPassword ? showPasswordIcon : hidePasswordIcon} 
                                     alt={showPassword ? "Show password" : "Hide password"} 
-                                    style={{width: "30px", height: "30px"}}/>
+                                    style={{width: "25px", height: "25px", 
+                                        padding: "8px 8px 8px 10px"}}/>
                         </button>
                 </div>
                  {errorMessage && state === "error" &&
