@@ -1,0 +1,10 @@
+.masonryCard {
+    width: 250px;
+    box-shadow: var(--card-shadow-default);
+    background-color: var(--card-background-colour);
+    border-radius: var(--card-border-radius);
+    cursor: pointer;
+    &:hover {
+        box-shadow: var(--card-shadow-hover);   
+    }
+}
