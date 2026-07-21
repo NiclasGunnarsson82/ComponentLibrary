@@ -5,6 +5,8 @@ import { GridProps } from "./helpers";
 
 
 export const MasonryCardGrid = ({
+    width = "100%",
+    gridFlow = "dense",
     children,
     ...props 
 }: GridProps) => {
@@ -12,7 +14,8 @@ export const MasonryCardGrid = ({
     const { cards } = useTheme()
 
     const styles = {
-        "--grid-width": cards.defaultWidth,
+        "--grid-width": width,
+        "--grid-auto-flow": gridFlow,
     } as CSSProperties
 
     return (
