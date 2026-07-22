@@ -8,6 +8,7 @@ export const MasonryCard = ({
     summary,
     imgSrc,
     imgAlt,
+    imgPosition = "center",
     imgRatio,
     width,
     ...props 
@@ -17,6 +18,7 @@ export const MasonryCard = ({
 
     const styles = {
         "--card-calucated-width": width.toString()+"px",
+        "--image-position": imgPosition,
         "--card-padding": card.mContentPadding,
         "--card-shadow-default": card.mCardShadowDefault,
         "--card-shadow-hover": card.mCardShadowHover,

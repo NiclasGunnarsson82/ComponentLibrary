@@ -1,6 +1,11 @@
 import { HTMLAttributes } from "react"
 
-export type GridAutoFlowType =  "row" | "column" | "dense" | "row dense" | "column dense"
+export type GridAutoFlowType =  
+    "row" 
+    | "column" 
+    | "dense" 
+    | "row dense" 
+    | "column dense"
 
 export type GridProps = HTMLAttributes<HTMLDivElement> & {
     width?: string,
@@ -8,7 +13,19 @@ export type GridProps = HTMLAttributes<HTMLDivElement> & {
     cards: MasonryCardItemType[]
 }
 
-export type CardImageRatioType =  "1:1" | "4:3" | "16:9" | "3:4"
+export type CardImageRatioType =  
+    "1:1" 
+    | "4:3" 
+    | "16:9" 
+    | "3:4"
+
+export type CardImagePositionType =   
+    "top"
+    | "bottom"
+    | "left"
+    | "right"
+    | "center"
+    | `${number}% ${number}%`;
 
 export type CardDimensionsType =  {
     width: string,
@@ -29,6 +46,7 @@ export type MasonryCardProps = HTMLAttributes<HTMLDivElement> & {
     imgSrc?: string,
     imgAlt: string,
     imgRatio: CardImageRatioType,
+    imgPosition?: string,
     width: number 
 }
 

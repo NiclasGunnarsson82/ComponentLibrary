@@ -10,6 +10,8 @@
     .image {
         border-top-left-radius: var(--card-border-radius); 
         border-top-right-radius: var(--card-border-radius);
+        object-fit: cover;
+        object-position: var(--image-position);
     }
     .content {
         width: 100%;
