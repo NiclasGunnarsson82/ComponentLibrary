@@ -37,6 +37,7 @@ export type MasonryCardItemType = {
     summary?: string,
     imgSrc: string,
     imgRatio: CardImageRatioType,
+    imgPosition?: string,
     imgAlt: string
 }
 
