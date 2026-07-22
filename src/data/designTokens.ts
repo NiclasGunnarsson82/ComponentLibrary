@@ -14,7 +14,7 @@ export const designTokens: IDesignTokens = {
         blue400:"#095FB2",
         success:"#06402B",
         error:"#950606",
-        inputDefault: "#898989"        
+        inputDefault: "#898989",       
     },
     shadows: {
         buttonEnabled:"rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px",
@@ -53,6 +53,11 @@ export const designTokens: IDesignTokens = {
         mMinWidth: "250px",
         mGridGap: "16px",
         mContentPadding: "8px"
+    },
+    slider: {
+        trackHeight: "8px",
+        thumbSize: "22px",
+        borderRadius: "2px"
     }
 }
 
