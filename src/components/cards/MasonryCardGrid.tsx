@@ -1,28 +1,37 @@
 import { CSSProperties, useEffect, useRef, useState } from "react";
 import { useTheme } from "@/utils/ThemeContext"
 import scss from "./MasonryGrid.module.scss"
-import { GridProps } from "./helpers";
+import { calculateCardDimensions, CardDimensionType, GridProps } from "./helpers";
+import { MasonryCard } from "./MasonryCard";
 
 
 export const MasonryCardGrid = ({
     width = "100%",
     gridFlow = "dense",
-    children,
+    cards,
     ...props 
 }: GridProps) => {
-  
-    const { cards } = useTheme()
+    
+    const { card } = useTheme()
 
     const gridRef = useRef<HTMLDivElement>(null);
-    const [gridWidth, setGridWidth] = useState<number>(0);
+    const [dimensions, setdimensions] = useState<CardDimensionType | null>(null);
     useEffect(() => {
-        if (gridRef.current) 
-            setGridWidth(gridRef.current.getBoundingClientRect().width)
+        if (gridRef.current) {
+            const d = calculateCardDimensions(
+                gridRef.current.getBoundingClientRect().width,
+                card.mMinWidth,
+                card.mGridGap
+            )
+            setdimensions(d)
+        }          
     }, []);
 
     const styles = {
         "--grid-width": width,
         "--grid-auto-flow": gridFlow,
+        "--grid-gap": card.mGridGap,
+        "--grid-min-width": card.mMinWidth,
     } as CSSProperties
 
     return (
@@ -31,7 +40,18 @@ export const MasonryCardGrid = ({
             className={scss.masonryGrid}
             style={styles}
             {...props}>
-                {children}
-        </div>
+                {dimensions &&
+                cards.map((card) => {
+                    return(
+                        <MasonryCard
+                            title={card.title}
+                            summary={card.summary}
+                            imgSrc={card.imgSrc}
+                            imgRatio={card.imgRatio}
+                            imgAlt={card.imgAlt}
+                            dimensions={dimensions}/>
+                    )
+                })}
+        </div>  
     )
 }
