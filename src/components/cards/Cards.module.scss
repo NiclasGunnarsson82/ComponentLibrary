@@ -1,10 +1,14 @@
 .masonryCard {
-    width: 250px;
+    width: var(--card-calucated-width);
     box-shadow: var(--card-shadow-default);
     background-color: var(--card-background-colour);
     border-radius: var(--card-border-radius);
     cursor: pointer;
     &:hover {
         box-shadow: var(--card-shadow-hover);   
+    }
+    .image {
+        border-top-left-radius: var(--card-border-radius); 
+        border-top-right-radius: var(--card-border-radius);
     }
 }

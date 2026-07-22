@@ -7,17 +7,20 @@ export const MasonryCard = ({
     title,
     summary,
     imgSrc,
+    imgAlt,
+    dimensions,
     ...props 
 }: MasonryCardProps) => {
   
-    const { cards } = useTheme()
+    const { card } = useTheme()
 
     const styles = {
-        "--card-shadow-default": cards.mCardShadowDefault,
-        "--card-shadow-hover": cards.mCardShadowHover,
-        "--card-shadow-pressed": cards.mCardShadowPressed,
-        "--card-background-colour": cards.mCardBackground,
-        "--card-border-radius": cards.borderRadius
+        "--card-calucated-width": dimensions.width,
+        "--card-shadow-default": card.mCardShadowDefault,
+        "--card-shadow-hover": card.mCardShadowHover,
+        "--card-shadow-pressed": card.mCardShadowPressed,
+        "--card-background-colour": card.mCardBackground,
+        "--card-border-radius": card.borderRadius
     } as CSSProperties
 
     return (
@@ -25,9 +28,11 @@ export const MasonryCard = ({
             className={scss.masonryCard}
             style={styles}
             {...props}>
-                <img src={imgSrc} alt="" />
-                <h4>{title}</h4>
-                <p>{summary}</p>
+                <img 
+                    style={dimensions}
+                    className={scss.image} 
+                    src={imgSrc} 
+                    alt={imgAlt}/>  
         </div>
     )
 }
