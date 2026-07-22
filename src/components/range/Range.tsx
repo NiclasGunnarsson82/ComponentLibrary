@@ -5,7 +5,7 @@ import { RangeProps } from "./helpers";
 
 export const Range = forwardRef<HTMLInputElement, RangeProps>(
     ({  
-        width,
+        width = "100%",
         name,
         state = "default",
         errorMessage,
@@ -19,6 +19,7 @@ export const Range = forwardRef<HTMLInputElement, RangeProps>(
     const { colours, font, form, slider } = useTheme()
 
     const styles = {
+        "--input-width": width,
         "--input-shadow": form.inputShadow,
         "--input-font-size": font.baseSize,
         "--font-family": font.fontfamily,
