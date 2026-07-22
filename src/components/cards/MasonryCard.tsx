@@ -8,6 +8,7 @@ export const MasonryCard = ({
     summary,
     imgSrc,
     imgAlt,
+    imgRatio,
     dimensions,
     ...props 
 }: MasonryCardProps) => {

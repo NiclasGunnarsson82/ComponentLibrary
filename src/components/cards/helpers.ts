@@ -27,10 +27,10 @@ export type MasonryCardProps = HTMLAttributes<HTMLDivElement> & {
     title?: string,
     summary?: string,
     imgSrc?: string,
-    imgAlt: string
+    imgAlt: string,
+    imgRatio: CardImageRatioType,
     dimensions: CardDimensionType 
 }
-
 
 
 export const calculateCardDimensions = (
@@ -46,7 +46,7 @@ export const calculateCardDimensions = (
     const totalGap = g * (columns - 1);
     const cardWidth = (gridWidth - totalGap) / columns
     const width: string = cardWidth.toString()+"px"
-    let object = {width: width, height: width}
+    const object = {width: width, height: width}
     return object
 }
 

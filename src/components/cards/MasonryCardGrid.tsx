@@ -47,8 +47,8 @@ export const MasonryCardGrid = ({
                             title={card.title}
                             summary={card.summary}
                             imgSrc={card.imgSrc}
-                            imgRatio={card.imgRatio}
                             imgAlt={card.imgAlt}
+                            imgRatio={card.imgRatio}
                             dimensions={dimensions}/>
                     )
                 })}
