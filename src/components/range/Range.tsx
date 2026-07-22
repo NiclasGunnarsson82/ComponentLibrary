@@ -14,6 +14,8 @@ export const Range = forwardRef<HTMLInputElement, RangeProps>(
         min,
         max,
         step,
+        prefix ="",
+        suffix ="",
         ...props }, ref) => {
 
     const { colours, font, form, slider } = useTheme()
@@ -62,7 +64,7 @@ export const Range = forwardRef<HTMLInputElement, RangeProps>(
                     value={currentValue}
                     {...props}/>
                 <p style={{textAlign: "center"}}>
-                    {currentValue}
+                    {prefix}{currentValue}{suffix}
                 </p>
                 {errorMessage && state === "error" &&
                     <span className={scss.errorMessage}>

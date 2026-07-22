@@ -10,6 +10,8 @@ export type RangeProps = InputHTMLAttributes<HTMLInputElement> & {
     required?: boolean,
     min: string,
     max: string,
-    step: string
+    step: string,
+    prefix?: string,
+    suffix?: string
 }
 
