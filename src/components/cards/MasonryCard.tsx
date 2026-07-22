@@ -16,6 +16,7 @@ export const MasonryCard = ({
 
     const styles = {
         "--card-calucated-width": dimensions.width,
+        "--card-padding": card.mContentPadding,
         "--card-shadow-default": card.mCardShadowDefault,
         "--card-shadow-hover": card.mCardShadowHover,
         "--card-shadow-pressed": card.mCardShadowPressed,
@@ -32,7 +33,11 @@ export const MasonryCard = ({
                     style={dimensions}
                     className={scss.image} 
                     src={imgSrc} 
-                    alt={imgAlt}/>  
+                    alt={imgAlt}/>
+                <div className={scss.content}>
+                    <h4>{title}</h4>
+                    <p>{summary}</p>
+                </div>   
         </div>
     )
 }

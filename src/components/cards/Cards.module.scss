@@ -11,4 +11,12 @@
         border-top-left-radius: var(--card-border-radius); 
         border-top-right-radius: var(--card-border-radius);
     }
+    .content {
+        width: 100%;
+        padding: var(--card-padding);
+        box-sizing: border-box;
+    }
+    .content h4 {
+        margin-top: 0px;
+    }
 }
