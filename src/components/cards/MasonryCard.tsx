@@ -1,7 +1,7 @@
-import { CSSProperties } from "react";
+import { CSSProperties, useEffect, useState } from "react";
 import { useTheme } from "@/utils/ThemeContext"
 import scss from "./Cards.module.scss"
-import { MasonryCardProps } from "./helpers";
+import { calculateImageSize, CardDimensionsType, MasonryCardProps } from "./helpers";
 
 export const MasonryCard = ({
     title,
@@ -16,7 +16,7 @@ export const MasonryCard = ({
     const { card } = useTheme()
 
     const styles = {
-        "--card-calucated-width": "auto",
+        "--card-calucated-width": width.toString()+"px",
         "--card-padding": card.mContentPadding,
         "--card-shadow-default": card.mCardShadowDefault,
         "--card-shadow-hover": card.mCardShadowHover,
@@ -25,12 +25,22 @@ export const MasonryCard = ({
         "--card-border-radius": card.borderRadius
     } as CSSProperties
 
+    const [dimensions, setDimensions] = useState<CardDimensionsType | null>(null);
+    useEffect(() => {
+        const w = calculateImageSize(width, imgRatio)
+        setDimensions(w)  
+        return        
+    }, [])
+
     return (
-        <div 
+        <>
+        {dimensions &&
+            <div 
             className={scss.masonryCard}
             style={styles}
             {...props}>
                 <img 
+                    style={dimensions}
                     className={scss.image} 
                     src={imgSrc} 
                     alt={imgAlt}/>
@@ -38,6 +48,8 @@ export const MasonryCard = ({
                     <h4>{title}</h4>
                     <p>{summary}</p>
                 </div>   
-        </div>
+            </div>
+        }
+        </>     
     )
 }
