@@ -1,7 +1,7 @@
 import { CSSProperties, useEffect, useRef, useState } from "react";
 import { useTheme } from "@/utils/ThemeContext"
 import scss from "./MasonryGrid.module.scss"
-import { calculateCardDimensions, CardDimensionType, GridProps } from "./helpers";
+import { calculateCardWidth, GridProps } from "./helpers";
 import { MasonryCard } from "./MasonryCard";
 
 
@@ -15,15 +15,15 @@ export const MasonryCardGrid = ({
     const { card } = useTheme()
 
     const gridRef = useRef<HTMLDivElement>(null);
-    const [dimensions, setdimensions] = useState<CardDimensionType | null>(null);
+    const [cardWidth, setCardWidth] = useState<number | null>(null);
     useEffect(() => {
         if (gridRef.current) {
-            const d = calculateCardDimensions(
+            const d = calculateCardWidth(
                 gridRef.current.getBoundingClientRect().width,
                 card.mMinWidth,
                 card.mGridGap
             )
-            setdimensions(d)
+            setCardWidth(d)
         }          
     }, []);
 
@@ -40,7 +40,7 @@ export const MasonryCardGrid = ({
             className={scss.masonryGrid}
             style={styles}
             {...props}>
-                {dimensions &&
+                {cardWidth &&
                 cards.map((card) => {
                     return(
                         <MasonryCard
@@ -49,7 +49,7 @@ export const MasonryCardGrid = ({
                             imgSrc={card.imgSrc}
                             imgAlt={card.imgAlt}
                             imgRatio={card.imgRatio}
-                            dimensions={dimensions}/>
+                            width={cardWidth}/>
                     )
                 })}
         </div>  

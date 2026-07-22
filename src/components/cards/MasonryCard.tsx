@@ -9,14 +9,14 @@ export const MasonryCard = ({
     imgSrc,
     imgAlt,
     imgRatio,
-    dimensions,
+    width,
     ...props 
 }: MasonryCardProps) => {
   
     const { card } = useTheme()
 
     const styles = {
-        "--card-calucated-width": dimensions.width,
+        "--card-calucated-width": "auto",
         "--card-padding": card.mContentPadding,
         "--card-shadow-default": card.mCardShadowDefault,
         "--card-shadow-hover": card.mCardShadowHover,
@@ -31,7 +31,6 @@ export const MasonryCard = ({
             style={styles}
             {...props}>
                 <img 
-                    style={dimensions}
                     className={scss.image} 
                     src={imgSrc} 
                     alt={imgAlt}/>
