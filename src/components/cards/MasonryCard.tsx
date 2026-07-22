@@ -22,7 +22,7 @@ export const MasonryCard = ({
         "--card-padding": card.mContentPadding,
         "--card-shadow-default": card.mCardShadowDefault,
         "--card-shadow-hover": card.mCardShadowHover,
-        "--card-shadow-pressed": card.mCardShadowPressed,
+        "--card-shadow-active": card.mCardShadowActive,
         "--card-background-colour": card.mCardBackground,
         "--card-border-radius": card.borderRadius
     } as CSSProperties
