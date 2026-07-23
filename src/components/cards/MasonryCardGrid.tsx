@@ -7,7 +7,7 @@ import { MasonryCard } from "./MasonryCard";
 
 export const MasonryCardGrid = ({
     width = "100%",
-    gridFlow = "dense",
+    gridFlow = "row",
     cards,
     ...props 
 }: GridProps) => {
