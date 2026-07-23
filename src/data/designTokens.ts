@@ -14,11 +14,13 @@ export const designTokens: IDesignTokens = {
         blue400:"#095FB2",
         success:"#06402B",
         error:"#950606",
-        inputDefault: "#898989",       
+        inputDefault:"#898989", 
+        inputBackground: "#9A9A9A"      
     },
     shadows: {
         buttonEnabled:"rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px",
         buttonHover:"rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px",
+        toggleSwitchThumb:"rgba(0, 0, 0, 0.2) 0px 12px 28px 0px, rgba(0, 0, 0, 0.1) 0px 2px 4px 0px, rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset"
     },
     font: {
         baseSize: "16px",
@@ -58,6 +60,12 @@ export const designTokens: IDesignTokens = {
         trackHeight: "8px",
         thumbSize: "22px",
         borderRadius: "2px"
+    },
+    toggleSwitch: {
+        height: "28px",
+        width: "52px",
+        borderRadius: "2px",
+        thumb: "26px"
     }
 }
 
