@@ -1,0 +1,62 @@
+textarea.textarea,
+textarea.error {
+    display: block;
+    width: 100%;
+    border-radius: var(--input-border-radius);
+    font-size: var(--input-font-size);
+    padding: var(--input-padding);
+    box-sizing: border-box;
+    font-family: var(--font-family);
+    font-weight: var(--font-weight);
+    border: 1px solid var(--input-colour-default);
+    box-shadow: var(--input-shadow);
+    resize: var(--textarea-resize);
+    
+    &:focus { 
+        outline: 2px solid var(--input-colour-focus);
+    }
+}
+
+textarea.error {
+    border: 2px solid var(--input-colour-error);
+    &:focus {
+        outline: none
+    }
+}
+
+.label {
+    width: var(--input-width);
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    font-family: var(--font-family);
+    font-weight: var(--font-weight);
+    &strong {
+        display: inline-block;
+    }
+}
+
+.errorMessage {
+    color: var(--input-colour-error);
+    text-align: right;
+}
+
+.iconButton {
+    position: absolute;
+    right: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+    border: none;
+    background: transparent;
+    padding: 4px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.iconButton:focus,
+.iconButton:active {
+  outline: none;
+  background: transparent;
+}
