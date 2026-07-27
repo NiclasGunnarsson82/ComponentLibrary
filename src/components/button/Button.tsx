@@ -42,14 +42,13 @@ export const Button = ({
 
     return (
         <button
-        type="button"
-            {...props}
+            type="button"
             className={config.scss}
-            id={props.id}
             onClick={eventHandler}
             disabled={config.disabled}
             aria-disabled={state === "disabled" ? true : false}
-            style={styles}>
+            style={styles}
+            {...props}>
                 {/* Display spinner if isLoading, else display label */}
                 {state === "loading" ?
                     <span style={styles} className={scss.loader}></span>
