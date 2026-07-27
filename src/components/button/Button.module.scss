@@ -55,6 +55,14 @@
         box-shadow: none;
         cursor: none;
     }
+
+    &:disabled:not(.isLoading):not(.isSuccess):not(.isError) {
+        background-color: var(--colour-disabled);
+        border-color: var(--colour-disabled);
+        opacity: 0.5;
+        box-shadow: none;
+        cursor: none;
+    }
 }
 
 .secondary {
@@ -113,6 +121,14 @@
         border-color: var(--colour-success);
         color: var(--colour-success);
         border-width: 4px;
+        box-shadow: none;
+        cursor: none;
+    }
+
+    &:disabled:not(.isLoading):not(.isSuccess):not(.isError) {
+        background-color: transparent;
+        border-color: var(--colour-disabled);
+        opacity: 0.5;
         box-shadow: none;
         cursor: none;
     }
