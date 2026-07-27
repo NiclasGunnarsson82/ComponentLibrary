@@ -8,10 +8,10 @@ export const Button = ({
     style,
     state,
     width,
+    type = "button",
     errorLabel,
     successLabel,
     eventHandler,
-    children,
     ...props 
 }: ButtonProps) => {
   
@@ -42,7 +42,7 @@ export const Button = ({
 
     return (
         <button
-            type="button"
+            type={type}
             className={config.scss}
             onClick={eventHandler}
             disabled={config.disabled}

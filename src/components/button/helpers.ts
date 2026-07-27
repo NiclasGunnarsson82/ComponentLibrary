@@ -2,11 +2,13 @@ import { ButtonHTMLAttributes, MouseEvent } from "react"
 
 export type ButtonStateType = "default" | "loading" | "success" | "error" | "disabled"
 export type ButtonStyleType = "primary" | "secondary" 
+export type ButtonTypeType = "button" | "submit" | "reset" 
 
 export type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
     label: string,
     style: ButtonStyleType,
     state: ButtonStateType,
+    type?: ButtonTypeType,
     width?: string,
     errorLabel?: string,
     successLabel?: string,
