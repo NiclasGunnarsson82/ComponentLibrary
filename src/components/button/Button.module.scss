@@ -1,14 +1,14 @@
 .primary,
 .secondary {
-    width: var(--button-width);
+    width: var(--width);
     height: 50px;
     font-family: var(--font-family);
     font-weight: var(--font-weight);
-    font-size: var(--button-font-size);
-    border-radius: var(--button-border-radius);
-    background-color: var(--button-colour-enabled);
-    border: 4px solid var(--button-colour-enabled);
-    box-shadow: var(--button-shadow-enabled);
+    font-size: var(--font-size);
+    border-radius: var(--border-radius);
+    background-color: var(--colour-enabled);
+    border: 4px solid var(--colour-enabled);
+    box-shadow: var(--shadow-enabled);
     padding-left: 15px;
     padding-right: 15px;
     outline: none;
@@ -16,26 +16,26 @@
     cursor: pointer;
 
     &:hover:not(:disabled) {
-        background-color: var(--button-colour-hover);
-        border-color: var(--button-colour-hover);
-        box-shadow: var(--button-shadow-hover);
+        background-color: var(--colour-hover);
+        border-color: var(--colour-hover);
+        box-shadow: var(--shadow-hover);
     }
 
     &:focus-visible {
-        background-color: var(--button-colour-focus);
-        border-color: var(--button-colour-focus);
+        background-color: var(--colour-focus);
+        border-color: var(--colour-focus);
         box-shadow: inset 0 0 0 2px white;
     }
 
     &:active:not(:disabled) {
-        background-color: var(--button-colour-active);
-        border-color: var(--button-colour-active);
+        background-color: var(--colour-active);
+        border-color: var(--colour-active);
         box-shadow: none;
     }
 
     &.isLoading {
-        background-color: var(--button-colour-active);
-        border-color: var(--button-colour-active);
+        background-color: var(--colour-active);
+        border-color: var(--colour-active);
         box-shadow: none;
         &:disabled {
             cursor: none;
@@ -43,15 +43,15 @@
     }
 
     &.isError:disabled {
-        background-color: var(--button-colour-error);
-        border-color: var(--button-colour-error);
+        background-color: var(--colour-error);
+        border-color: var(--colour-error);
         box-shadow: none;
         cursor: none;
     }
 
     &.isSuccess:disabled {
-        background-color: var(--button-colour-success);
-        border-color: var(--button-colour-success);
+        background-color: var(--colour-success);
+        border-color: var(--colour-success);
         box-shadow: none;
         cursor: none;
     }
@@ -60,38 +60,38 @@
 .secondary {
     background-color: transparent;
     border-style: solid;
-    border-color: var(--button-colour-enabled);
+    border-color: var(--colour-enabled);
     border-width: 2px;
-    color: var(--button-colour-enabled);
+    color: var(--colour-enabled);
     box-shadow: none;
 
     &:hover:not(:disabled) {
         background-color: transparent;
-        border-color: var(--button-colour-hover);
+        border-color: var(--colour-hover);
         border-width: 3px;
-        color: var(--button-colour-hover);
+        color: var(--colour-hover);
         box-shadow: none;
     }
 
     &:focus-visible {
         background-color: transparent;
-        border-color: var(--button-colour-focus);
+        border-color: var(--colour-focus);
         border-width: 3px;
-        color: var(--button-colour-focus);
+        color: var(--colour-focus);
         box-shadow: none;
     }
 
     &:active:not(:disabled) {
         background-color: transparent;
-        border-color: var(--button-colour-active);
+        border-color: var(--colour-active);
         border-width: 4px;
-        color: var(--button-colour-active);
+        color: var(--colour-active);
         box-shadow: none;
     }
 
     &.isLoading {
         background-color: transparent;
-        border-color: var(--button-colour-active);
+        border-color: var(--colour-active);
         border-width: 4px;
         box-shadow: none;
         &:disabled {
@@ -101,8 +101,8 @@
 
      &.isError:disabled {
         background-color: transparent;
-        border-color: var(--button-colour-error);
-        color: var(--button-colour-error);
+        border-color: var(--colour-error);
+        color: var(--colour-error);
         border-width: 4px;
         box-shadow: none;
         cursor: none;
@@ -110,8 +110,8 @@
 
     &.isSuccess:disabled {
         background-color: transparent;
-        border-color: var(--button-colour-success);
-        color: var(--button-colour-success);
+        border-color: var(--colour-success);
+        color: var(--colour-success);
         border-width: 4px;
         box-shadow: none;
         cursor: none;
@@ -120,7 +120,7 @@
 }
 
 .loader {
-  --color-1: var(--button-colour-loader);
+  --color-1: var(--colour-loader);
   --size: 1px;
   width: calc(20 * var(--size));
   height: calc(20 * var(--size));

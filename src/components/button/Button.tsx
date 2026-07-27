@@ -23,21 +23,21 @@ export const Button = ({
         successLabel, errorLabel})
 
     const styles = {
-        "--button-width": config.width,
-        "--button-font-size": font.baseSize,
+        "--width": config.width,
+        "--font-size": font.baseSize,
         "--font-family": font.fontfamily,
         "--font-weight": font.fontWeightBold,
-        "--button-border-radius": borders.buttonBorderRadius,
-        "--button-colour-enabled": colours.blue300,
-        "--button-colour-hover": colours.blue200,
-        "--button-colour-focus": colours.blue300,
-        "--button-colour-active": colours.blue100,
-        "--button-colour-disabled": colours.blue400,
-        "--button-colour-error": colours.error,
-        "--button-colour-loader": style === "primary" ? colours.white : colours.blue100,
-        "--button-colour-success": colours.success,
-        "--button-shadow-enabled": shadows.buttonEnabled,
-        "--button-shadow-hover": shadows.buttonHover,
+        "--border-radius": borders.buttonBorderRadius,
+        "--colour-enabled": colours.blue300,
+        "--colour-hover": colours.blue200,
+        "--colour-focus": colours.blue300,
+        "--colour-active": colours.blue100,
+        "--colour-disabled": colours.blue400,
+        "--colour-error": colours.error,
+        "--colour-loader": style === "primary" ? colours.white : colours.blue100,
+        "--colour-success": colours.success,
+        "--shadow-enabled": shadows.buttonEnabled,
+        "--shadow-hover": shadows.buttonHover,
     } as CSSProperties
 
     return (
