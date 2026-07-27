@@ -1,9 +1,11 @@
 import { ButtonHTMLAttributes, MouseEvent } from "react"
 
 export type ButtonStateType = "default" | "loading" | "success" | "error" | "disabled"
+export type ButtonStyleType = "primary" | "secondary" 
 
 export type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
     label: string,
+    style: ButtonStyleType,
     state: ButtonStateType,
     width?: string,
     errorLabel?: string,
@@ -21,6 +23,7 @@ export type ConfigType = {
 
 export type ConfigureType = {
     state: ButtonStateType,
+    style: ButtonStyleType,
     width?: string,
     label: string,
     scss: Record<string, string>,
@@ -30,6 +33,7 @@ export type ConfigureType = {
 
 export const configureButton = ({
     state,
+    style,
     width,
     label,
     scss,
@@ -39,38 +43,37 @@ export const configureButton = ({
     
     let config = {
         state: state,
+        style: style,
         scss: scss.button,
         disabled: false,
         label: label,
         width: width ?? "auto"
     }
 
+    let styleClass = style === "primary" ? scss.primary : scss.secondary 
+
     switch (state) {
         case "default":
-            config.scss = scss.button
+            config.scss = styleClass
             config.disabled = false
             break;
         case "disabled":
-            config.scss = scss.button
+            config.scss = styleClass
             config.disabled = true
             break;
         case "success":
-            config.scss = [scss.button,scss.isSuccess].join(" ")
+            config.scss = [styleClass,scss.isSuccess].join(" ")
             config.label = successLabel ?? "Success"
             config.disabled = true
             break;
         case "error":
-            config.scss = [scss.button,scss.isError].join(" ")
+            config.scss = [styleClass,scss.isError].join(" ")
             config.label = errorLabel ?? "Error"
             config.disabled = true
             break;
         case "loading":
-            config.scss = [scss.button,scss.isLoading].join(" ")
+            config.scss = [styleClass,scss.isLoading].join(" ")
             config.disabled = true
-            break;
-        default:
-            config.scss = scss.button
-            config.disabled = false
             break;
     }
 

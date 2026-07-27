@@ -5,6 +5,7 @@ import { ButtonProps, configureButton } from "./helpers";
 
 export const Button = ({
     label,
+    style,
     state,
     width,
     errorLabel,
@@ -18,7 +19,7 @@ export const Button = ({
 
     //The function which calculates the button attribute values, based on component props.
     const config = configureButton({
-        label, scss, width, state, 
+        label, scss, width, state, style, 
         successLabel, errorLabel})
 
     const styles = {
@@ -33,6 +34,7 @@ export const Button = ({
         "--button-colour-active": colours.blue100,
         "--button-colour-disabled": colours.blue400,
         "--button-colour-error": colours.error,
+        "--button-colour-loader": style === "primary" ? colours.white : colours.blue100,
         "--button-colour-success": colours.success,
         "--button-shadow-enabled": shadows.buttonEnabled,
         "--button-shadow-hover": shadows.buttonHover,
@@ -40,6 +42,7 @@ export const Button = ({
 
     return (
         <button
+        type="button"
             {...props}
             className={config.scss}
             id={props.id}
@@ -49,7 +52,7 @@ export const Button = ({
             style={styles}>
                 {/* Display spinner if isLoading, else display label */}
                 {state === "loading" ?
-                    <span className={scss.loader}></span>
+                    <span style={styles} className={scss.loader}></span>
                 : config.label}
         </button>
     )

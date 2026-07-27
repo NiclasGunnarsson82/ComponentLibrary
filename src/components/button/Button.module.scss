@@ -1,4 +1,5 @@
-.button {
+.primary,
+.secondary {
     width: var(--button-width);
     height: 50px;
     font-family: var(--font-family);
@@ -56,8 +57,70 @@
     }
 }
 
+.secondary {
+    background-color: transparent;
+    border-style: solid;
+    border-color: var(--button-colour-enabled);
+    border-width: 2px;
+    color: var(--button-colour-enabled);
+    box-shadow: none;
+
+    &:hover:not(:disabled) {
+        background-color: transparent;
+        border-color: var(--button-colour-hover);
+        border-width: 3px;
+        color: var(--button-colour-hover);
+        box-shadow: none;
+    }
+
+    &:focus-visible {
+        background-color: transparent;
+        border-color: var(--button-colour-focus);
+        border-width: 3px;
+        color: var(--button-colour-focus);
+        box-shadow: none;
+    }
+
+    &:active:not(:disabled) {
+        background-color: transparent;
+        border-color: var(--button-colour-active);
+        border-width: 4px;
+        color: var(--button-colour-active);
+        box-shadow: none;
+    }
+
+    &.isLoading {
+        background-color: transparent;
+        border-color: var(--button-colour-active);
+        border-width: 4px;
+        box-shadow: none;
+        &:disabled {
+            cursor: none;
+        }
+    }
+
+     &.isError:disabled {
+        background-color: transparent;
+        border-color: var(--button-colour-error);
+        color: var(--button-colour-error);
+        border-width: 4px;
+        box-shadow: none;
+        cursor: none;
+    }
+
+    &.isSuccess:disabled {
+        background-color: transparent;
+        border-color: var(--button-colour-success);
+        color: var(--button-colour-success);
+        border-width: 4px;
+        box-shadow: none;
+        cursor: none;
+    }
+
+}
+
 .loader {
-  --color-1: #fff;
+  --color-1: var(--button-colour-loader);
   --size: 1px;
   width: calc(20 * var(--size));
   height: calc(20 * var(--size));
