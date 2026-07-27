@@ -45,6 +45,7 @@ export const Button = ({
             id={props.id}
             onClick={eventHandler}
             disabled={config.disabled}
+            aria-disabled={state === "disabled" ? true : false}
             style={styles}>
                 {/* Display spinner if isLoading, else display label */}
                 {state === "loading" ?
