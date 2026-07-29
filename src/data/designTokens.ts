@@ -1,20 +1,11 @@
-export type DesignTokenType = {
-    [token: string]: string;
-}
-
-export interface IDesignTokens {
-  [category: string]: DesignTokenType
-}
-
+//Light, dark and sepia theme mode tokens
 export type ThemeType = {
     foreground: string;
     background: string
 }
-
 export interface IThemes {
     [theme: string]: ThemeType
 }
-
 export const themeTokens: IThemes = {
     light: {
         foreground: "#1b1f23",
@@ -30,12 +21,31 @@ export const themeTokens: IThemes = {
     }     
 }
 
+
+//Colour scheme tokens
+export type ColourSchemeType = {
+    colour100: string,
+    colour200: string,
+    colour300: string,
+    colour400: string
+}
+export const colourSchemeTokens: ColourSchemeType = {
+    colour100:"#010D18",
+    colour200:"#042647",
+    colour300:"#064077", 
+    colour400:"#095FB2",       
+}
+
+
+//General designTokens for components
+export type DesignTokenType = {
+    [token: string]: string;
+}
+export interface IDesignTokens {
+  [category: string]: DesignTokenType
+}
 export const designTokens: IDesignTokens = {
     colours: {
-        blue100:"#010D18",
-        blue200:"#042647",
-        blue300:"#064077", 
-        blue400:"#095FB2",
         success:"#06402B",
         error:"#950606",
         inputDefault:"#898989", 
