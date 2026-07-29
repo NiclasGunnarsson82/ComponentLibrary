@@ -1,7 +1,8 @@
-import { CSSProperties } from "react";
-import { useTheme } from "@/utils/ThemeContext"
+import { CSSProperties } from "react"
+import { useComponentsProvider } from "@/utils/ComponentsContext"
 import scss from "./Button.module.scss"
-import { ButtonProps, configureButton } from "./helpers";
+import { ButtonProps, configureButton } from "./helpers"
+
 
 export const Button = ({
     label,
@@ -15,7 +16,7 @@ export const Button = ({
     ...props 
 }: ButtonProps) => {
   
-    const { colours, shadows, borders, font } = useTheme()
+    const { tokens, colourScheme } = useComponentsProvider()
 
     //The function which calculates the button attribute values, based on component props.
     const config = configureButton({
@@ -24,20 +25,20 @@ export const Button = ({
 
     const styles = {
         "--width": config.width,
-        "--font-size": font.baseSize,
-        "--font-family": font.fontfamily,
-        "--font-weight": font.fontWeightBold,
-        "--border-radius": borders.buttonBorderRadius,
-        "--colour-enabled": colours.blue300,
-        "--colour-hover": colours.blue200,
-        "--colour-focus": colours.blue300,
-        "--colour-active": colours.blue100,
-        "--colour-disabled": colours.blue400,
-        "--colour-error": colours.error,
-        "--colour-loader": style === "primary" ? colours.white : colours.blue100,
-        "--colour-success": colours.success,
-        "--shadow-enabled": shadows.buttonEnabled,
-        "--shadow-hover": shadows.buttonHover,
+        "--font-size": tokens.font.baseSize,
+        "--font-family": tokens.font.fontfamily,
+        "--font-weight": tokens.font.fontWeightBold,
+        "--border-radius": tokens.borders.buttonBorderRadius,
+        "--colour-enabled": colourScheme.colour300,
+        "--colour-hover": colourScheme.colour200,
+        "--colour-focus": colourScheme.colour300,
+        "--colour-active": colourScheme.colour100,
+        "--colour-disabled": colourScheme.colour400,
+        "--colour-error": tokens.colours.error,
+        "--colour-loader": style === "primary" ? tokens.colours.white : colourScheme.colour100,
+        "--colour-success": tokens.colours.success,
+        "--shadow-enabled": tokens.shadows.buttonEnabled,
+        "--shadow-hover": tokens.shadows.buttonHover,
     } as CSSProperties
 
     return (
