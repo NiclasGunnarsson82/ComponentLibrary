@@ -38,7 +38,6 @@ export const ComponentsProvider = ({ children }: ProviderProps ) => {
 
     const setThemeMode = (themeMode: ThemeModeType) => {
         setTheme(themeTokens[themeMode])
-        console.log('test');
     }
 
     return (
