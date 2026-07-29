@@ -31,7 +31,7 @@ export type ProviderProps = {
 
 const ComponentContext = createContext<ComponentContextType>(DefaultValues)
 
-export const ComponentProvider = ({ children }: ProviderProps ) => {
+export const ComponentsProvider = ({ children }: ProviderProps ) => {
     const [ theme, setTheme ] = useState<ThemeType>(DefaultValues.theme)
     const [ colourScheme, setColourScheme ] = useState<ColourSchemeType>(DefaultValues.colourScheme)
     const tokens: IDesignTokens = designTokens
