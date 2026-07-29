@@ -1,10 +1,34 @@
 export type DesignTokenType = {
     [token: string]: string;
-};
+}
 
 export interface IDesignTokens {
   [category: string]: DesignTokenType
-};
+}
+
+export type ThemeType = {
+    foreground: string;
+    background: string
+}
+
+export interface IThemes {
+    [theme: string]: ThemeType
+}
+
+export const themeTokens: IThemes = {
+    light: {
+        foreground: "#1b1f23",
+        background: "#F8F8F8"
+    },
+    dark: {
+        foreground: "#F8F8F8",
+        background: "#1b1f23"
+    },
+    sepia: {
+        foreground: "#212121",
+        background: "#fff1d2"
+    }     
+}
 
 export const designTokens: IDesignTokens = {
     colours: {
