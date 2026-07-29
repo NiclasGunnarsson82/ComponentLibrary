@@ -1,12 +1,8 @@
 @mixin flex-column {
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  flex-direction: column;
-}
-
-.border {
-    border-top: 1px solid rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
 }
 
 .group {
@@ -19,16 +15,12 @@
     flex-direction: column;
     gap: 0px;
 
-    .borderBottom {
-        border-bottom: 1px solid rgba(0, 0, 0, 0.5);
-    }
-
     .item {
         width: 100%;
         @include flex-column;
         gap: 0px;
-        padding: 20px 0px;
-        box-sizing: border-box;
+        padding-bottom: 20px;
+        border-bottom: 1px solid black;
 
         .header {
             @include flex-column;
@@ -40,21 +32,31 @@
                 justify-content: space-between;
                 align-items: center;
                 flex-direction: row;
-                cursor: pointer;
-                p {
-                    font-family: var(--lato);
-                    font-weight: 700;
-                    font-size: 30px;
-                    margin-top: 0px;
-                    margin-bottom: 0px;  
-                } 
-                h5 {
-                    width: 100%;
-                    text-transform: uppercase;
-                    line-height: 16px;
-                    margin-bottom: 0px;
-                    margin-top: 0px;
-                }  
+                padding-top: 10px;
+                padding-bottom: 15px;
+
+                h4 {
+                    margin: 0px;
+                }
+
+                button.trigger {
+                    all: unset;
+                    cursor: pointer;
+                    height: 35px;
+                    width: 35px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    img {
+                        height: 17px;
+                        width: 17px;
+                    }
+                }
+            }
+
+            p.desc {
+                margin-top: 0px;
+                margin-bottom: 0px;
             }
         }
 
@@ -64,22 +66,28 @@
             justify-content: flex-start;
             align-items: center;
             flex-direction: row;
-            gap: 15px;
-            flex-wrap: wrap;
-            padding: 10px, 20px, 20px, 0px;
+            padding: 10px, 10px, 10px, 0px;
             box-sizing: border-box;
-            h5 {
-                width: 100%;
-            }
-        }   
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+            transform: translateY(-10px);
+            transition: 
+                max-height 0.35s ease,
+                opacity 0.35s ease,
+                transform 0.35s ease;
+        }
+
+        .open {
+            max-height: 500px; // adjust based on your content size
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .contentInner {
+            padding-top: 16px;
+        }
     }
 }
 
 
-.borderBottom {
-    border-bottom: 1px solid rgba(0, 0, 0, 0.5);
-}
-
-.borderTop {
-    border-top: 1px solid rgba(0, 0, 0, 0.5);
-}

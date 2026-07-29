@@ -1,5 +1,5 @@
 import { CSSProperties, forwardRef } from "react";
-import { useTheme } from "@/utils/ThemeContext"
+import { useComponentsProvider } from "@/utils/ComponentsContext";
 import scss from "./Checkbox.module.scss"
 import { CheckboxProps } from "./helpers";
 
@@ -10,21 +10,21 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
         checkbox,
         ...props }, ref) => {
 
-    const { colours, font, form } = useTheme()
+    const { tokens, colourScheme } = useComponentsProvider()
 
     const styles = {
-        "--input-padding": form.inputPadding,
-        "--input-shadow": form.inputShadow,
-        "--checkbox-height": form.checkboxHeight,
-        "--checkbox-width": form.checkboxWidth,
-        "--input-font-size": font.baseSize,
-        "--font-family": font.fontfamily,
-        "--font-weight": font.fontWeightRegular,
-        "--input-border-radius": form.inputBorderRadius,
-        "--input-colour-error": colours.error,
-        "--input-colour-hover": colours.blue200,
-        "--input-colour-default": colours.inputDefault,
-        "--input-colour-success": colours.success
+        "--input-padding": tokens.form.inputPadding,
+        "--input-shadow": tokens.form.inputShadow,
+        "--checkbox-height": tokens.form.checkboxHeight,
+        "--checkbox-width": tokens.form.checkboxWidth,
+        "--input-font-size": tokens.fonts.baseSize,
+        "--font-family": tokens.fonts.fontfamily,
+        "--font-weight": tokens.fonts.fontWeightRegular,
+        "--input-border-radius": tokens.form.inputBorderRadius,
+        "--input-colour-error": tokens.colours.error,
+        "--input-colour-hover": colourScheme.colour200,
+        "--input-colour-default": tokens.colours.inputDefault,
+        "--input-colour-success": tokens.colours.success
     } as CSSProperties
     
     return(

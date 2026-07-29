@@ -1,5 +1,5 @@
 import { CSSProperties, forwardRef } from "react";
-import { useTheme } from "@/utils/ThemeContext"
+import { useComponentsProvider } from "@/utils/ComponentsContext";
 import scss from "./Form.module.scss"
 import { FormProps } from "./helpers";
 
@@ -13,14 +13,14 @@ export const Form = forwardRef<HTMLFormElement, FormProps>(
         handleSubmit,
         ...props }, ref) => {
 
-    const { font, form } = useTheme()
+    const { tokens } = useComponentsProvider()
 
     const styles = {
-        "--form--width": width ?? form.minWidth,
-        "--form-input-gap": gap ?? form.formDefaultGap,
-        "--form-padding": form.formPadding,
-        "--form-font-size": font.baseSize,
-        "--font-family": font.fontfamily,
+        "--form--width": width ?? tokens.form.minWidth,
+        "--form-input-gap": gap ?? tokens.form.formDefaultGap,
+        "--form-padding": tokens.form.formPadding,
+        "--form-font-size": tokens.font.baseSize,
+        "--font-family": tokens.font.fontfamily,
     } as CSSProperties
 
     return(

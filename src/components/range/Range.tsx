@@ -1,7 +1,7 @@
 import { ChangeEvent, CSSProperties, forwardRef, useState } from "react";
-import { useTheme } from "@/utils/ThemeContext"
 import scss from "./Range.module.scss"
 import { RangeProps } from "./helpers";
+import { useComponentsProvider } from "@/utils/ComponentsContext";
 
 export const Range = forwardRef<HTMLInputElement, RangeProps>(
     ({  
@@ -18,20 +18,20 @@ export const Range = forwardRef<HTMLInputElement, RangeProps>(
         suffix ="",
         ...props }, ref) => {
 
-    const { colours, font, form, slider } = useTheme()
+    const { tokens, colourScheme } = useComponentsProvider()
 
     const styles = {
         "--input-width": width,
-        "--input-shadow": form.inputShadow,
-        "--input-font-size": font.baseSize,
-        "--font-family": font.fontfamily,
-        "--font-weight": font.fontWeightRegular,
-        "--slider-track-height": slider.trackHeight,
-        "--slider-border-radius": slider.borderRadius,
-        "--slider-thumb-size": slider.thumbSize,
-        "--input-colour-default": colours.inputDefault,
-        "--thumb-colour-enabled": colours.blue300,
-        "--thumb-colour-focus": colours.blue200
+        "--input-shadow": tokens.form.inputShadow,
+        "--input-font-size": tokens.font.baseSize,
+        "--font-family": tokens.font.fontfamily,
+        "--font-weight": tokens.font.fontWeightRegular,
+        "--slider-track-height": tokens.slider.trackHeight,
+        "--slider-border-radius": tokens.slider.borderRadius,
+        "--slider-thumb-size": tokens.slider.thumbSize,
+        "--input-colour-default": tokens.colours.inputDefault,
+        "--thumb-colour-enabled": colourScheme.colour300,
+        "--thumb-colour-focus": colourScheme.colour200
     } as CSSProperties
 
     const initial: string = (parseInt(max)/2).toString()

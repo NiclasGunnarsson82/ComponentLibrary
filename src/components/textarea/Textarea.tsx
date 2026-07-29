@@ -1,7 +1,7 @@
-import { ChangeEvent, CSSProperties, forwardRef, useEffect, useState } from "react";
-import { useTheme } from "@/utils/ThemeContext"
+import { ChangeEvent, CSSProperties, forwardRef, useState } from "react";
 import scss from "./Textarea.module.scss"
 import { TextareaProps } from "./helpers";
+import { useComponentsProvider } from "@/utils/ComponentsContext";
 
 export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
     ({  
@@ -21,19 +21,19 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
         initialValue = "" 
         }, ref) => {
 
-    const { colours, font, form } = useTheme()
+    const { tokens, colourScheme } = useComponentsProvider()
 
     const styles = {
-        "--input-width": width ?? form.inputDefaultWidth,
-        "--input-padding": form.inputPadding,
-        "--input-shadow": form.inputShadow,
-        "--input-font-size": font.baseSize,
-        "--font-family": font.fontfamily,
-        "--font-weight": font.fontWeightRegular,
-        "--input-border-radius": form.inputBorderRadius,
-        "--input-colour-error": colours.error,
-        "--input-colour-focus": colours.blue300,
-        "--input-colour-default": colours.inputDefault,
+        "--input-width": width ?? tokens.form.inputDefaultWidth,
+        "--input-padding": tokens.form.inputPadding,
+        "--input-shadow": tokens.form.inputShadow,
+        "--input-font-size": tokens.font.baseSize,
+        "--font-family": tokens.font.fontfamily,
+        "--font-weight": tokens.font.fontWeightRegular,
+        "--input-border-radius": tokens.form.inputBorderRadius,
+        "--input-colour-error": tokens.colours.error,
+        "--input-colour-focus": colourScheme.colour300,
+        "--input-colour-default": tokens.colours.inputDefault,
         "--textarea-resize": resize,
     } as CSSProperties
 

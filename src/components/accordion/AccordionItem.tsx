@@ -1,4 +1,4 @@
-import { CSSProperties, useState } from "react";
+import { CSSProperties, useRef, useState } from "react";
 import { useTheme } from "@/utils/ThemeContext"
 import scss from "./Accordion.module.scss"
 import { ItemProps } from "./helpers";
@@ -20,7 +20,8 @@ export const AccordionItem = ({
         "--font-weight": font.fontWeightBold
     } as CSSProperties
 
-    const [ showContent, setShowContent ] = useState<boolean>(false)    
+    const [ showContent, setShowContent ] = useState<boolean>(false) 
+    const contentRef = useRef<HTMLDivElement>(null);   
 
     return (
         <div  
@@ -28,26 +29,36 @@ export const AccordionItem = ({
             style={styles}
             {...props}>             
                 <div className={scss.header}>
-                    <div className={scss.toggle}
-                        onClick={ ()=>setShowContent(!showContent)}>
-                            <h5>{title}</h5>  
-                            <img 
-                                src={showContent ? chevronUpIcon : chevronDownIcon} 
-                                style={{width: "20px", height: "20px", 
-                                    padding: "8px 8px 8px 10px"}}/>
+                    <div className={scss.toggle}>
+                        <h4>{title}</h4>  
+                        <button 
+                            onClick={() => setShowContent(prev => !prev)}
+                            className={scss.trigger}
+                            type="button">
+                                <img 
+                                    src={showContent 
+                                    ? chevronUpIcon 
+                                    : chevronDownIcon}/>
+                        </button>     
                     </div>
                     {desc &&
-                        <div className={scss.desc}>
-                            <p>{desc}</p>
-                        </div>    
+                        <p className={scss.desc}>{desc}</p> 
                     }
                 </div> 
-                {showContent &&
-                    <div className={scss.content}>
-                        {/* <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent posuere a erat sed tempor. Proin ultrices mi risus, nec condimentum leo vehicula quis. Morbi eget rutrum odio. Mauris imperdiet ut mi eget convallis. Suspendisse ultrices efficitur erat quis pretium. Pellentesque porta sollicitudin odio, eu pharetra diam luctus eu. Nunc dictum libero sit amet tristique lacinia. </p> */}
-                        {children}
-                    </div> 
-                }     
+
+                <div 
+                    ref={contentRef}
+                    style={{ maxHeight: showContent
+                        ? `${contentRef.current?.scrollHeight}px`
+                        : "0px"
+                    }}  
+                    className={`${scss.content} ${showContent ? scss.open : ""}`}>
+                        <div className={scss.contentInner}>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent posuere a erat sed tempor. Proin ultrices mi risus, nec condimentum leo vehicula quis. Morbi eget rutrum odio. Mauris imperdiet ut mi eget convallis. Suspendisse ultrices efficitur erat quis pretium. Pellentesque porta sollicitudin odio, eu pharetra diam luctus eu. Nunc dictum libero sit amet tristique lacinia. </p>
+                            {children}
+                        </div>
+                </div>
+
         </div>
     )
 }

@@ -1,7 +1,8 @@
 import {  CSSProperties } from "react";
-import { useTheme } from "@/utils/ThemeContext"
+import { useComponentsProvider } from "@/utils/ComponentsContext";
 import scss from "./Checkbox.module.scss"
 import { alignClass, CheckboxGroupProps, updateSelected } from "./helpers";
+
 
 export const CheckboxList =
     ({  
@@ -14,21 +15,21 @@ export const CheckboxList =
         ...props 
     }: CheckboxGroupProps) => {
 
-    const { colours, font, form } = useTheme()
+    const { colourScheme, tokens } = useComponentsProvider()
 
     const styles = {
-        "--input-padding": form.inputPadding,
-        "--input-shadow": form.inputShadow,
-        "--checkbox-height": form.checkboxHeight,
-        "--checkbox-width": form.checkboxWidth,
-        "--input-font-size": font.baseSize,
-        "--font-family": font.fontfamily,
-        "--font-weight": font.fontWeightRegular,
-        "--input-border-radius": form.inputBorderRadius,
-        "--input-colour-error": colours.error,
-        "--input-colour-hover": colours.blue200,
-        "--input-colour-default": colours.inputDefault,
-        "--input-colour-success": colours.success
+        "--input-padding": tokens.form.inputPadding,
+        "--input-shadow": tokens.form.inputShadow,
+        "--checkbox-height": tokens.form.checkboxHeight,
+        "--checkbox-width": tokens.form.checkboxWidth,
+        "--input-font-size": tokens.font.baseSize,
+        "--font-family": tokens.font.fontfamily,
+        "--font-weight": tokens.font.fontWeightRegular,
+        "--input-border-radius": tokens.form.inputBorderRadius,
+        "--input-colour-error": tokens.colours.error,
+        "--input-colour-hover": colourScheme.colour200,
+        "--input-colour-default": tokens.colours.inputDefault,
+        "--input-colour-success": tokens.colours.success
     } as CSSProperties
 
     const prefix: string = checkboxes.group.toLowerCase()+"-"

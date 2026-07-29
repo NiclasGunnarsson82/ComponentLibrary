@@ -1,7 +1,7 @@
 import { CSSProperties, forwardRef } from "react";
-import { useTheme } from "@/utils/ThemeContext"
 import scss from "./Input.module.scss"
 import { InputProps } from "./helpers";
+import { useComponentsProvider } from "@/utils/ComponentsContext";
 
 export const Input = forwardRef<HTMLInputElement, InputProps>(
     ({  
@@ -21,20 +21,20 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
         inputMode = "text",
         ...props }, ref) => {
 
-    const { colours, font, form } = useTheme()
+    const { tokens, colourScheme } = useComponentsProvider()
 
     const styles = {
-        "--input-width": width ?? form.inputDefaultWidth,
-        "--input-padding": form.inputPadding,
-        "--input-shadow": form.inputShadow,
-        "--input-height": form.inputHeight,
-        "--input-font-size": font.baseSize,
-        "--font-family": font.fontfamily,
-        "--font-weight": font.fontWeightRegular,
-        "--input-border-radius": form.inputBorderRadius,
-        "--input-colour-error": colours.error,
-        "--input-colour-focus": colours.blue300,
-        "--input-colour-default": colours.inputDefault,
+        "--input-width": width ?? tokens.form.inputDefaultWidth,
+        "--input-padding": tokens.form.inputPadding,
+        "--input-shadow": tokens.form.inputShadow,
+        "--input-height": tokens.form.inputHeight,
+        "--input-font-size": tokens.font.baseSize,
+        "--font-family": tokens.font.fontfamily,
+        "--font-weight": tokens.font.fontWeightRegular,
+        "--input-border-radius": tokens.form.inputBorderRadius,
+        "--input-colour-error": tokens.colours.error,
+        "--input-colour-focus": colourScheme.colour300,
+        "--input-colour-default": tokens.colours.inputDefault,
     } as CSSProperties
 
     const inputClass =
