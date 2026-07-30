@@ -16,7 +16,7 @@ export const Button = ({
     ...props 
 }: ButtonProps) => {
   
-    const { tokens, colourScheme } = useComponentsProvider()
+    const { tokens, colourScheme, theme } = useComponentsProvider()
 
     //The function which calculates the button attribute values, based on component props.
     const config = configureButton({
@@ -34,9 +34,9 @@ export const Button = ({
         "--colour-focus": colourScheme.colour300,
         "--colour-active": colourScheme.colour100,
         "--colour-disabled": colourScheme.colour400,
-        "--colour-error": tokens.colours.error,
+        "--colour-error": theme.error,
         "--colour-loader": style === "primary" ? tokens.colours.white : colourScheme.colour100,
-        "--colour-success": tokens.colours.success,
+        "--colour-success": theme.success,
         "--shadow-enabled": tokens.shadows.buttonEnabled,
         "--shadow-hover": tokens.shadows.buttonHover,
     } as CSSProperties

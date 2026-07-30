@@ -15,7 +15,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
         selected,
         ...props }, ref) => {
 
-    const { tokens } = useComponentsProvider()
+    const { tokens, theme } = useComponentsProvider()
 
     const styles = {
         "--input-width": width ?? tokens.form.inputDefaultWidth,
@@ -26,7 +26,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
         "--font-family": tokens.font.fontfamily,
         "--font-weight": tokens.font.fontWeightRegular,
         "--input-border-radius": tokens.form.inputBorderRadius,
-        "--input-colour-error": tokens.colours.error,
+        "--input-colour-error": theme.error,
         "--input-colour-default": tokens.colours.inputDefault,
     } as CSSProperties
 

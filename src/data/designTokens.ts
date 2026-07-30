@@ -1,7 +1,9 @@
 //Light, dark and sepia theme mode tokens
 export type ThemeType = {
-    foreground: string;
-    background: string
+    foreground: string,
+    background: string,
+    error: string,
+    success: string
 }
 export interface IThemes {
     [theme: string]: ThemeType
@@ -9,15 +11,21 @@ export interface IThemes {
 export const themeTokens: IThemes = {
     light: {
         foreground: "#1b1f23",
-        background: "#F8F8F8"
+        background: "#F8F8F8",
+        error: "#950606",
+        success: "#06402B"
     },
     dark: {
         foreground: "#F8F8F8",
-        background: "#1b1f23"
+        background: "#1b1f23",
+        error: "#F85149",
+        success: "#22C55E"
     },
     sepia: {
         foreground: "#212121",
-        background: "#fff1d2"
+        background: "#fff1d2",
+        error: "#950606", 
+        success: "#065F46"
     }     
 }
 
@@ -46,8 +54,6 @@ export interface IDesignTokens {
 }
 export const designTokens: IDesignTokens = {
     colours: {
-        success:"#06402B",
-        error:"#950606",
         inputDefault:"#898989", 
         inputBackground: "#BCBCBC",
         white: "#FFFFFF"      

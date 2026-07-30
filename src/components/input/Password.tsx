@@ -18,7 +18,7 @@ export const Password = forwardRef<HTMLInputElement, PasswordProps>(
         onPaste,
         ...props }, ref) => {
 
-    const { tokens, colourScheme } = useComponentsProvider()
+    const { tokens, colourScheme, theme } = useComponentsProvider()
 
     const styles = {
         "--input-width": width ?? tokens.form.inputDefaultWidth,
@@ -29,7 +29,7 @@ export const Password = forwardRef<HTMLInputElement, PasswordProps>(
         "--font-family": tokens.font.fontfamily,
         "--font-weight": tokens.font.fontWeightRegular,
         "--input-border-radius": tokens.form.inputBorderRadius,
-        "--input-colour-error": tokens.colours.error,
+        "--input-colour-error": theme.error,
         "--input-colour-focus": colourScheme.colour300,
         "--input-colour-default": tokens.colours.inputDefault,
     } as CSSProperties

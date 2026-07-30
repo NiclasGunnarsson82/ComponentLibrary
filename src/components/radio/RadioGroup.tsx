@@ -17,7 +17,7 @@ export const RadioGroup =
         setSelected,
         ...props }: RadioGroupProps) => {
 
-    const { tokens, colourScheme } = useComponentsProvider()
+    const { tokens, colourScheme,theme } = useComponentsProvider()
 
     const styles = {
         "--input-width": width ?? tokens.form.inputDefaultWidth,
@@ -28,7 +28,7 @@ export const RadioGroup =
         "--font-family": tokens.font.fontfamily,
         "--font-weight": tokens.font.fontWeightRegular,
         "--input-colour-hover": colourScheme.colour200,
-        "--input-colour-error": tokens.colours.error,
+        "--input-colour-error": theme.error,
         "--input-colour-active": colourScheme.colour100,
         "--input-colour-default": tokens.colours.inputDefault,
     } as CSSProperties

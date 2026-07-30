@@ -15,7 +15,7 @@ export const DataList = forwardRef<HTMLDataListElement, DataListProps>(
         options = [],
         ...props }, ref) => {
 
-    const { colourScheme, tokens } = useComponentsProvider()
+    const { colourScheme, tokens, theme } = useComponentsProvider()
 
     const styles = {
         "--input-width": width ?? tokens.form.inputDefaultWidth,
@@ -26,7 +26,7 @@ export const DataList = forwardRef<HTMLDataListElement, DataListProps>(
         "--font-family": tokens.font.fontfamily,
         "--font-weight": tokens.font.fontWeightRegular,
         "--input-border-radius": tokens.form.inputBorderRadius,
-        "--input-colour-error": tokens.colours.error,
+        "--input-colour-error": theme.error,
         "--input-colour-focus": colourScheme.colour300,
         "--input-colour-default": tokens.colours.inputDefault,
     } as CSSProperties
