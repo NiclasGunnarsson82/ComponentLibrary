@@ -1,9 +1,9 @@
 import { CSSProperties, useRef, useState } from "react";
-import { useTheme } from "@/utils/ThemeContext"
 import scss from "./Accordion.module.scss"
 import { ItemProps } from "./helpers";
 import  chevronDownIcon from "./icons/chevron-down.svg"
 import  chevronUpIcon from "./icons/chevron-up.svg";
+import { useComponentsProvider } from "@/utils/ComponentsContext";
 
 export const AccordionItem = ({
     title,
@@ -12,12 +12,12 @@ export const AccordionItem = ({
     ...props 
 }: ItemProps) => {
   
-    const { font } = useTheme()
+    const { tokens } = useComponentsProvider()
 
     const styles = {
-        "--font-size": font.baseSize,
-        "--font-family": font.fontfamily,
-        "--font-weight": font.fontWeightBold
+        "--font-size": tokens.font.baseSize,
+        "--font-family": tokens.font.fontfamily,
+        "--font-weight": tokens.font.fontWeightBold
     } as CSSProperties
 
     const [ showContent, setShowContent ] = useState<boolean>(false) 

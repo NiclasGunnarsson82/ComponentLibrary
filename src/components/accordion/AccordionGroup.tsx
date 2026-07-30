@@ -1,7 +1,7 @@
 import { CSSProperties } from "react";
-import { useTheme } from "@/utils/ThemeContext"
 import scss from "./Accordion.module.scss"
 import { GroupProps } from "./helpers";
+import { useComponentsProvider } from "@/utils/ComponentsContext";
 
 export const AccordionGroup = ({
     width = "100%",
@@ -9,12 +9,12 @@ export const AccordionGroup = ({
     ...props 
 }: GroupProps) => {
   
-    const { font } = useTheme()
+    const { tokens } = useComponentsProvider()
 
     const styles = {
-        "--font-size": font.baseSize,
-        "--font-family": font.fontfamily,
-        "--font-weight": font.fontWeightBold,
+        "--font-size": tokens.font.baseSize,
+        "--font-family": tokens.font.fontfamily,
+        "--font-weight": tokens.font.fontWeightBold,
         "--width": width
     } as CSSProperties
 
