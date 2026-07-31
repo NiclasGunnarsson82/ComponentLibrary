@@ -1,27 +1,21 @@
-import { createContext, ReactNode, useContext, useState } from 'react'
-import { 
-    designTokens, 
-    IDesignTokens, 
-    themeTokens, 
-    ThemeType,
-    ColourSchemeType,
-    colourSchemeTokens } from '@/data/designTokens'
-
-export type ThemeModeType = "light" | "dark" | "sepia"
+import { createContext, ReactNode, useContext, useEffect, useState } from 'react'
+import { ColourSchemeSelectorType, colourTokens } from '@/tokens/colours'
+import { ThemeSelectorType, themeTokens } from '@/tokens/themes'
+import { configureTokens, DefaultTokens, ITokens } from '@/tokens/tokens'
 
 export type ComponentContextType = {
-    tokens: IDesignTokens,
-    theme: ThemeType,
-    setThemeMode: ( themeMode: ThemeModeType ) => void,
-    colourScheme: ColourSchemeType,
-    setColourScheme: ( colourScheme: ColourSchemeType ) => void
+    tokens: ITokens,
+    themeMode: ThemeSelectorType,
+    setThemeMode: ( themeMode: ThemeSelectorType ) => void,
+    colourScheme: ColourSchemeSelectorType,
+    setColourScheme: ( colourScheme: ColourSchemeSelectorType ) => void
 }
 
-const DefaultValues: ComponentContextType = {
-    tokens: designTokens,
-    theme: themeTokens["light"],
+const Defaults: ComponentContextType = {
+    tokens: DefaultTokens,
+    themeMode: "light",
     setThemeMode: () => null,
-    colourScheme: colourSchemeTokens,
+    colourScheme: "indigo",
     setColourScheme: () => null
 }
 
@@ -29,21 +23,26 @@ export type ProviderProps = {
     children: ReactNode;
 }
 
-const ComponentContext = createContext<ComponentContextType>(DefaultValues)
+const ComponentContext = createContext<ComponentContextType>(Defaults)
 
 export const ComponentsProvider = ({ children }: ProviderProps ) => {
-    const [ theme, setTheme ] = useState<ThemeType>(DefaultValues.theme)
-    const [ colourScheme, setColourScheme ] = useState<ColourSchemeType>(DefaultValues.colourScheme)
-    const tokens: IDesignTokens = designTokens
-
-    const setThemeMode = (themeMode: ThemeModeType) => {
-        setTheme(themeTokens[themeMode])
-    }
+    const [ tokens, setTokens ] = useState<ITokens>(DefaultTokens)
+    const [ themeMode, setThemeMode ] = useState<ThemeSelectorType>(Defaults.themeMode)
+    const [ colourScheme, setColourScheme ] = useState<ColourSchemeSelectorType>(Defaults.colourScheme)
+    
+    useEffect(() => {
+        configureTokens( 
+            themeMode,
+            themeTokens, 
+            colourScheme,
+            colourTokens,
+            setTokens)
+    }, [colourScheme, themeMode]);
 
     return (
         <ComponentContext.Provider value={{
             tokens, 
-            theme, 
+            themeMode,
             setThemeMode,
             colourScheme,
             setColourScheme
