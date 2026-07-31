@@ -1,11 +1,12 @@
-//General designTokens for components
-export type DesignTokenType = {
+export type GeneralTokenType = {
     [token: string]: string;
 }
-export interface IDesignTokens {
-    [category: string]: DesignTokenType
+
+export interface IGeneralTokens {
+    [category: string]: GeneralTokenType
 }
-export const designTokens: IDesignTokens = {
+
+export const generalTokens: IGeneralTokens = {
     shadows: {
         buttonEnabled:"rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px",
         buttonHover:"rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px",

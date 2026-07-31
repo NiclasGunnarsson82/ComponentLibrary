@@ -10,7 +10,7 @@ export type ThemeType = {
 }
 
 export interface IThemes {
-    [theme: string]: ThemeType
+    [theme: string]: ThemeType,
 }
 
 export const themeTokens: IThemes = {
