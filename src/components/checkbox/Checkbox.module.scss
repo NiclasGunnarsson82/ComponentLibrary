@@ -34,20 +34,20 @@
     left: 0;
     height: var(--checkbox-height);
     width: var(--checkbox-width);
-    border: 1px solid var(--input-colour-default);
+    border: 1px solid var(--border-colour);
     box-shadow: var(--input-shadow);
-    border-radius: var(--input-border-radius);
+    border-radius: var(--border-radius);
 }
 
 .checkbox input:hover ~ .checkmark,
 .checkbox input:hover ~ .checkmarkPartial {
-    border: 2px solid var(--input-colour-hover);
+    border: 2px solid var(--colour-hover);
 }
 
 .checkbox input:checked ~ .checkmark,
 .checkbox input:checked ~ .checkmarkPartial {
-    background-color: var(--input-colour-success);
-    border-color: var(--input-colour-success);
+    background-color: var(--colour-success);
+    border-color: var(--colour-success);
 }
 
 .checkmark:after {
@@ -88,7 +88,7 @@
 
 .checkbox input:checked:hover ~ .checkmark,
 .checkbox input:checked:hover ~ .checkmarkPartial {
-    border: 1px solid var(--input-colour-success)
+    border: 1px solid var(--colour-success)
 }
 
 .checkboxList,
@@ -116,6 +116,6 @@
 }
 
 .errorMessage {
-    color: var(--input-colour-error);
+    color: var(--colour-error);
     text-align: right;
 }

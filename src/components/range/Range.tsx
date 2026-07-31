@@ -29,9 +29,9 @@ export const Range = forwardRef<HTMLInputElement, RangeProps>(
         "--slider-track-height": tokens.slider.trackHeight,
         "--slider-border-radius": tokens.slider.borderRadius,
         "--slider-thumb-size": tokens.slider.thumbSize,
-        "--input-colour-default": tokens.theme.inputBorder,
-        "--thumb-colour-enabled": tokens.colours.c300,
-        "--thumb-colour-focus": tokens.colours.c200
+        "--border-colour": tokens.theme.inputBorder,
+        "--colour-enabled": tokens.colours.c300,
+        "--colour-focus": tokens.colours.c200
     } as CSSProperties
 
     const initial: string = (parseInt(max)/2).toString()

@@ -15,7 +15,7 @@
     height: var(--toggle-height);
     border-radius: 25px;
     position: relative;
-    border: 1px solid var(--input-colour-default);
+    border: 1px solid var(--border-colour);
     background-color: var(--input-colour-bg);
     box-shadow: var(--input-shadow);
     z-index: 1;
@@ -34,7 +34,7 @@ input[type="checkbox"] {
 }
 
 .toggleSwitch:has(input[type="checkbox"]:checked) {
-    background-color: var(--input-colour-success);
+    background-color: var(--colour-success);
 }
 
 .thumb {

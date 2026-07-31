@@ -22,11 +22,11 @@ export const NestedCheckbox =
         "--input-font-size": tokens.general.font.baseSize,
         "--font-family": tokens.general.font.fontfamily,
         "--font-weight": tokens.general.font.fontWeightRegular,
-        "--input-border-radius": tokens.general.form.inputBorderRadius,
-        "--input-colour-error": tokens.theme.error,
-        "--input-colour-hover": tokens.colours.c200,
-        "--input-colour-default": tokens.theme.inputBorder,
-        "--input-colour-success": tokens.theme.success
+        "--border-radius": tokens.general.form.inputBorderRadius,
+        "--colour-error": tokens.theme.error,
+        "--colour-hover": tokens.colours.c200,
+        "--border-colour": tokens.theme.inputBorder,
+        "--colour-success": tokens.theme.success
     } as CSSProperties
 
     const checkboxClass: string =

@@ -27,10 +27,10 @@ export const RadioGroup =
         "--radio-height": tokens.general.form.radioHeight,
         "--font-family": tokens.general.font.fontfamily,
         "--font-weight": tokens.general.font.fontWeightRegular,
-        "--input-colour-hover": tokens.colours.c200,
-        "--input-colour-error": tokens.theme.error,
-        "--input-colour-active": tokens.colours.c100,
-        "--input-colour-default": tokens.theme.inputBorder,
+        "--colour-hover": tokens.colours.c200,
+        "--colour-error": tokens.theme.error,
+        "--colour-active": tokens.colours.c100,
+        "--border-colour": tokens.theme.inputBorder,
     } as CSSProperties
 
     const selectClass: string =

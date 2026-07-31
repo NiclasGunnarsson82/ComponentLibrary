@@ -24,10 +24,10 @@ export const Time = forwardRef<HTMLInputElement, DateProps>(
         "--input-font-size": tokens.general.font.baseSize,
         "--font-family": tokens.general.font.fontfamily,
         "--font-weight": tokens.general.font.fontWeightRegular,
-        "--input-border-radius": tokens.general.form.inputBorderRadius,
-        "--input-colour-error": tokens.theme.error,
-        "--input-colour-focus": tokens.colours.c300,
-        "--input-colour-default": tokens.theme.inputBorder,
+        "--border-radius": tokens.general.form.inputBorderRadius,
+        "--colour-error": tokens.theme.error,
+        "--colour-focus": tokens.colours.c300,
+        "--border-colour": tokens.theme.inputBorder,
     } as CSSProperties
 
     const inputClass =

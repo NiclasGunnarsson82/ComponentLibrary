@@ -18,13 +18,13 @@
     display: block;
     width: var(--radio-width);
     height: var(--radio-height);
-    border: 1px solid var(--input-colour-default);
+    border: 1px solid var(--border-colour);
     border-radius: 50%;
     display: grid;
     place-content: center;
     cursor: pointer;
     &:hover {
-        border: 2px solid var(--input-colour-hover);
+        border: 2px solid var(--colour-hover);
     }
 }
 
@@ -35,16 +35,16 @@
     border-radius: 50%;
     transform: scale(0);
     transition: transform 0.2s ease;
-    background: var(--input-colour-active);
+    background: var(--colour-active);
 }
 
 .radio:checked::before {
     transform: scale(1);
-    border: 2px solid var(--input-colour-active);
+    border: 2px solid var(--colour-active);
 }
 
 .radio:checked {
-    border: 2px solid var(--input-colour-active);
+    border: 2px solid var(--colour-active);
 }
 
 .radioList {
@@ -55,6 +55,6 @@
 }
 
 .errorMessage {
-    color: var(--input-colour-error);
+    color: var(--colour-error);
     text-align: right;
 }

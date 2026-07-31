@@ -2,13 +2,13 @@
     display: block;
     height: var(--input-height);
     width: 100%;
-    border-radius: var(--input-border-radius);
+    border-radius: var(--border-radius);
     font-size: var(--input-font-size);
     padding: var(--input-padding);
     box-sizing: border-box;
     font-family: var(--font-family);
     font-weight: var(--font-weight);
-    border: 1px solid var(--input-colour-default);
+    border: 1px solid var(--border-colour);
     box-shadow: var(--input-shadow);
 }
 
@@ -26,6 +26,6 @@
 }
 
 .errorMessage {
-    color: var(--input-colour-error);
+    color: var(--colour-error);
     text-align: right;
 }
