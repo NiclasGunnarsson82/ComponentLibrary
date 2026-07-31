@@ -8,6 +8,7 @@ export type ColourSchemeSelectorType =
     | "turquoise"
     | "orange"
 
+export const ColourSchemeSelectorDefault: ColourSchemeSelectorType = "indigo" 
 
 export type ColoursType = {
     c100: string,

@@ -1,7 +1,9 @@
 import { Dispatch, SetStateAction } from "react";
-import { ColourSchemeSelectorType, ColoursType, colourTokens, IColourScheme } from "./colours";
+import { ColourSchemeSelectorDefault, ColourSchemeSelectorType, 
+    ColoursType, colourTokens, IColourScheme } from "./colours";
 import { generalTokens, IGeneralTokens } from "./general";
-import { IThemes, ThemeSelectorDefault, ThemeSelectorType, themeTokens, ThemeType } from "./themes";
+import { IThemes, ThemeSelectorDefault, ThemeSelectorType, 
+    themeTokens, ThemeType } from "./themes";
 
 export interface ITokens {
     general: IGeneralTokens,
@@ -12,7 +14,7 @@ export interface ITokens {
 export const DefaultTokens: ITokens = {
     general: generalTokens,
     theme: themeTokens[ThemeSelectorDefault],
-    colours: colourTokens.indigo[ThemeSelectorDefault]
+    colours: colourTokens[ColourSchemeSelectorDefault][ThemeSelectorDefault]
 }
 
 export const configureTokens = (
