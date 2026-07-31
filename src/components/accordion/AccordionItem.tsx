@@ -15,9 +15,9 @@ export const AccordionItem = ({
     const { tokens } = useComponentsProvider()
 
     const styles = {
-        "--font-size": tokens.font.baseSize,
-        "--font-family": tokens.font.fontfamily,
-        "--font-weight": tokens.font.fontWeightBold
+        "--font-size": tokens.general.font.baseSize,
+        "--font-family": tokens.general.font.fontfamily,
+        "--font-weight": tokens.general.font.fontWeightBold
     } as CSSProperties
 
     const [ showContent, setShowContent ] = useState<boolean>(false) 

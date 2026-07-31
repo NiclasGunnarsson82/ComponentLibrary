@@ -23,9 +23,9 @@ export const ToggleSwitch = forwardRef<HTMLInputElement, ToggleSwitchProps>(
         "--input-colour-success": theme.success,
         "--input-shadow": tokens.general.form.inputShadow,
         "--thumb-shadow": tokens.shadows.toggleSwitchThumb,
-        "--input-font-size": tokens.font.baseSize,
-        "--font-family": tokens.font.fontfamily,
-        "--font-weight": tokens.font.fontWeightRegular,
+        "--input-font-size": tokens.general.font.baseSize,
+        "--font-family": tokens.general.font.fontfamily,
+        "--font-weight": tokens.general.font.fontWeightRegular,
     } as CSSProperties
 
     const [ isChecked, setIsChecked ] = useState<boolean>(false)

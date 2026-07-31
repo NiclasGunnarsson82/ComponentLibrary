@@ -12,9 +12,9 @@ export const AccordionGroup = ({
     const { tokens } = useComponentsProvider()
 
     const styles = {
-        "--font-size": tokens.font.baseSize,
-        "--font-family": tokens.font.fontfamily,
-        "--font-weight": tokens.font.fontWeightBold,
+        "--font-size": tokens.general.font.baseSize,
+        "--font-family": tokens.general.font.fontfamily,
+        "--font-weight": tokens.general.font.fontWeightBold,
         "--width": width
     } as CSSProperties
 

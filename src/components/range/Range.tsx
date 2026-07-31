@@ -23,9 +23,9 @@ export const Range = forwardRef<HTMLInputElement, RangeProps>(
     const styles = {
         "--input-width": width,
         "--input-shadow": tokens.general.form.inputShadow,
-        "--input-font-size": tokens.font.baseSize,
-        "--font-family": tokens.font.fontfamily,
-        "--font-weight": tokens.font.fontWeightRegular,
+        "--input-font-size": tokens.general.font.baseSize,
+        "--font-family": tokens.general.font.fontfamily,
+        "--font-weight": tokens.general.font.fontWeightRegular,
         "--slider-track-height": tokens.slider.trackHeight,
         "--slider-border-radius": tokens.slider.borderRadius,
         "--slider-thumb-size": tokens.slider.thumbSize,

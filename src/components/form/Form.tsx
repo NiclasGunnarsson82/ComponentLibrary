@@ -19,8 +19,8 @@ export const Form = forwardRef<HTMLFormElement, FormProps>(
         "--form--width": width ?? tokens.general.form.minWidth,
         "--form-input-gap": gap ?? tokens.general.form.formDefaultGap,
         "--form-padding": tokens.general.form.formPadding,
-        "--form-font-size": tokens.font.baseSize,
-        "--font-family": tokens.font.fontfamily,
+        "--form-font-size": tokens.general.font.baseSize,
+        "--font-family": tokens.general.font.fontfamily,
     } as CSSProperties
 
     return(
