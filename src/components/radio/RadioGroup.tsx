@@ -27,9 +27,9 @@ export const RadioGroup =
         "--radio-height": tokens.form.radioHeight,
         "--font-family": tokens.font.fontfamily,
         "--font-weight": tokens.font.fontWeightRegular,
-        "--input-colour-hover": colourScheme.colour200,
+        "--input-colour-hover": tokens.colours.c200,
         "--input-colour-error": theme.error,
-        "--input-colour-active": colourScheme.colour100,
+        "--input-colour-active": tokens.colours.c100,
         "--input-colour-default": tokens.colours.inputDefault,
     } as CSSProperties
 

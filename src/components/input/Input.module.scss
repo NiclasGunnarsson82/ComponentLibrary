@@ -9,8 +9,10 @@
     box-sizing: border-box;
     font-family: var(--font-family);
     font-weight: var(--font-weight);
-    border: 1px solid var(--input-colour-default);
+    border: 1px solid var(--border-colour);
     box-shadow: var(--input-shadow);
+    background-color: var(--input-background);
+    color: var(--input-text-colour);
     
     &:focus { 
         outline: 2px solid var(--input-colour-focus);
