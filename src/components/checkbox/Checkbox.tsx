@@ -23,7 +23,7 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
         "--input-border-radius": tokens.general.form.inputBorderRadius,
         "--input-colour-error": tokens.theme.error,
         "--input-colour-hover": tokens.colours.c200,
-        "--input-colour-default": tokens.colours.inputDefault,
+        "--input-colour-default": tokens.theme.inputBorder,
         "--input-colour-success": tokens.theme.success
     } as CSSProperties
     

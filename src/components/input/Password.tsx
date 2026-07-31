@@ -31,7 +31,7 @@ export const Password = forwardRef<HTMLInputElement, PasswordProps>(
         "--input-border-radius": tokens.general.form.inputBorderRadius,
         "--input-colour-error": tokens.theme.error,
         "--input-colour-focus": tokens.colours.c300,
-        "--input-colour-default": tokens.colours.inputDefault,
+        "--input-colour-default": tokens.theme.inputBorder,
     } as CSSProperties
 
     const inputClass =

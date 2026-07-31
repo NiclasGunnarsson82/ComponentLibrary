@@ -30,7 +30,7 @@ export const RadioGroup =
         "--input-colour-hover": tokens.colours.c200,
         "--input-colour-error": tokens.theme.error,
         "--input-colour-active": tokens.colours.c100,
-        "--input-colour-default": tokens.colours.inputDefault,
+        "--input-colour-default": tokens.theme.inputBorder,
     } as CSSProperties
 
     const selectClass: string =
