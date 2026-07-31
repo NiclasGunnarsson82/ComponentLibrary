@@ -33,10 +33,10 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
         "--font-weight": tokens.general.font.fontWeightRegular,
         "--border-radius": tokens.general.form.inputBorderRadius,
         "--colour-error": tokens.theme.error,
-        "--input-text-colour": theme.foreground,
+        "--input-text-colour": tokens.theme.foreground,
         "--colour-focus": tokens.colours.c300,
-        "--border-colour": theme.inputBorder,
-        "--input-background": theme.inputBackground,
+        "--border-colour": tokens.theme.inputBorder,
+        "--input-background": tokens.theme.inputBackground,
     } as CSSProperties
 
     const inputClass =
