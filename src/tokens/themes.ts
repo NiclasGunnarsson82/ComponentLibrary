@@ -1,6 +1,6 @@
 export type ThemeSelectorType = "light" | "dark" 
 
-export const ThemeSelectorDefault = "light" 
+export const ThemeSelectorDefault: ThemeSelectorType = "light" 
 
 export type ThemeType = {
     foreground: string,
