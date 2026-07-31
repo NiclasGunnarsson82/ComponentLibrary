@@ -1,6 +1,6 @@
 import { createContext, ReactNode, useContext, useEffect, useState } from 'react'
 import { ColourSchemeSelectorType, colourTokens } from '@/tokens/colours'
-import { ThemeSelectorType, themeTokens } from '@/tokens/themes'
+import { ThemeSelectorDefault, ThemeSelectorType, themeTokens } from '@/tokens/themes'
 import { configureTokens, DefaultTokens, ITokens } from '@/tokens/tokens'
 
 export type ComponentContextType = {
@@ -13,7 +13,7 @@ export type ComponentContextType = {
 
 const Defaults: ComponentContextType = {
     tokens: DefaultTokens,
-    themeMode: "light",
+    themeMode: ThemeSelectorDefault,
     setThemeMode: () => null,
     colourScheme: "indigo",
     setColourScheme: () => null
