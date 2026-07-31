@@ -1,63 +1,11 @@
-//Light, dark and sepia theme mode tokens
-export type ThemeType = {
-    foreground: string,
-    background: string,
-    error: string,
-    success: string
-}
-export interface IThemes {
-    [theme: string]: ThemeType
-}
-export const themeTokens: IThemes = {
-    light: {
-        foreground: "#1b1f23",
-        background: "#F8F8F8",
-        error: "#950606",
-        success: "#06402B"
-    },
-    dark: {
-        foreground: "#F8F8F8",
-        background: "#1b1f23",
-        error: "#F85149",
-        success: "#22C55E"
-    },
-    sepia: {
-        foreground: "#212121",
-        background: "#fff1d2",
-        error: "#950606", 
-        success: "#065F46"
-    }     
-}
-
-
-//Colour scheme tokens
-export type ColourSchemeType = {
-    colour100: string,
-    colour200: string,
-    colour300: string,
-    colour400: string
-}
-export const colourSchemeTokens: ColourSchemeType = {
-    colour100:"#010D18",
-    colour200:"#042647",
-    colour300:"#064077", 
-    colour400:"#095FB2",       
-}
-
-
 //General designTokens for components
 export type DesignTokenType = {
     [token: string]: string;
 }
 export interface IDesignTokens {
-  [category: string]: DesignTokenType
+    [category: string]: DesignTokenType
 }
 export const designTokens: IDesignTokens = {
-    colours: {
-        inputDefault:"#898989", 
-        inputBackground: "#BCBCBC",
-        white: "#FFFFFF"      
-    },
     shadows: {
         buttonEnabled:"rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px",
         buttonHover:"rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px",
