@@ -22,7 +22,7 @@ export const Range = forwardRef<HTMLInputElement, RangeProps>(
 
     const styles = {
         "--input-width": width,
-        "--input-shadow": tokens.form.inputShadow,
+        "--input-shadow": tokens.general.form.inputShadow,
         "--input-font-size": tokens.font.baseSize,
         "--font-family": tokens.font.fontfamily,
         "--font-weight": tokens.font.fontWeightRegular,

@@ -20,11 +20,11 @@ export const RadioGroup =
     const { tokens, colourScheme,theme } = useComponentsProvider()
 
     const styles = {
-        "--input-width": width ?? tokens.form.inputDefaultWidth,
-        "--input-padding": tokens.form.inputPadding,
-        "--input-shadow": tokens.form.inputShadow,
-        "--radio-width": tokens.form.radioWidth,
-        "--radio-height": tokens.form.radioHeight,
+        "--input-width": width ?? tokens.general.form.inputDefaultWidth,
+        "--input-padding": tokens.general.form.inputPadding,
+        "--input-shadow": tokens.general.form.inputShadow,
+        "--radio-width": tokens.general.form.radioWidth,
+        "--radio-height": tokens.general.form.radioHeight,
         "--font-family": tokens.font.fontfamily,
         "--font-weight": tokens.font.fontWeightRegular,
         "--input-colour-hover": tokens.colours.c200,

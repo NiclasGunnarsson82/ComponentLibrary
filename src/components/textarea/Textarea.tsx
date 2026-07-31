@@ -24,13 +24,13 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
     const { tokens } = useComponentsProvider()
 
     const styles = {
-        "--input-width": width ?? tokens.form.inputDefaultWidth,
-        "--input-padding": tokens.form.inputPadding,
-        "--input-shadow": tokens.form.inputShadow,
+        "--input-width": width ?? tokens.general.form.inputDefaultWidth,
+        "--input-padding": tokens.general.form.inputPadding,
+        "--input-shadow": tokens.general.form.inputShadow,
         "--input-font-size": tokens.font.baseSize,
         "--font-family": tokens.font.fontfamily,
         "--font-weight": tokens.font.fontWeightRegular,
-        "--input-border-radius": tokens.form.inputBorderRadius,
+        "--input-border-radius": tokens.general.form.inputBorderRadius,
         "--input-colour-error": theme.error,
         "--input-colour-focus": tokens.colours.c300,
         "--input-colour-default": tokens.colours.inputDefault,

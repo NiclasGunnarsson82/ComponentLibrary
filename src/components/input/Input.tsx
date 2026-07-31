@@ -24,14 +24,14 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
     const { tokens } = useComponentsProvider()
 
     const styles = {
-        "--input-width": width ?? tokens.form.inputDefaultWidth,
-        "--input-padding": tokens.form.inputPadding,
-        "--input-shadow": tokens.form.inputShadow,
-        "--input-height": tokens.form.inputHeight,
+        "--input-width": width ?? tokens.general.form.inputDefaultWidth,
+        "--input-padding": tokens.general.form.inputPadding,
+        "--input-shadow": tokens.general.form.inputShadow,
+        "--input-height": tokens.general.form.inputHeight,
         "--input-font-size": tokens.font.baseSize,
         "--font-family": tokens.font.fontfamily,
         "--font-weight": tokens.font.fontWeightRegular,
-        "--input-border-radius": tokens.form.inputBorderRadius,
+        "--input-border-radius": tokens.general.form.inputBorderRadius,
         "--input-colour-error": theme.error,
         "--input-text-colour": theme.foreground,
         "--input-colour-focus": tokens.colours.c300,

@@ -18,14 +18,14 @@ export const CheckboxList =
     const { colourScheme, tokens, theme } = useComponentsProvider()
 
     const styles = {
-        "--input-padding": tokens.form.inputPadding,
-        "--input-shadow": tokens.form.inputShadow,
-        "--checkbox-height": tokens.form.checkboxHeight,
-        "--checkbox-width": tokens.form.checkboxWidth,
+        "--input-padding": tokens.general.form.inputPadding,
+        "--input-shadow": tokens.general.form.inputShadow,
+        "--checkbox-height": tokens.general.form.checkboxHeight,
+        "--checkbox-width": tokens.general.form.checkboxWidth,
         "--input-font-size": tokens.font.baseSize,
         "--font-family": tokens.font.fontfamily,
         "--font-weight": tokens.font.fontWeightRegular,
-        "--input-border-radius": tokens.form.inputBorderRadius,
+        "--input-border-radius": tokens.general.form.inputBorderRadius,
         "--input-colour-error": theme.error,
         "--input-colour-hover": tokens.colours.c200,
         "--input-colour-default": tokens.colours.inputDefault,
