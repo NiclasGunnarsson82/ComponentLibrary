@@ -31,7 +31,7 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
         "--font-family": tokens.general.font.fontfamily,
         "--font-weight": tokens.general.font.fontWeightRegular,
         "--input-border-radius": tokens.general.form.inputBorderRadius,
-        "--input-colour-error": theme.error,
+        "--input-colour-error": tokens.theme.error,
         "--input-colour-focus": tokens.colours.c300,
         "--input-colour-default": tokens.colours.inputDefault,
         "--textarea-resize": resize,

@@ -20,7 +20,7 @@ export const ToggleSwitch = forwardRef<HTMLInputElement, ToggleSwitchProps>(
         "--toggle-thumb": tokens.toggleSwitch.thumb,
         "--input-colour-default": tokens.colours.inputDefault,
         "--input-colour-bg": tokens.colours.inputBackground,
-        "--input-colour-success": theme.success,
+        "--input-colour-success": tokens.theme.success,
         "--input-shadow": tokens.general.form.inputShadow,
         "--thumb-shadow": tokens.shadows.toggleSwitchThumb,
         "--input-font-size": tokens.general.font.baseSize,

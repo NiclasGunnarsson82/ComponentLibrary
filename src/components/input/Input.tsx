@@ -32,7 +32,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
         "--font-family": tokens.general.font.fontfamily,
         "--font-weight": tokens.general.font.fontWeightRegular,
         "--input-border-radius": tokens.general.form.inputBorderRadius,
-        "--input-colour-error": theme.error,
+        "--input-colour-error": tokens.theme.error,
         "--input-text-colour": theme.foreground,
         "--input-colour-focus": tokens.colours.c300,
         "--border-colour": theme.inputBorder,

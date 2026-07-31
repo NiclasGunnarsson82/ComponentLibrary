@@ -35,7 +35,7 @@ export const Button = ({
         "--colour-disabled": tokens.colours.c400,
         "--colour-error": tokens.general.error,
         "--colour-loader": style === "primary" ? tokens.general.misc.white : tokens.colours.c100,
-        "--colour-success": tokens.theme.success,
+        "--colour-success": tokens.tokens.theme.success,
         "--shadow-enabled": tokens.general.shadows.buttonEnabled,
         "--shadow-hover": tokens.general.shadows.buttonHover
     } as CSSProperties

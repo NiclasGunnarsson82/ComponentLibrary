@@ -26,7 +26,7 @@ export const DataList = forwardRef<HTMLDataListElement, DataListProps>(
         "--font-family": tokens.general.font.fontfamily,
         "--font-weight": tokens.general.font.fontWeightRegular,
         "--input-border-radius": tokens.general.form.inputBorderRadius,
-        "--input-colour-error": theme.error,
+        "--input-colour-error": tokens.theme.error,
         "--input-colour-focus": tokens.colours.c300,
         "--input-colour-default": tokens.colours.inputDefault,
     } as CSSProperties

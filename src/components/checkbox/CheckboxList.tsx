@@ -26,10 +26,10 @@ export const CheckboxList =
         "--font-family": tokens.general.font.fontfamily,
         "--font-weight": tokens.general.font.fontWeightRegular,
         "--input-border-radius": tokens.general.form.inputBorderRadius,
-        "--input-colour-error": theme.error,
+        "--input-colour-error": tokens.theme.error,
         "--input-colour-hover": tokens.colours.c200,
         "--input-colour-default": tokens.colours.inputDefault,
-        "--input-colour-success": theme.success
+        "--input-colour-success": tokens.theme.success
     } as CSSProperties
 
     const prefix: string = checkboxes.group.toLowerCase()+"-"
