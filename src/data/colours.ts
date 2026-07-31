@@ -8,17 +8,22 @@ export type ColourSchemeSelectorType =
     | "turquoise"
     | "orange"
 
-export type ColourSchemeType = {
-    [theme: string]: {
-        c100: string,
-        c200: string,
-        c300: string,
-        c400: string
-    }   
+
+export type ColoursType = {
+    c100: string,
+    c200: string,
+    c300: string,
+    c400: string
 }
+
+export type ColourSchemeType = {
+    [theme: string]: ColoursType 
+}
+
 export interface IColourScheme {
     [colour: string]: ColourSchemeType
 }
+
 export const colourTokens: IColourScheme = {
     indigo: {
         light: {
