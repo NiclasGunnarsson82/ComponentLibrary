@@ -15,7 +15,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
         selected,
         ...props }, ref) => {
 
-    const { tokens, theme } = useComponentsProvider()
+    const { tokens } = useComponentsProvider()
 
     const styles = {
         "--input-width": width ?? tokens.general.form.inputDefaultWidth,

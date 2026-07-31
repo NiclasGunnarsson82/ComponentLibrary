@@ -12,7 +12,7 @@ export const ToggleSwitch = forwardRef<HTMLInputElement, ToggleSwitchProps>(
         required,
         ...props }, ref) => {
 
-    const { tokens, theme } = useComponentsProvider()
+    const { tokens } = useComponentsProvider()
 
     const styles = {
         "--toggle-width": tokens.general.toggleSwitch.width,

@@ -18,7 +18,7 @@ export const Range = forwardRef<HTMLInputElement, RangeProps>(
         suffix ="",
         ...props }, ref) => {
 
-    const { tokens, colourScheme } = useComponentsProvider()
+    const { tokens } = useComponentsProvider()
 
     const styles = {
         "--input-width": width,

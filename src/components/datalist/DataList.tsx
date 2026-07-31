@@ -15,7 +15,7 @@ export const DataList = forwardRef<HTMLDataListElement, DataListProps>(
         options = [],
         ...props }, ref) => {
 
-    const { colourScheme, tokens, theme } = useComponentsProvider()
+    const { tokens } = useComponentsProvider()
 
     const styles = {
         "--input-width": width ?? tokens.general.form.inputDefaultWidth,

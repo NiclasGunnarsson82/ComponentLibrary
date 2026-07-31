@@ -15,7 +15,7 @@ export const CheckboxList =
         ...props 
     }: CheckboxGroupProps) => {
 
-    const { colourScheme, tokens, theme } = useComponentsProvider()
+    const { tokens } = useComponentsProvider()
 
     const styles = {
         "--input-padding": tokens.general.form.inputPadding,

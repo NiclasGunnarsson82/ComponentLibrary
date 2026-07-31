@@ -17,7 +17,7 @@ export const RadioGroup =
         setSelected,
         ...props }: RadioGroupProps) => {
 
-    const { tokens, colourScheme,theme } = useComponentsProvider()
+    const { tokens } = useComponentsProvider()
 
     const styles = {
         "--input-width": width ?? tokens.general.form.inputDefaultWidth,
