@@ -15,14 +15,14 @@ export const ToggleSwitch = forwardRef<HTMLInputElement, ToggleSwitchProps>(
     const { tokens, theme } = useComponentsProvider()
 
     const styles = {
-        "--toggle-width": tokens.toggleSwitch.width,
-        "--toggle-height": tokens.toggleSwitch.height,
-        "--toggle-thumb": tokens.toggleSwitch.thumb,
+        "--toggle-width": tokens.general.toggleSwitch.width,
+        "--toggle-height": tokens.general.toggleSwitch.height,
+        "--toggle-thumb": tokens.general.toggleSwitch.thumb,
         "--border-colour": tokens.theme.inputBorder,
-        "--input-colour-bg": tokens.colours.inputBackground,
+        "--input-colour-bg": tokens.theme.inputBackground,
         "--colour-success": tokens.theme.success,
         "--input-shadow": tokens.general.form.inputShadow,
-        "--thumb-shadow": tokens.shadows.toggleSwitchThumb,
+        "--thumb-shadow": tokens.general.shadows.toggleSwitchThumb,
         "--input-font-size": tokens.general.font.baseSize,
         "--font-family": tokens.general.font.fontfamily,
         "--font-weight": tokens.general.font.fontWeightRegular,
