@@ -21,7 +21,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
         inputMode = "text",
         ...props }, ref) => {
 
-    const { tokens, colourScheme, theme } = useComponentsProvider()
+    const { tokens } = useComponentsProvider()
 
     const styles = {
         "--input-width": width ?? tokens.form.inputDefaultWidth,

@@ -12,7 +12,7 @@ export const NestedCheckbox =
         align = "vertical",
         checkboxes}: CheckboxGroupProps) => {
 
-    const { tokens, colourScheme, theme } = useComponentsProvider()
+    const { tokens } = useComponentsProvider()
 
     const styles = {
         "--input-padding": tokens.form.inputPadding,

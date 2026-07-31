@@ -14,7 +14,7 @@ export const Time = forwardRef<HTMLInputElement, DateProps>(
         disabled = false,
         ...props }, ref) => {
 
-    const { tokens, colourScheme, theme } = useComponentsProvider()
+    const { tokens } = useComponentsProvider()
 
     const styles = {
         "--input-width": width ?? tokens.form.inputDefaultWidth,

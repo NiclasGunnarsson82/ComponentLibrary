@@ -18,7 +18,7 @@ export const Password = forwardRef<HTMLInputElement, PasswordProps>(
         onPaste,
         ...props }, ref) => {
 
-    const { tokens, colourScheme, theme } = useComponentsProvider()
+    const { tokens } = useComponentsProvider()
 
     const styles = {
         "--input-width": width ?? tokens.form.inputDefaultWidth,

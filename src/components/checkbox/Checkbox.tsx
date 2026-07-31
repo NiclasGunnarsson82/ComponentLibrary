@@ -10,7 +10,7 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
         checkbox,
         ...props }, ref) => {
 
-    const { tokens, colourScheme, theme } = useComponentsProvider()
+    const { tokens } = useComponentsProvider()
 
     const styles = {
         "--input-padding": tokens.form.inputPadding,
