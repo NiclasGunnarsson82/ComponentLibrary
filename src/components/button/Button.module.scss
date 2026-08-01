@@ -68,38 +68,35 @@
 .secondary {
     background-color: transparent;
     border-style: solid;
-    border-color: var(--colour-enabled);
+    border-color: var(--colour-secondary);
     border-width: 2px;
-    color: var(--colour-enabled);
+    color: var(--colour-secondary);
     box-shadow: none;
 
     &:hover:not(:disabled) {
         background-color: transparent;
-        border-color: var(--colour-hover);
+        border-color: var(--colour-secondary);
         border-width: 3px;
-        color: var(--colour-hover);
         box-shadow: none;
     }
 
     &:focus-visible {
         background-color: transparent;
-        border-color: var(--colour-focus);
+        border-color: var(--colour-secondary);
         border-width: 3px;
-        color: var(--colour-focus);
         box-shadow: none;
     }
 
     &:active:not(:disabled) {
         background-color: transparent;
-        border-color: var(--colour-active);
+        border-color: var(--colour-secondary);
         border-width: 4px;
-        color: var(--colour-active);
         box-shadow: none;
     }
 
     &.isLoading {
         background-color: transparent;
-        border-color: var(--colour-active);
+        border-color: var(--colour-secondary);
         border-width: 4px;
         box-shadow: none;
         &:disabled {
@@ -136,17 +133,17 @@
 }
 
 .loader {
-  --color-1: var(--colour-loader);
-  --size: 1px;
-  width: calc(20 * var(--size));
-  height: calc(20 * var(--size));
-  border: calc(2 * var(--size)) solid var(--color-1);
-  border-bottom-color: transparent;
-  border-radius: 50%;
-  display: inline-block;
-  box-sizing: border-box;
-  animation: rotation 1s linear infinite;
-}
+    --color-1: var(--colour-loader);
+    --size: 1px;
+    width: calc(20 * var(--size));
+    height: calc(20 * var(--size));
+    border: calc(2 * var(--size)) solid var(--color-1);
+    border-bottom-color: transparent;
+    border-radius: 50%;
+    display: inline-block;
+    box-sizing: border-box;
+    animation: rotation 1s linear infinite;
+    }
 @keyframes rotation {
   0% {
     transform: rotate(0deg);

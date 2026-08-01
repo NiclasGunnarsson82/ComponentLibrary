@@ -33,8 +33,9 @@ export const Button = ({
         "--colour-focus": tokens.colours.c300,
         "--colour-active": tokens.colours.c100,
         "--colour-disabled": tokens.colours.c400,
-        "--colour-error": tokens.general.error,
-        "--colour-loader": style === "primary" ? tokens.general.misc.white : tokens.colours.c100,
+        "--colour-secondary": tokens.colours.c400,
+        "--colour-error": tokens.theme.error,
+        "--colour-loader": style === "primary" ? tokens.general.misc.white : tokens.colours.c400,
         "--colour-success": tokens.theme.success,
         "--shadow-enabled": tokens.general.shadows.buttonEnabled,
         "--shadow-hover": tokens.general.shadows.buttonHover
