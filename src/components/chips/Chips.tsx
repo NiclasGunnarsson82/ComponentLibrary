@@ -1,8 +1,8 @@
-import { CSSProperties } from "react";
+import { CSSProperties, useState } from "react";
 import scss from "./Chips.module.scss"
 import { useComponentsProvider } from "@/utils/ComponentsContext";
+import { ChipsProps, ChipType } from "./helpers";
 import { Chip } from "./Chip";
-import { ChipsProps } from "./helpers";
 
 
 export const Chips = ({
@@ -14,12 +14,14 @@ export const Chips = ({
     
     const { tokens } = useComponentsProvider()
 
+    const [ selectedChips, setSelectedChips ] = useState<ChipType[]>([])
+
     const styles = {
         "---width": width,
         "--border-colour": tokens.theme.inputBorder,
         "--input-shadow": tokens.general.form.inputShadow,
         "--input-background": "transparent",
-        "--border-radius": tokens.general.form.inputBorderRadius
+        "--border-radius": tokens.general.form.inputBorderRadius,
     } as CSSProperties
 
     return (
@@ -27,7 +29,14 @@ export const Chips = ({
             className={`${scss.chips} ${visualContainer && scss.hasBorder}`}
             style={styles}
             {...props}>
-                <h5>hfhfhf</h5>
+                {chips.length > 0 &&
+                    chips.map((chip) => (
+                    <Chip
+                        key={chip.key}
+                        chip={chip}
+                        eventHandler={setSelectedChips}/>
+                    ))
+                }   
         </div>  
     )
 }

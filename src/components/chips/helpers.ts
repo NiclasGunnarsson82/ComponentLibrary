@@ -1,11 +1,15 @@
-import { HTMLAttributes, MouseEvent } from "react"
+import { Dispatch, HTMLAttributes, SetStateAction } from "react"
 
 export type ChipType = {
     label: string,
     name: string,
     value: string,
     key: string,
-    eventHandler?: (event: MouseEvent<HTMLDivElement>) => void
+}
+
+export type ChipProps = {
+    chip: ChipType,
+    eventHandler: Dispatch<SetStateAction<ChipType[]>>;
 }
 
 export type ChipsProps = HTMLAttributes<HTMLDivElement> & {

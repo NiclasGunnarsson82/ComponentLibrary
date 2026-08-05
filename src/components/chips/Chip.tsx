@@ -1,14 +1,12 @@
 import { CSSProperties, useEffect, useState } from "react";
 import scss from "./Chips.module.scss"
 import { useComponentsProvider } from "@/utils/ComponentsContext";
-import { ChipType } from "./helpers";
+import { ChipProps, ChipType } from "./helpers";
 
 export const Chip = ({
-    label,
-    name,
-    value,
+    chip,
     eventHandler,
-}: ChipType) => {
+}: ChipProps) => {
   
     const { tokens } = useComponentsProvider()
 
@@ -28,16 +26,33 @@ export const Chip = ({
         "--colour-label": tokens.general.misc.white
     } as CSSProperties
 
+    const handleSelectedState = (chip: ChipType, selected: boolean) => {
+        eventHandler((prev) => {
+            const currentChips = [...prev]
+            //If chip i selected and not in the state, add it:
+            if (selected) {
+                if (!currentChips.some((c) => c.key === chip.key)) {
+                    currentChips.push(chip)
+                }
+            } else {
+                //If chip is not selected and in the state, remove it: 
+                return currentChips.filter((c) => c.key !== chip.key)
+            }
+            return currentChips
+        })
+    }
+
     return (
         <label 
             className={scss.chip}
             style={styles}
-            htmlFor={name}>
+            htmlFor={chip.name}>
                 <input 
                     type="checkbox" 
-                    name={name} 
-                    value={value}/> 
-                {label}
+                    name={chip.name}
+                    onChange={(event) => 
+                        handleSelectedState(chip, event.target.checked)}/> 
+                {chip.label}
         </label>    
     )
 }
