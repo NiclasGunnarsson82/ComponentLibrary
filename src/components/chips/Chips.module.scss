@@ -17,6 +17,11 @@
 .chip {
     width: fit-content;
     position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+    flex-direction: row; 
+    gap: 4px;
     padding: var(--padding);
     font-family: var(--font-family);
     font-weight: var(--font-weight);

@@ -2,6 +2,7 @@ import { CSSProperties } from "react";
 import scss from "./Chips.module.scss"
 import { useComponentsProvider } from "@/utils/ComponentsContext";
 import { ChipProps, ChipType } from "./helpers";
+import checkIcon from "./icons/white-check-icon.svg";
 
 export const Chip = ({
     chip,
@@ -43,20 +44,23 @@ export const Chip = ({
         })
     }
 
-    console.log(selectedChips.includes(chip) ? true : false);
+    const isChecked = selectedChips.includes(chip) ? true : false;
     
     return (
         <label 
             className={scss.chip}
             style={styles}
             htmlFor={chip.name}>
+                
                 <input 
                     type="checkbox" 
                     name={chip.name}
-                    checked={selectedChips.includes(chip) ? true : false}
+                    checked={isChecked}
                     onChange={(event) => 
                         handleSelectedState(chip, event.target.checked)}/> 
-                {chip.label}
+                {isChecked && 
+                    <img src={checkIcon} style={{height: "12px", width: "12px"}}alt="" />
+                } {chip.label}
         </label>    
     )
 }
