@@ -21,7 +21,7 @@
     align-items: center;
     justify-content: center; 
     flex-direction: row; 
-    gap: 4px;
+    gap: 6px;
     padding: var(--padding);
     font-family: var(--font-family);
     font-weight: var(--font-weight);
@@ -32,15 +32,16 @@
     color: var(--colour-label);
     outline: none;
     text-align: center;
-    z-index: 0;
+    z-index: 1;
 
     input[type="checkbox"] {
         position: absolute;
-        z-index: 2;
+        z-index: var(--checkbox-z-index);
         inset: 0; 
         margin: 0;
         opacity: 0;
         cursor: pointer;
+        pointer-events: var(--pointer-events);
     }
 
     &:hover {
@@ -66,4 +67,12 @@
     background-color: var(--colour-active);
     border-color: var(--colour-active);
     box-shadow: none;
+}
+
+.remove {
+    all: unset;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
 }

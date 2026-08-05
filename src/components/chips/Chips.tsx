@@ -16,6 +16,7 @@ export const Chips = ({
     const { tokens } = useComponentsProvider()
 
     const [ selectedChips, setSelectedChips ] = useState<ChipType[]>([])
+    const [ currentChips, setCurrentChips ] = useState<ChipType[]>(chips)
 
     const styles = {
         "--width": width,
@@ -25,19 +26,22 @@ export const Chips = ({
         "--border-radius": tokens.general.form.inputBorderRadius,
     } as CSSProperties
 
+    console.log(currentChips);
+    
     return (
         <div
             className={`${scss.chips} ${visualContainer && scss.hasBorder}`}
             style={styles}
             {...props}>
-                {chips.length > 0 &&
-                    chips.map((chip) => (
+                {currentChips.length > 0 &&
+                    currentChips.map((chip) => (
                     <Chip
                         key={chip.key}
                         chip={chip}
                         type={type}
                         selectedChips={selectedChips}
-                        eventHandler={setSelectedChips}/>
+                        selectableHandler={setSelectedChips}
+                        removableHandler={setCurrentChips}/>
                     ))
                 }   
         </div>  

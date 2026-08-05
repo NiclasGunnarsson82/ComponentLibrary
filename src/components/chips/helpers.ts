@@ -14,7 +14,8 @@ export type ChipProps = {
     chip: ChipType,
     selectedChips: ChipType[],
     type: ChipTypeType,
-    eventHandler: Dispatch<SetStateAction<ChipType[]>>;
+    selectableHandler: Dispatch<SetStateAction<ChipType[]>>,
+    removableHandler: Dispatch<SetStateAction<ChipType[]>>
 }
 
 export type ChipsProps = HTMLAttributes<HTMLDivElement> & {
