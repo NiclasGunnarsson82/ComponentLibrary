@@ -17,7 +17,7 @@ export const Chips = ({
     const [ selectedChips, setSelectedChips ] = useState<ChipType[]>([])
 
     const styles = {
-        "---width": width,
+        "--width": width,
         "--border-colour": tokens.theme.inputBorder,
         "--input-shadow": tokens.general.form.inputShadow,
         "--input-background": "transparent",
