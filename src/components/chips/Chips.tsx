@@ -7,6 +7,7 @@ import { Chip } from "./Chip";
 
 export const Chips = ({
     width = "100%",
+    type,
     visualContainer = false,
     chips, 
     ...props 
@@ -34,6 +35,7 @@ export const Chips = ({
                     <Chip
                         key={chip.key}
                         chip={chip}
+                        type={type}
                         selectedChips={selectedChips}
                         eventHandler={setSelectedChips}/>
                     ))
