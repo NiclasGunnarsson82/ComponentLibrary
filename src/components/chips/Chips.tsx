@@ -34,6 +34,7 @@ export const Chips = ({
                     <Chip
                         key={chip.key}
                         chip={chip}
+                        selectedChips={selectedChips}
                         eventHandler={setSelectedChips}/>
                     ))
                 }   

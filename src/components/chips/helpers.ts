@@ -9,6 +9,7 @@ export type ChipType = {
 
 export type ChipProps = {
     chip: ChipType,
+    selectedChips: ChipType[],
     eventHandler: Dispatch<SetStateAction<ChipType[]>>;
 }
 

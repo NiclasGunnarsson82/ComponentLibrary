@@ -56,3 +56,9 @@
         box-shadow: none;
     }
 }
+
+.chip:has(input[type="checkbox"]:checked) {
+    background-color: var(--colour-active);
+    border-color: var(--colour-active);
+    box-shadow: none;
+}

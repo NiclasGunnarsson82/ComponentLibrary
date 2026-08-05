@@ -5,6 +5,7 @@ import { ChipProps, ChipType } from "./helpers";
 
 export const Chip = ({
     chip,
+    selectedChips,
     eventHandler,
 }: ChipProps) => {
   
@@ -42,6 +43,8 @@ export const Chip = ({
         })
     }
 
+    console.log(selectedChips.includes(chip) ? true : false);
+    
     return (
         <label 
             className={scss.chip}
@@ -50,6 +53,7 @@ export const Chip = ({
                 <input 
                     type="checkbox" 
                     name={chip.name}
+                    checked={selectedChips.includes(chip) ? true : false}
                     onChange={(event) => 
                         handleSelectedState(chip, event.target.checked)}/> 
                 {chip.label}
