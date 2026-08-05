@@ -1,4 +1,4 @@
-import { CSSProperties, useEffect, useState } from "react";
+import { CSSProperties } from "react";
 import scss from "./Chips.module.scss"
 import { useComponentsProvider } from "@/utils/ComponentsContext";
 import { ChipProps, ChipType } from "./helpers";
