@@ -4,7 +4,8 @@
     align-items: flex-start; 
     flex-direction: row; 
     flex-wrap: wrap;
-    gap: 4px; 
+    gap: 4px;
+    padding: 5px; 
 }
 .hasBorder {
     border: 1px solid var(--border-colour);
@@ -12,8 +13,6 @@
     background-color: var(--input-background);
     border-radius: var(--border-radius);
 }
-
-
 
 .chip {
     width: fit-content;
