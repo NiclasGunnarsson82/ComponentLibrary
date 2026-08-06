@@ -3,7 +3,6 @@ import { Dispatch, HTMLAttributes, SetStateAction } from "react"
 export type ChipTypeType = "selectable" | "removable"
 
 export type ChipType = {
-    type: ChipTypeType,
     label: string,
     name: string,
     value: string,
