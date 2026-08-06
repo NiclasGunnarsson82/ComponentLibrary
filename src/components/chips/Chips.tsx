@@ -25,8 +25,6 @@ export const Chips = ({
         "--input-background": "transparent",
         "--border-radius": tokens.general.form.inputBorderRadius,
     } as CSSProperties
-
-    console.log(currentChips);
     
     return (
         <div
