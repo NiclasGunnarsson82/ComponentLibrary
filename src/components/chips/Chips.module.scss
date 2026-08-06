@@ -21,15 +21,15 @@
     align-items: center;
     justify-content: center; 
     flex-direction: row; 
-    gap: 6px;
+    gap: 4px;
     padding: var(--padding);
     font-family: var(--font-family);
     font-weight: var(--font-weight);
     font-size: var(--font-size);
     border-radius: var(--border-radius);
-    background-color: var(--colour-enabled);
+    background-color: var(--colour-background);
     box-shadow: var(--shadow-enabled);
-    color: var(--colour-label);
+    color: var(--colour-enabled);
     outline: none;
     text-align: center;
     z-index: 1;
@@ -45,26 +45,26 @@
     }
 
     &:hover {
-        background-color: var(--colour-hover);
+        color: var(--colour-hover);
         border-color: var(--colour-hover);
         box-shadow: var(--shadow-hover);
     }
 
     &:focus-visible {
-        background-color: var(--colour-focus);
+        color: var(--colour-focus);
         border-color: var(--colour-focus);
         box-shadow: inset 0 0 0 2px white;
     }
 
     &:active {
-        background-color: var(--colour-active);
+        color: var(--colour-active);
         border-color: var(--colour-active);
         box-shadow: none;
     }
 }
 
 .chip:has(input[type="checkbox"]:checked) {
-    background-color: var(--colour-active);
+    color: var(--colour-active);
     border-color: var(--colour-active);
     box-shadow: none;
 }
