@@ -34,7 +34,6 @@ export const Chip = ({
 
     const disabled: boolean = type === "removable" ? true : false
     const removeChip = (chip: ChipType) => {
-        console.log('test');
         removableHandler((prev) => prev.filter((c) => c.key !== chip.key))
     }
 
