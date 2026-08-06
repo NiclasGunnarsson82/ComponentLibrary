@@ -1,9 +1,8 @@
 import { CSSProperties } from "react";
 import scss from "./Chips.module.scss"
 import { useComponentsProvider } from "@/utils/ComponentsContext";
-import { ChipProps, ChipType } from "./helpers";
-import checkIcon from "./icons/white-check-icon.svg";
-import removeIcon from "./icons/white-remove-icon.svg";
+import { CheckIcon, RemoveIcon, ChipProps, ChipType } from "./helpers";
+
 
 export const Chip = ({
     chip,
@@ -51,7 +50,7 @@ export const Chip = ({
         "--colour-hover": tokens.colours.c200,
         "--colour-focus": tokens.colours.c300,
         "--colour-active": tokens.colours.c100,
-        "--colour-label": tokens.general.misc.white
+        "--colour-background": tokens.general.misc.white
     } as CSSProperties
 
        
@@ -70,7 +69,7 @@ export const Chip = ({
 
                 {/* Checkmark for selectable chips which are checked */}
                 {isChecked && 
-                    <img src={checkIcon} style={{height: "12px", width: "12px"}}/>
+                    <CheckIcon fill={tokens.colours.c100} />
                 } 
 
                 {/* The label for the chip */}
@@ -83,9 +82,7 @@ export const Chip = ({
                         type="button"
                         aria-label="remove chip"
                         onClick={()=> removeChip(chip)}>
-                            <img 
-                                src={removeIcon} 
-                                style={{height: "16px", width: "16px"}}/>
+                           <RemoveIcon fill={tokens.colours.c100} />
                     </button>
                 }
         </label>    
