@@ -22,7 +22,7 @@ export const themeTokens: IThemes = {
         error: "#950606",
         success: "#06402B",
         inputBorder: "#898989",
-        inputBackground: "#FFFFFF"
+        inputBackground: "#FFFFFF",
     },
     dark: {
         foreground: "#F8F8F8",

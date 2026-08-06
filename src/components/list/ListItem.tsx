@@ -14,12 +14,12 @@ export const ListItem = ({
     const { tokens } = useComponentsProvider()
 
     const styles = {
-        "--card-padding": tokens.general.card.mContentPadding,
-        "--card-shadow-default": tokens.general.card.mCardShadowDefault,
-        "--card-shadow-hover": tokens.general.card.mCardShadowHover,
-        "--card-shadow-active": tokens.general.card.mCardShadowActive,
-        "--card-background-colour": tokens.general.card.mCardBackground,
-        "--card-border-radius": tokens.general.card.borderRadius
+        "--card-padding": tokens.general.clickable.padding,
+        "--shadow-default": tokens.general.clickable.shadowDefault,
+        "--shadow-hover": tokens.general.clickable.shadowHover,
+        "--shadow-active": tokens.general.clickable.shadowActive,
+        "--background-colour": tokens.general.theme.inputBackground,
+        "--border-radius": tokens.general.clickable.borderRadius
     } as CSSProperties
 
     return (

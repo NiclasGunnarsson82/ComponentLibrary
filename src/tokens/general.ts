@@ -39,15 +39,18 @@ export const generalTokens: IGeneralTokens = {
     borders: {
         buttonBorderRadius: "6px"
     },
-    card: {
-        mCardShadowDefault: "rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px",
-        mCardShadowHover: "rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px",
-        mCardShadowActive: "rgba(0, 0, 0, 0.05) 0px 0px 0px 1px",
-        mCardBackground: "white",
+    clickable: {
+        shadowDefault: "rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px",
+        shadowHover: "rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px",
+        shadowActive: "rgba(0, 0, 0, 0.05) 0px 0px 0px 1px",
         borderRadius: "6px",
         mMinWidth: "250px",
         mGridGap: "16px",
-        mContentPadding: "8px"
+        padding: "8px"
+    },
+    chips: {
+        padding: "7px 14px",
+        fontSize: "14px"
     },
     slider: {
         trackHeight: "8px",
