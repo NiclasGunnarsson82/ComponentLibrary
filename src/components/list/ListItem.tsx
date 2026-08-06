@@ -1,5 +1,5 @@
 import { CSSProperties, useEffect, useState } from "react";
-import scss from "./Cards.module.scss"
+import scss from "./List.module.scss"
 import { useComponentsProvider } from "@/utils/ComponentsContext";
 import { ListItemType } from "./helpers";
 
@@ -24,10 +24,11 @@ export const ListItem = ({
 
     return (
         <div 
-            className=""
+            className={scss.item}
             style={styles}
             onClick={eventHandler}>
-                <div className="">
+                <img src={imgSrc} alt={imgAlt} />
+                <div>
                     <h4>{title}</h4>
                     <p>{summary}</p>
                 </div>   

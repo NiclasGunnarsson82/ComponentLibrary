@@ -1,1 +1,14 @@
+.item {
+    padding: var(--card-padding);
+    background-color: var(--background-colour); 
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-default);
 
+    &:hover {
+        box-shadow: var(--shadow-hover);
+    }
+
+    &:active {
+        box-shadow: var(--shadow-active); 
+    }
+}
